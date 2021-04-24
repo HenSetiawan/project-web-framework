@@ -11,5 +11,5 @@ export default {
 </script>
 
 <style>
-@import url("https://fonts.googleapis.com/css2?family=Mulish:wght@300;400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;700&display=swap");
 </style>
