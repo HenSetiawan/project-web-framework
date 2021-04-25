@@ -7,7 +7,7 @@
         <p>
           Darahmu bisa menyelamatkan nyawa mereka, donor darah anda adalah hadiah luar biasa untuk orang-orang yang membutuhkannya
         </p>
-        <a href="#" class="btn btn-sm btn-consult">Menjadi Relawan</a>
+        <a href="#" class="btn btn-sm btn-volunteer">Menjadi Relawan</a>
       </section>
       <section class="col-lg-6">
         <img
@@ -32,7 +32,7 @@ export default {
   font-family: "Mulish", sans-serif;
   font-weight: 700;
   font-size: 48px;
-  margin-top: 150px;
+  margin-top: 120px;
 }
 .header-component p {
   font-family: "Mulish", sans-serif;
@@ -44,7 +44,7 @@ export default {
   text-align: left;
   color: #7d7987;
 }
-.btn-consult {
+.btn-volunteer {
   margin-top: 45px;
   width: 200px !important;
   font-size: 18px !important;
