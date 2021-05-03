@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Agenda extends Migration
+class CreateFrequentlyAskQuestionTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,10 @@ class Agenda extends Migration
      */
     public function up()
     {
-        Schema::create('agenda', function (Blueprint $table) {
-            $table->bigIncrements('id_agenda');
-            $table->string('judul_agenda',200);
-            $table->text('deskripsi');
-            $table->text('lokasi');
-            $table->time('waktu');
+        Schema::create('frequently_ask_question', function (Blueprint $table) {
+            $table->id();
+            $table->string('question');
+            $table->text('answer');
             $table->timestamps();
         });
     }
@@ -30,6 +28,6 @@ class Agenda extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('agenda');
+        Schema::dropIfExists('frequently_ask_question');
     }
 }

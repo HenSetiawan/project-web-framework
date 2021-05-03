@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class FrequentlyAskQuestion extends Migration
+class CreateStokDarahTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,11 @@ class FrequentlyAskQuestion extends Migration
      */
     public function up()
     {
-        Schema::create('frequently_ask_question', function (Blueprint $table) {
-            $table->bigIncrements('id_faq');
-            $table->string('judul_faq',200);
+        Schema::create('stok_darah', function (Blueprint $table) {
+            $table->id();
+            $table->string('gol_darah', 5);
+            $table->string('kategori', 25);
+            $table->integer('jumlah_stok');
             $table->text('deskripsi');
             $table->timestamps();
         });
@@ -28,6 +30,6 @@ class FrequentlyAskQuestion extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('frequently_ask_question');
+        Schema::dropIfExists('stok_darah');
     }
 }
