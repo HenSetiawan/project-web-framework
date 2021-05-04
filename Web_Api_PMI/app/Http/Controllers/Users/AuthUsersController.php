@@ -33,9 +33,9 @@ class AuthUsersController extends Controller
     public function register(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'username' => ['required', 'max:12'],
-            'email' => ['required', 'email'],
-            'no_hp' => ['required', 'numeric'],
+            'username' => ['required', 'max:50'],
+            'email' => ['required', 'email', 'max:50'],
+            'no_hp' => ['required', 'numeric', 'max:15'],
             'password' => ['required', 'max:24'],
             'confirm_password' => ['required', 'same:password']
         ]);
