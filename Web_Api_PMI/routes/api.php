@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Users\AuthUsersController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -14,6 +15,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+// Route::middleware('auth:api')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
+
+
+// Auth Users Routes
+Route::post('/v1/auth/user/login', [AuthUsersController::class, 'login']);
+Route::post('/v1/auth/user/register', [AuthUsersController::class, 'register']);
+
