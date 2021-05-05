@@ -33,7 +33,7 @@ class AuthUsersController extends Controller
             }else{
              return response()->json([
                  "message"=>'email or password is wrong'
-                ])->setStatusCode(420);
+                ])->setStatusCode(401);
             }
 
          } catch (QueryException $err) {
