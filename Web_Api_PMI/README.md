@@ -119,7 +119,7 @@ digunakan untuk login user yang telah terdaftar
 
 | method | endpoint                 | body              |
 |--------|--------------------------|-------------------|
-| POST   | /api/v1/auth/user/login  | username,password |
+| POST   | /api/v1/auth/user/login  | email,password |
 
 ``` json
 {
