@@ -132,6 +132,21 @@ digunakan untuk login user yang telah terdaftar
 }
    ```
 
+### logout user
+digunakan untuk keluar dan menghapus token
+
+| method | endpoint                 | 
+|--------|--------------------------|
+| POST   | /api/v1/auth/user/logout |
+
+``` json
+{
+
+  message:"logout successful",
+  
+}
+   ```
+
 # Volunteer Endpoint
 
 ### ambil semua data relawan
