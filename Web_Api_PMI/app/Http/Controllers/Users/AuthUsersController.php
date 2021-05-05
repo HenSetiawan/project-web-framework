@@ -45,7 +45,7 @@ class AuthUsersController extends Controller
 
     public function register(Request $request)
     {
-        $validator = Validator::make($request->all(), [
+        $user=$request->validate([
             'username' => ['required', 'max:50'],
             'email' => ['required', 'email', 'max:50'],
             'no_hp' => ['required', 'max:15'],
@@ -53,20 +53,24 @@ class AuthUsersController extends Controller
             'confirm_password' => ['required', 'same:password']
         ]);
 
-        if($validator->fails()){
-            return response()->json(
-                ['error' => $validator->errors()],
-                Response::HTTP_UNPROCESSABLE_ENTITY
-            );
+        $user['password']=Hash::make($user['password']);
+
+        try {
+            User::create($user);
+            return response()->json([
+                "message"=>"register user success",
+                "data"=>[
+                    "username"=>$user['username'],
+                    "email"=>$user['email'],
+                ],
+                "error"=>null,
+            ])->setStatusCode(200);
+        } catch (QueryException $err) {
+            return response()->json([
+                "message"=>"register user failed",
+                "data"=>$user,
+                "error"=>$err->errorInfo
+            ])->setStatusCode(400);
         }
-
-        $user = $request->all();
-        $user['password'] = bcrypt($user['password']);
-        $result = User::create($user);
-
-        return response()->json([
-            'data' => $result,
-            'message' => 'User registration is successful'
-        ], Response::HTTP_OK);
     }
 }
