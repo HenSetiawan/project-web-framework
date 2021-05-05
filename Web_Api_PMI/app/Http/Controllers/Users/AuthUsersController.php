@@ -33,7 +33,7 @@ class AuthUsersController extends Controller
             }else{
              return response()->json([
                  "message"=>'email or password is wrong'
-                ])->setStatusCode(400);
+                ])->setStatusCode(420);
             }
 
          } catch (QueryException $err) {
@@ -73,6 +73,38 @@ class AuthUsersController extends Controller
             return response()->json([
                 "message" => "register user failed",
                 "data" => $user,
+                "error" => $err->errorInfo
+            ])->setStatusCode(400);
+        }
+    }
+
+    public function logout(Request $request)
+    {
+        try{
+            $request->user()->currentAccessToken()->delete();
+            return response()->json([
+                "message" => "logout successful",
+                "data" => $request->user()
+            ])->setStatusCode(200);
+
+        }catch (QueryException $err) {
+            return response()->json([
+                "error" => $err->errorInfo
+            ])->setStatusCode(400);
+        }
+    }
+
+    public function logoutall(Request $request)
+    {
+        try{
+            $request->user()->tokens()->delete();
+            return response()->json([
+                "message" => "logout from all device successful",
+                "data" => $request->user()
+            ])->setStatusCode(200);
+
+        }catch (QueryException $err) {
+            return response()->json([
                 "error" => $err->errorInfo
             ])->setStatusCode(400);
         }

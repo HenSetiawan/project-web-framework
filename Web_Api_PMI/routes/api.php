@@ -20,7 +20,10 @@ use Illuminate\Support\Facades\Route;
 // });
 
 
-// Auth Users Routes
+Route::group(['middleware' => 'auth:sanctum'], function() {
+    Route::post('/v1/auth/user/logout', [AuthUsersController::class, 'logout']);
+    Route::post('/v1/auth/user/logoutall', [AuthUsersController::class, 'logoutall']);
+});
+
 Route::post('/v1/auth/user/login', [AuthUsersController::class, 'login']);
 Route::post('/v1/auth/user/register', [AuthUsersController::class, 'register']);
-
