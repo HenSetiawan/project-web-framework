@@ -10,7 +10,7 @@
 | GET    | /api/v1/users/   |  Y      |admin      |
 
 
-``` json
+``` js
 {
     message:"success get all users data",
     data:[
@@ -38,7 +38,7 @@
 | GET    | /api/v1/user/{id}|  Y     |admin      |
 
 
-``` json
+``` js
 {
 
   id:1,
@@ -57,7 +57,7 @@
 |--------|------------------|--------|-----------|
 | DELETE    | /api/v1/user/{id}  |  Y   |admin
 
-``` json
+``` js
 {
 
   
@@ -80,7 +80,7 @@
 |--------|------------------|---------------------------|-----|-----------|
 | UPDATE | /api/v1/user/    |username,email,number phone|Y    |user       |
 
-``` json
+``` js
 {
 
   
@@ -103,7 +103,7 @@
 | POST   | /api/v1/auth/user/register  |username,no hp,email, password  |N    |
 
 
-``` json
+``` js
 {
 
   id:1,
@@ -121,7 +121,7 @@ digunakan untuk login user yang telah terdaftar
 |--------|--------------------------|-------------------|
 | POST   | /api/v1/auth/user/login  | email,password |
 
-``` json
+``` js
 {
 
   id:1,
@@ -135,11 +135,11 @@ digunakan untuk login user yang telah terdaftar
 ### logout user
 digunakan untuk keluar dan menghapus token
 
-| method | endpoint                 | 
-|--------|--------------------------|
-| POST   | /api/v1/auth/user/logout |
+| method | endpoint                 | auth|
+|--------|--------------------------|-----|
+| POST   | /api/v1/auth/user/logout |Y|
 
-``` json
+``` js
 {
 
   message:"logout successful",
@@ -156,7 +156,7 @@ digunakan untuk keluar dan menghapus token
 |--------|---------------------|-----|
 | GET    | /api/v1/volunteers/ |N    |
 
-``` json
+``` js
 {
 
   message:"success gel all data volunteers",
@@ -188,7 +188,7 @@ digunakan untuk keluar dan menghapus token
 |--------|-------------------------|------------|-----|-------------------|
 | GET    | /api/v1/volunteer/{id} | id relawan |Y    |admin,user,volunter |
 
-``` json
+``` js
 {
 
     id:2,
@@ -211,7 +211,7 @@ digunakan untuk keluar dan menghapus token
 |--------|-------------------------|------------|----|-----------|
 | DELETE | /api/v1/volunteer/{id} | id relawan |Y   |admin      |
 
-``` json
+``` js
 {
     message:"success delete volunteer",
     data:[
@@ -233,7 +233,7 @@ digunakan untuk keluar dan menghapus token
 |--------|--------------------------------------------------------------------|----|-----------|
 | UPDATE | /api/v1/volunteer/      |username,no_phone,email,password,address,blood_type,birth_day| Y  |volunteer  |
 
-``` json
+``` js
 {
     message:"success update volunteer",
     data:[
@@ -256,7 +256,7 @@ digunakan untuk registrasi relawan baru
 | POST   | /api/v1/auth/volunteer/register  |username,no_phone,email,password,address,blood_type,birth_day |N    |
 
 
-``` json
+``` js
 {
 
   id:1,
@@ -278,7 +278,7 @@ digunakan untuk login relawan yang sudah terdaftar
 |--------|--------------------------|-------------------|
 | POST   | /api/v1/auth/volunteer/login  | username,password |
 
-``` json
+``` js
 {
 
   id:1,
