@@ -20,6 +20,6 @@ class UsersMiddleware
             return $next($request);
         }
 
-        return response()->json('Unauthorized')->setStatusCode(401);
+        return response()->json(['message' => 'Unauthorized'])->setStatusCode(401);
     }
 }
