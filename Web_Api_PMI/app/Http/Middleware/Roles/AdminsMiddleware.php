@@ -16,6 +16,9 @@ class AdminsMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
-        return $next($request);
+        if($request->user()->tokenCan('role:admin')) {
+            return $next($request);
+        }
+        return response()->json('Unauthorized')->setStatusCode(401);
     }
 }
