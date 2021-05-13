@@ -46,6 +46,21 @@ return [
             'provider' => 'users',
             'hash' => false,
         ],
+
+        'user' => [
+            'driver' => 'sanctum',
+            'provider' => 'user'
+        ],
+
+        'admin' => [
+            'driver' => 'sanctum',
+            'provider' => 'admin'
+        ],
+
+        'volunteer' => [
+            'driver' => 'sanctum',
+            'provider' => 'volunteer',
+        ],
     ],
 
     /*
@@ -69,6 +84,16 @@ return [
         'users' => [
             'driver' => 'eloquent',
             'model' => App\Models\User::class,
+        ],
+
+        'admin' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Admin::class,
+        ],
+
+        'volunteer' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Volunteer::class,
         ],
 
         // 'users' => [

@@ -27,6 +27,5 @@ use Illuminate\Support\Facades\Route;
 //     Route::resource('/v1/users', UsersManageController::class);
 // });
 
-
 Route::post('/v1/auth/user/login', [AuthUsersController::class, 'login']);
 Route::post('/v1/auth/user/register', [AuthUsersController::class, 'register']);
