@@ -7,10 +7,6 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Database\QueryException;
-<<<<<<< HEAD
-
-=======
->>>>>>> b02437d919b250af3b84c5f8554032d646b1ae58
 
 class AuthUsersController extends Controller
 {
@@ -98,7 +94,7 @@ class AuthUsersController extends Controller
         }
     }
 
-    public function logoutall(Request $request)
+    public function logoutAll(Request $request)
     {
         try{
             $request->user()->tokens()->delete();

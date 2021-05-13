@@ -108,7 +108,7 @@
 
   id:1,
   username:"Hendy Setiawan",
-  email:"hendy@gmail.com"
+  email:"hendy@gmail.com",
   desc:"user registration is successful"
 
 }
@@ -126,7 +126,7 @@ digunakan untuk login user yang telah terdaftar
 
   id:1,
   username:"Hendy Setiawan",
-  email:"hendy@gmail.com"
+  email:"hendy@gmail.com",
   token:"vjwegrngknergknelrngklerlgnergklerklkle"
 
 }
@@ -171,7 +171,7 @@ digunakan untuk keluar dan menghapus token
       {
           id:2,
           name:"Ucup",
-          address:"Jl. Majapahit no 23 Bondowoso"
+          address:"Jl. Majapahit no 23 Bondowoso",
           blood_type:"O",
           birth_day:"23-01-2002"
       },
@@ -195,7 +195,7 @@ digunakan untuk keluar dan menghapus token
     name:"Ucup",
     email:"ucup.com",
     number_phone:"08223456789",
-    address:"Jl. Majapahit no 23 Bondowoso"
+    address:"Jl. Majapahit no 23 Bondowoso",
     blood_type:"O",
     birth_day:"23-01-2001"
 
@@ -219,7 +219,7 @@ digunakan untuk keluar dan menghapus token
         name:"Ucup",
         email:"ucup.com",
         number_phone:"08223456789",
-        address:"Jl. Majapahit no 23 Bondowoso"
+        address:"Jl. Majapahit no 23 Bondowoso",
         blood_type:"O",
         birth_day:"23-01-2001"
     ]
