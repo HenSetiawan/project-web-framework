@@ -27,13 +27,13 @@ Route::middleware(['auth:admin'])->group(function() {
 });
 
 // auth for user
-Route::middleware(['auth:admin'])->group(function() {
+Route::middleware(['auth:user'])->group(function() {
     Route::post('/v1/auth/user/logout', [AuthUsersController::class, 'logout']);
     Route::post('/v1/auth/user/logoutall', [AuthUsersController::class, 'logoutall']);
 });
 
 // auth for volunteer
-Route::middleware(['auth:admin'])->group(function() {
+Route::middleware(['auth:volunteer'])->group(function() {
     // type your routes
 });
 

@@ -49,17 +49,17 @@ return [
 
         'user' => [
             'driver' => 'sanctum',
-            'provider' => 'user'
+            'provider' => 'users'
         ],
 
         'admin' => [
             'driver' => 'sanctum',
-            'provider' => 'admin'
+            'provider' => 'admins'
         ],
 
         'volunteer' => [
             'driver' => 'sanctum',
-            'provider' => 'volunteer',
+            'provider' => 'volunteers',
         ],
     ],
 
@@ -86,12 +86,12 @@ return [
             'model' => App\Models\User::class,
         ],
 
-        'admin' => [
+        'admins' => [
             'driver' => 'eloquent',
             'model' => App\Models\Admin::class,
         ],
 
-        'volunteer' => [
+        'volunteers' => [
             'driver' => 'eloquent',
             'model' => App\Models\Volunteer::class,
         ],
