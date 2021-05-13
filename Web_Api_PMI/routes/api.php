@@ -21,11 +21,21 @@ use Illuminate\Support\Facades\Route;
 // });
 
 
-// Route::group(['middleware' => 'auth:sanctum'], function() {
-//     Route::post('/v1/auth/user/logout', [AuthUsersController::class, 'logout']);
-//     Route::post('/v1/auth/user/logoutall', [AuthUsersController::class, 'logoutall']);
-//     Route::resource('/v1/users', UsersManageController::class);
-// });
+// auth for admin
+Route::middleware(['auth:admin'])->group(function() {
+    Route::resource('/v1/users', UsersManageController::class);
+});
+
+// auth for user
+Route::middleware(['auth:admin'])->group(function() {
+    Route::post('/v1/auth/user/logout', [AuthUsersController::class, 'logout']);
+    Route::post('/v1/auth/user/logoutall', [AuthUsersController::class, 'logoutall']);
+});
+
+// auth for volunteer
+Route::middleware(['auth:admin'])->group(function() {
+    // type your routes
+});
 
 Route::post('/v1/auth/user/login', [AuthUsersController::class, 'login']);
 Route::post('/v1/auth/user/register', [AuthUsersController::class, 'register']);
