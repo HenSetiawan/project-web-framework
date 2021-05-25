@@ -30,12 +30,32 @@
 }
    ```
 
- ### ambil data user
+ ### ambil data user aktif
   digunakan untuk mengambil data user berdasarkan id
 
 | method | endpoint         | auth   |access role|
 |--------|------------------|--------|-----------|
-| GET    | /api/v1/user/{id}|  Y     |admin,user      |
+| GET    | /api/v1/user/|  Y     |user  |
+
+
+``` js
+{
+
+  id:1,
+  username:"Hendy Setiawan",
+  email:"hendy@gamil.com",
+  number_phone:"08123456789"
+
+}
+   ```
+
+
+    ### ambil data user
+  digunakan untuk mengambil data user berdasarkan id
+
+| method | endpoint         | auth   |access role|
+|--------|------------------|--------|-----------|
+| GET    | /api/v1/user/{id}|  Y     |admin     |
 
 
 ``` js
