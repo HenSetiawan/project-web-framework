@@ -25,13 +25,15 @@ use Illuminate\Support\Facades\Route;
 // auth for admin
 Route::middleware(['auth:admin'])->group(function() {
     Route::resource('/v1/users', UsersManageController::class)->except('update');
+    Route::put('/v1/users/{id}', [UsersManageController::class, 'update']);
 });
 
 // auth for user
 Route::middleware(['auth:user'])->group(function() {
     Route::post('/v1/auth/user/logout', [AuthUsersController::class, 'logout']);
     Route::post('/v1/auth/user/logoutall', [AuthUsersController::class, 'logoutall']);
-    Route::put('/v1/users/{id}', [UsersManageController::class, 'update']);
+    Route::get('/v1/user/', [UsersManageController::class,"getCurrentUser"]);
+
 });
 
 // auth for volunteer

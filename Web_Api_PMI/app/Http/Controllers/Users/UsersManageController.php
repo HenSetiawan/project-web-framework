@@ -123,4 +123,21 @@ class UsersManageController extends Controller
             )->setStatusCode(400);
         }
     }
+
+    public function getCurrentUSer(Request $request)
+    {
+        try{
+            $user = $request->user();
+
+            return response()->json([
+                'message' => 'success get users data',
+                'data' => $user
+            ])->setStatusCode(200);
+
+        }catch (QueryException $err) {
+            return response()->json([
+                'error' => $err->errorInfo
+            ])->setStatusCode(400);
+        }
+    }
 }
