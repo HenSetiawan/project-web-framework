@@ -35,7 +35,7 @@
 
 | method | endpoint         | auth   |access role|
 |--------|------------------|--------|-----------|
-| GET    | /api/v1/user/{id}|  Y     |admin      |
+| GET    | /api/v1/user/{id}|  Y     |admin,user      |
 
 
 ``` js

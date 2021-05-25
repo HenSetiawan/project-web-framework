@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Users\AuthUsersController;
 use App\Http\Controllers\Users\UsersManageController;
+use App\Http\Controllers\Volunteer\VolunteerManageController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -21,21 +22,22 @@ use Illuminate\Support\Facades\Route;
 // });
 
 
-// Route::group(['middleware' => 'auth:sanctum'], function() {
-//     Route::post('/v1/auth/user/logout', [AuthUsersController::class, 'logout']);
-//     Route::post('/v1/auth/user/logoutall', [AuthUsersController::class, 'logoutall']);
-//     Route::resource('/v1/users', UsersManageController::class);
-// });
+// auth for admin
+Route::middleware(['auth:admin'])->group(function() {
+    Route::resource('/v1/users', UsersManageController::class)->except('update');
+});
 
-Route::middleware(['auth:sanctum', 'type.user'])->group(function(){
+// auth for user
+Route::middleware(['auth:user'])->group(function() {
     Route::post('/v1/auth/user/logout', [AuthUsersController::class, 'logout']);
     Route::post('/v1/auth/user/logoutall', [AuthUsersController::class, 'logoutall']);
+    Route::put('/v1/users/{id}', [UsersManageController::class, 'update']);
 });
 
-Route::middleware(['auth:sanctum', 'type.admin'])->group(function(){
-    Route::resource('/v1/users', UsersManageController::class);
+// auth for volunteer
+Route::middleware(['auth:volunteer'])->group(function() {
+    // type your routes
 });
-
 
 Route::post('/v1/auth/user/login', [AuthUsersController::class, 'login']);
 Route::post('/v1/auth/user/register', [AuthUsersController::class, 'register']);
