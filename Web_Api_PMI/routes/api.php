@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Users\AuthUsersController;
+use App\Http\Controllers\Users\UsersManageController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -20,10 +21,21 @@ use Illuminate\Support\Facades\Route;
 // });
 
 
-Route::group(['middleware' => 'auth:sanctum'], function() {
+// Route::group(['middleware' => 'auth:sanctum'], function() {
+//     Route::post('/v1/auth/user/logout', [AuthUsersController::class, 'logout']);
+//     Route::post('/v1/auth/user/logoutall', [AuthUsersController::class, 'logoutall']);
+//     Route::resource('/v1/users', UsersManageController::class);
+// });
+
+Route::middleware(['auth:sanctum', 'type.user'])->group(function(){
     Route::post('/v1/auth/user/logout', [AuthUsersController::class, 'logout']);
     Route::post('/v1/auth/user/logoutall', [AuthUsersController::class, 'logoutall']);
 });
+
+Route::middleware(['auth:sanctum', 'type.admin'])->group(function(){
+    Route::resource('/v1/users', UsersManageController::class);
+});
+
 
 Route::post('/v1/auth/user/login', [AuthUsersController::class, 'login']);
 Route::post('/v1/auth/user/register', [AuthUsersController::class, 'register']);
