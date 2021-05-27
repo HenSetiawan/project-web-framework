@@ -110,7 +110,7 @@ class UsersManageController extends Controller
     {
         try {
             $user = User::findOrFail($id);
-            $request->user()->tokens()->delete();
+            $user->tokens()->delete();
             $user->delete();
 
             return response()->json(
