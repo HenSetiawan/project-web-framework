@@ -21,7 +21,7 @@ class CreateBlogsTable extends Migration
             $table->unsignedBigInteger('id_penulis');
             $table->timestamps();
 
-            $table->foreign('id_penulis')->references('id')->on('admin');
+            $table->foreign('id_penulis')->references('id')->on('admins');
         });
     }
 

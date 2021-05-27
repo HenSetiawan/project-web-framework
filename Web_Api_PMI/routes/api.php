@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Users\AuthUsersController;
 use App\Http\Controllers\Users\UsersManageController;
+use App\Http\Controllers\Volunteer\AuthVolunteerController;
 use App\Http\Controllers\Volunteer\VolunteerManageController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -37,8 +38,12 @@ Route::middleware(['auth:user'])->group(function() {
 
 // auth for volunteer
 Route::middleware(['auth:volunteer'])->group(function() {
-    // type your routes
+
 });
 
+// routes public for user
 Route::post('/v1/auth/user/login', [AuthUsersController::class, 'login']);
 Route::post('/v1/auth/user/register', [AuthUsersController::class, 'register']);
+
+// routes public for volunteer
+Route::post('/v1/auth/volunteer/register', [AuthVolunteerController::class, 'register']);
