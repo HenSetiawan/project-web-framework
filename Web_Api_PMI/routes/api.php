@@ -26,6 +26,7 @@ use Illuminate\Support\Facades\Route;
 // auth for admin
 Route::middleware(['auth:admin'])->group(function() {
     Route::resource('/v1/users', UsersManageController::class)->except('update');
+    Route::delete('/v1/volunteers/{id}', [VolunteerManageController::class, 'destroy']);
 });
 
 // auth for user
@@ -38,7 +39,7 @@ Route::middleware(['auth:user'])->group(function() {
 
 // auth for volunteer
 Route::middleware(['auth:volunteer'])->group(function() {
-
+    // type your routes here
 });
 
 // routes public for user

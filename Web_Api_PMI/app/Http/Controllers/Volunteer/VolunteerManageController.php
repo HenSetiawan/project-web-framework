@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Database\QueryException;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use App\Models\Volunteer;
 
 class VolunteerManageController extends Controller
 {
@@ -84,6 +85,20 @@ class VolunteerManageController extends Controller
      */
     public function destroy($id)
     {
-        //
+        try {
+            $volunteer = Volunteer::findOrFail($id);
+            $volunteer->tokens()->delete();
+            $volunteer->delete();
+
+            return response()->json([
+                "message" => "success delete volunteer"
+            ])->setStatusCode(200);
+
+        } catch (QueryException $err) {
+            return response()->json([
+                "message" => "failed to delete volunteer",
+                "error" => $err->errorInfo
+            ])->setStatusCode(400);
+        }
     }
 }
