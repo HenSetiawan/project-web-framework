@@ -27,25 +27,13 @@ class VolunteerManageController extends Controller
                 "data" => $volunteer,
                 "error" => null
             ])->setStatusCode(200);
-            
+
         } catch (QueryException $err) {
             return response()->json([
                 "message" => "failed when get all data volunteers",
                 "error" => $err->errorInfo
             ])->setStatusCode(400);
         }
-    }
-
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
     }
 
     /**
@@ -56,7 +44,24 @@ class VolunteerManageController extends Controller
      */
     public function show($id)
     {
-        //
+        try{
+            $volunteer = DB::table('volunteers')
+                        ->where("id", $id)
+                        ->select("id", "username", "email", "no_hp", "alamat", "gol_darah", "tanggal_lahir")
+                        ->first();
+
+            return response()->json([
+                "message" => "get data success",
+                "data" => $volunteer,
+                "error" => null
+            ])->setStatusCode(200);
+
+        }catch(QueryException $err){
+            return response()->json([
+                "message" => "failed to get data volunteers",
+                "error" => $err->errorInfo
+            ])->setStatusCode(400);
+        }
     }
 
     /**
