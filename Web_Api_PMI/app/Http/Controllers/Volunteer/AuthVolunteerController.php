@@ -48,4 +48,37 @@ class AuthVolunteerController extends Controller
             ])->setStatusCode(400);
         }
     }
+
+    public function login(Request $request)
+    {
+        $request->validate([
+            "email" => ["required", "max:50"],
+            "password" => ["required"]
+        ]);
+
+        try {
+            $volunteer = Volunteer::where("email", $request->email)->first();
+
+            if($volunteer != null && Hash::check($request->password, $volunteer->password)){
+                $token = $volunteer->createToken($volunteer->email);
+                return response()->json([
+                "message" => 'succcess',
+                "data" => $volunteer,
+                "token" => $token->plainTextToken
+               ])->setStatusCode(200);
+
+           }else{
+            return response()->json([
+                "message"=>'email or password is wrong'
+               ])->setStatusCode(401);
+           }
+
+        } catch (QueryException $err) {
+            return response()->json([
+                "message" => "auth volunteer failed",
+                "data" => $volunteer,
+                "error" => $err->errorInfo
+            ])->setStatusCode(400);
+        }
+    }
 }

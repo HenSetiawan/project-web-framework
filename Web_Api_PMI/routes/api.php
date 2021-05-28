@@ -47,3 +47,4 @@ Route::post('/v1/auth/user/register', [AuthUsersController::class, 'register']);
 
 // routes public for volunteer
 Route::post('/v1/auth/volunteer/register', [AuthVolunteerController::class, 'register']);
+Route::post('/v1/auth/volunteer/login', [AuthVolunteerController::class, 'login']);
