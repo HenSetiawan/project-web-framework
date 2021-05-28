@@ -16,7 +16,24 @@ class VolunteerManageController extends Controller
      */
     public function index()
     {
+        try {
+            $volunteer = DB::table('volunteers')
+                            ->select("id", "username", "alamat", "gol_darah", "tanggal_lahir")
+                            ->orderBy( "created_at", "ASC")
+                            ->get();
 
+            return response()->json([
+                "message" => "success get all data volunteers",
+                "data" => $volunteer,
+                "error" => null
+            ])->setStatusCode(200);
+            
+        } catch (QueryException $err) {
+            return response()->json([
+                "message" => "failed when get all data volunteers",
+                "error" => $err->errorInfo
+            ])->setStatusCode(400);
+        }
     }
 
 
