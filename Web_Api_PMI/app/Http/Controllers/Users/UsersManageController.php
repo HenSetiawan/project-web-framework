@@ -47,7 +47,6 @@ class UsersManageController extends Controller
     {
         try{
             $user = DB::table('users')
-                    ->orderBy('created_at', 'ASC')
                     ->select('id', 'username', 'email', 'no_hp')
                     ->where('id', $id)
                     ->first();
