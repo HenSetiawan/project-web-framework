@@ -80,4 +80,20 @@ class AuthVolunteerController extends Controller
             ])->setStatusCode(400);
         }
     }
+
+    public function logout(Request $request)
+    {
+        try{
+            $request->user()->currentAccessToken()->delete();
+            return response()->json([
+                "message" => "logout successful",
+                "data" => $request->user()
+            ])->setStatusCode(200);
+
+        }catch (QueryException $err) {
+            return response()->json([
+                "error" => $err->errorInfo
+            ])->setStatusCode(400);
+        }
+    }
 }

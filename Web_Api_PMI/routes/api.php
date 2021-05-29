@@ -46,6 +46,7 @@ Route::post('/v1/auth/user/register', [AuthUsersController::class, 'register']);
 // auth for volunteer
 Route::middleware(['auth:volunteer'])->group(function() {
     Route::get('/v1/volunteer/{id}', [VolunteerManageController::class,'getVolunteerById']);
+    Route::post('/v1/auth/volunteer/logout', [AuthVolunteerController::class, 'logout']);
 });
 
 // routes public for volunteer
