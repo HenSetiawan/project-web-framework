@@ -18,7 +18,7 @@ class VolunteerManageController extends Controller
     public function index()
     {
         try {
-            $volunteer=Volunteer::all();
+            $volunteer=Volunteer::all("id","username","gol_darah","alamat","tanggal_lahir","created_at","updated_at");
             return response()->json([
                 "message" => "success get all data volunteers",
                 "data" => $volunteer,
