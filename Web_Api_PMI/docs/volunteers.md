@@ -44,6 +44,8 @@ digunakan untuk mengambil data relawan berdasarkan id
 ```js
 {
 
+    message:"success get data with id {id}",
+    data:{
     id:2,
     name:"Ucup",
     email:"ucup.com",
@@ -51,6 +53,7 @@ digunakan untuk mengambil data relawan berdasarkan id
     address:"Jl. Majapahit no 23 Bondowoso",
     blood_type:"O",
     birth_day:"23-01-2001"
+    }
 
 }
 ```
@@ -82,9 +85,9 @@ digunakan untuk menghapus data relawan berdasarkan id
 
 digunakan untuk mengubah data relawan yang telah terdaftar
 
-| method | endpoint           | body                                                          | auth | access role |
-| ------ | ------------------ | ------------------------------------------------------------- | ---- | ----------- |
-| UPDATE | /api/v1/volunteer/ | username,no_phone,email,password,address,blood_type,birth_day | Y    | volunteer   |
+| method | endpoint           | body                                                 | auth | access role |
+| ------ | ------------------ | ---------------------------------------------------- | ---- | ----------- |
+| UPDATE | /api/v1/volunteer/ | username,no_phone,email,address,blood_type,birth_day | Y    | volunteer   |
 
 ```js
 {
@@ -112,13 +115,16 @@ digunakan untuk registrasi relawan baru
 ```js
 {
 
+ message:"success register volunteer",
+ data:{
   id:1,
   name:"Ucup",
   email:"ucup.com",
   number_phone:"08223456789",
   address:"Jl. Majapahit no 23 Bondowoso",
   blood_type:"O",
-  desc:"volunteer registration is successful"
+}
+
 
 }
 ```
@@ -133,7 +139,8 @@ digunakan untuk login relawan yang sudah terdaftar
 
 ```js
 {
-
+message:"success login",
+data:{
   id:1,
   name:"Ucup",
   email:"ucup.com",
@@ -141,6 +148,23 @@ digunakan untuk login relawan yang sudah terdaftar
   address:"Jl. Majapahit no 23 Bondowoso",
   blood_type:"O",
   token:"vjwegrngknergknelrngklerlgnergklerklkle"
+}
+
+}
+```
+
+### logout relawan
+
+digunakan untuk keluar dan menghapus token
+
+| method | endpoint                      | auth |
+| ------ | ----------------------------- | ---- |
+| POST   | /api/v1/auth/volunteer/logout | Y    |
+
+```js
+{
+
+  message:"logout successful",
 
 }
 ```
