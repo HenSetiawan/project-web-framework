@@ -58,7 +58,6 @@ class AuthUsersController extends Controller
         $user['password'] = Hash::make($user['password']);
 
         try {
-
             User::create($user);
             return response()->json([
                 "message" => "register user success",
@@ -72,7 +71,6 @@ class AuthUsersController extends Controller
         } catch (QueryException $err) {
             return response()->json([
                 "message" => "register user failed",
-                "data" => $user,
                 "error" => $err->errorInfo
             ])->setStatusCode(400);
         }
