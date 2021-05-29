@@ -43,7 +43,6 @@ class AuthVolunteerController extends Controller
         } catch (QueryException $err) {
             return response()->json([
                 "message" => "register volunteer failed",
-                "data" => $volunteer,
                 "error" => $err->errorInfo,
             ])->setStatusCode(400);
         }
