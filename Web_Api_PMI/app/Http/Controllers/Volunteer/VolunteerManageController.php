@@ -18,11 +18,7 @@ class VolunteerManageController extends Controller
     public function index()
     {
         try {
-            $volunteer = DB::table('volunteers')
-                            ->select("id", "username", "alamat", "gol_darah", "tanggal_lahir")
-                            ->orderBy( "created_at", "ASC")
-                            ->get();
-
+            $volunteer=Volunteer::all();
             return response()->json([
                 "message" => "success get all data volunteers",
                 "data" => $volunteer,
@@ -46,11 +42,7 @@ class VolunteerManageController extends Controller
     public function show($id)
     {
         try{
-            $volunteer = DB::table('volunteers')
-                        ->where("id", $id)
-                        ->select("id", "username", "email", "no_hp", "alamat", "gol_darah", "tanggal_lahir")
-                        ->first();
-
+            $volunteer=Volunteer::find($id);
             return response()->json([
                 "message" => "get data success",
                 "data" => $volunteer,
