@@ -39,18 +39,16 @@ Route::middleware(['auth:user'])->group(function() {
     Route::get('/v1/volunteer/{id}', [VolunteerManageController::class,'getVolunteerById']);
 });
 
-// auth for volunteer
-Route::middleware(['auth:volunteer'])->group(function() {
-    Route::get('/v1/volunteer/{id}', [VolunteerManageController::class,'getVolunteerById']);
-    // type your routes here
-});
-
 // routes public for user
 Route::post('/v1/auth/user/login', [AuthUsersController::class, 'login']);
 Route::post('/v1/auth/user/register', [AuthUsersController::class, 'register']);
 
+// auth for volunteer
+Route::middleware(['auth:volunteer'])->group(function() {
+    Route::get('/v1/volunteer/{id}', [VolunteerManageController::class,'getVolunteerById']);
+});
+
 // routes public for volunteer
 Route::post('/v1/auth/volunteer/register', [AuthVolunteerController::class, 'register']);
 Route::post('/v1/auth/volunteer/login', [AuthVolunteerController::class, 'login']);
-// GET and GET by id
 Route::get('/v1/volunteers', [VolunteerManageController::class,'getAllVolunteers']);
