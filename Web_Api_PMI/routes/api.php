@@ -26,7 +26,8 @@ use Illuminate\Support\Facades\Route;
 // auth for admin
 Route::middleware(['auth:admin'])->group(function() {
     Route::resource('/v1/users', UsersManageController::class)->except('update');
-    Route::delete('/v1/volunteers/{id}', [VolunteerManageController::class, 'destroy']);
+    Route::delete('/v1/volunteer/{id}', [VolunteerManageController::class, 'destroy']);
+    Route::get('/v1/volunteer/{id}', [VolunteerManageController::class,'getVolunteerById']);
 });
 
 // auth for user
@@ -35,10 +36,12 @@ Route::middleware(['auth:user'])->group(function() {
     Route::post('/v1/auth/user/logoutall', [AuthUsersController::class, 'logoutall']);
     Route::get('/v1/user/', [UsersManageController::class,"getCurrentUser"]);
     Route::put('/v1/users/{id}', [UsersManageController::class, 'update']);
+    Route::get('/v1/volunteer/{id}', [VolunteerManageController::class,'getVolunteerById']);
 });
 
 // auth for volunteer
 Route::middleware(['auth:volunteer'])->group(function() {
+    Route::get('/v1/volunteer/{id}', [VolunteerManageController::class,'getVolunteerById']);
     // type your routes here
 });
 
@@ -50,4 +53,4 @@ Route::post('/v1/auth/user/register', [AuthUsersController::class, 'register']);
 Route::post('/v1/auth/volunteer/register', [AuthVolunteerController::class, 'register']);
 Route::post('/v1/auth/volunteer/login', [AuthVolunteerController::class, 'login']);
 // GET and GET by id
-Route::resource('/v1/volunteers', VolunteerManageController::class)->except('destroy', 'update');
+Route::get('/v1/volunteers', [VolunteerManageController::class,'getAllVolunteers']);

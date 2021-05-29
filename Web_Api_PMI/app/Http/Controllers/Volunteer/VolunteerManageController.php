@@ -15,7 +15,7 @@ class VolunteerManageController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function getAllVolunteers()
     {
         try {
             $volunteer=Volunteer::all("id","username","gol_darah","alamat","tanggal_lahir","created_at","updated_at");
@@ -39,7 +39,7 @@ class VolunteerManageController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function getVolunteerById($id)
     {
         try{
             $volunteer=Volunteer::find($id);
