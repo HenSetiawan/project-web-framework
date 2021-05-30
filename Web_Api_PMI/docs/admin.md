@@ -134,7 +134,7 @@ data:{
 
 
  ### Ambil Data Admin yang Sedang Aktif
- - digunakan untuk mengubah data admin
+ - digunakan untuk mengambil data admin
 
 | method | endpoint         | auth   |access role|
 |--------|------------------|--------|-----------|
