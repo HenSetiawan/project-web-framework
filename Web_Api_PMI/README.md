@@ -10,6 +10,6 @@
 | name      |   docs |
 |-----------|--------|
 | USER DOCS |[USERS](./docs/users.md)|
-| VOLUNTEER DOCS |[VOLUNTRER](./docs/volunteers.md)|
+| VOLUNTEER DOCS |[VOLUNTEER](./docs/volunteers.md)|
 | ADMIN DOCS |[ADMIN](./docs/admin.md)|
 | BLOODS DOCS |[BLOOD](./docs/bloods.md)|
