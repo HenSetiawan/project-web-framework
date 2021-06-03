@@ -73,7 +73,28 @@ class BloodManageController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $result = Bloods::findOrFail($id);
+
+        $blood = $request->validate([
+            'gol_darah' => ['required', 'max:5'],
+            'kategori' => ['required', 'max:25'],
+            'jumlah_stok' => ['required', 'max:5'],
+            'deskripsi' => ['required'],
+        ]);
+
+        try {
+            $result->update($blood);
+            return response()->json([
+                "message" => "update data success",
+                "data" => $result
+            ])->setStatusCode(200);
+
+        } catch (QueryException $err) {
+            return response()->json([
+                "message" => "update data failed",
+                "error" => $err->errorInfo
+            ])->setStatusCode(400);
+        }
     }
 
     /**
@@ -84,6 +105,18 @@ class BloodManageController extends Controller
      */
     public function destroy($id)
     {
-        //
+        try {
+            $blood = Bloods::findOrFail($id);
+            $blood->delete();
+
+            return response()->json(
+                ['message' => 'Success']
+            )->setStatusCode(200);
+
+        } catch (QueryException $err) {
+            return response()->json(
+                ['error' => $err->errorInfo]
+            )->setStatusCode(400);
+        }
     }
 }
