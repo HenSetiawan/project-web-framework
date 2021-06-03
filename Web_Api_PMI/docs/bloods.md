@@ -61,7 +61,7 @@ data:{
 
 ### Ambil Data Stok Darah
 
--   digunakan untuk menambah data stok darah
+-   digunakan untuk mengambil data stok darah
 
 | method | endpoint       | auth |
 | ------ | -------------- | ---- |
