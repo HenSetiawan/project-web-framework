@@ -41,6 +41,41 @@ class AuthAdminController extends Controller
     }
    }
 
+   public function login(Request $request)
+   {
+    $request->validate([
+        'email' => ['required','email'],
+        'password' => ['required', 'max:24'],
+    ]);
+
+    $admin = Admin::where('email', $request->email)->first();
+    try {
+
+        $admin = Admin::where('email', $request->email)->first();
+
+        if($admin != null && Hash::check($request->password, $admin->password)){
+             $token = $admin->createToken($admin->email);
+             return response()->json([
+             "message" => 'succcess',
+             "data" => $admin,
+             "token" => $token->plainTextToken
+            ])->setStatusCode(200);
+
+        }else{
+         return response()->json([
+             "message"=>'email or password is wrong'
+            ])->setStatusCode(401);
+        }
+
+     } catch (QueryException $err) {
+         return response()->json([
+             "message" => "auth user failed",
+             "data" => $admin,
+             "error" => $err->errorInfo
+         ])->setStatusCode(400);
+     }
+   }
+
 
 
 }
