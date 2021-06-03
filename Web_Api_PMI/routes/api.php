@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admins\AuthAdminController;
+use App\Http\Controllers\Bloods\BloodManageController;
 use App\Http\Controllers\Users\AuthUsersController;
 use App\Http\Controllers\Users\UsersManageController;
 use App\Http\Controllers\Volunteer\AuthVolunteerController;
@@ -55,5 +56,6 @@ Route::middleware(['auth:volunteer'])->group(function() {
 Route::post('/v1/auth/volunteer/register', [AuthVolunteerController::class, 'register']);
 Route::post('/v1/auth/volunteer/login', [AuthVolunteerController::class, 'login']);
 Route::get('/v1/volunteers', [VolunteerManageController::class,'getAllVolunteers']);
+Route::get('/v1/bloods/', [BloodManageController::class,'GetAllBloods']);
 
 
