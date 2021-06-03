@@ -15,7 +15,7 @@ class BloodManageController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function GetAllBloods()
     {
         try{
             $bloods = DB::table('stok_darah')
