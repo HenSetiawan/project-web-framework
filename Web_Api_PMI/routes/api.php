@@ -31,6 +31,7 @@ Route::middleware(['auth:admin'])->group(function() {
     Route::delete('/v1/volunteer/{id}', [VolunteerManageController::class, 'destroy']);
     Route::post('/v1/admin', [AuthAdminController::class,'createNewAdmin']);
     Route::get('/v1/volunteer/{id}', [VolunteerManageController::class,'getVolunteerById']);
+    Route::post('/v1/bloods/', [BloodManageController::class,'create']);
 });
 
 // auth for user
@@ -56,6 +57,8 @@ Route::middleware(['auth:volunteer'])->group(function() {
 Route::post('/v1/auth/volunteer/register', [AuthVolunteerController::class, 'register']);
 Route::post('/v1/auth/volunteer/login', [AuthVolunteerController::class, 'login']);
 Route::get('/v1/volunteers', [VolunteerManageController::class,'getAllVolunteers']);
+
+
 Route::get('/v1/bloods/', [BloodManageController::class,'GetAllBloods']);
 
 

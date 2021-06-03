@@ -40,42 +40,28 @@ class BloodManageController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
-    }
+        $blood = $request->validate([
+            'gol_darah' => ['required', 'max:5'],
+            'kategori' => ['required', 'max:25'],
+            'jumlah_stok' => ['required', 'max:5'],
+            'deskripsi' => ['required'],
+        ]);
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
+        try {
+            Bloods::create($blood);
+            return response()->json([
+                "message" => "create data success",
+                "data" => $blood
+            ])->setStatusCode(200);
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
+        } catch (QueryException $err) {
+            return response()->json([
+                "message" => "create data failed",
+                "error" => $err->errorInfo
+            ])->setStatusCode(400);
+        }
     }
 
     /**
