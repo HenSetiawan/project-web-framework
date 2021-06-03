@@ -30,6 +30,7 @@ Route::middleware(['auth:admin'])->group(function() {
     Route::delete('/v1/volunteer/{id}', [VolunteerManageController::class, 'destroy']);
     Route::get('/v1/volunteer/{id}', [VolunteerManageController::class,'getVolunteerById']);
     Route::post('/v1/admin', [AuthAdminController::class,'createNewAdmin']);
+    Route::post('/v1/auth/admin/logout', [AuthAdminController::class,'logout']);
 });
 
 // auth for user
