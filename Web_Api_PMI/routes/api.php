@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admins\AuthAdminController;
 use App\Http\Controllers\Users\AuthUsersController;
 use App\Http\Controllers\Users\UsersManageController;
 use App\Http\Controllers\Volunteer\AuthVolunteerController;
@@ -27,6 +28,7 @@ use Illuminate\Support\Facades\Route;
 Route::middleware(['auth:admin'])->group(function() {
     Route::resource('/v1/users', UsersManageController::class)->except('update');
     Route::delete('/v1/volunteer/{id}', [VolunteerManageController::class, 'destroy']);
+    Route::post('/v1/admin', [AuthAdminController::class,'createNewAdmin']);
     Route::get('/v1/volunteer/{id}', [VolunteerManageController::class,'getVolunteerById']);
 });
 
@@ -53,3 +55,5 @@ Route::middleware(['auth:volunteer'])->group(function() {
 Route::post('/v1/auth/volunteer/register', [AuthVolunteerController::class, 'register']);
 Route::post('/v1/auth/volunteer/login', [AuthVolunteerController::class, 'login']);
 Route::get('/v1/volunteers', [VolunteerManageController::class,'getAllVolunteers']);
+
+
