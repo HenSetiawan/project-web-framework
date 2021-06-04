@@ -59,7 +59,7 @@ class AuthVolunteerController extends Controller
             $volunteer = Volunteer::where("email", $request->email)->first();
 
             if($volunteer != null && Hash::check($request->password, $volunteer->password)){
-                $token = $volunteer->createToken($volunteer->email);
+                $token = $volunteer->createToken($volunteer->email,['role:volunteer']);
                 return response()->json([
                 "message" => 'succcess',
                 "data" => $volunteer,

@@ -23,7 +23,7 @@ class AuthUsersController extends Controller
             $user = User::where('email', $request->email)->first();
 
             if($user != null && Hash::check($request->password, $user->password)){
-                 $token = $user->createToken($user->email);
+                 $token = $user->createToken($user->email,['role:user']);
                  return response()->json([
                  "message" => 'succcess',
                  "data" => $user,

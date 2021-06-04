@@ -6,7 +6,6 @@ use App\Http\Controllers\Users\AuthUsersController;
 use App\Http\Controllers\Users\UsersManageController;
 use App\Http\Controllers\Volunteer\AuthVolunteerController;
 use App\Http\Controllers\Volunteer\VolunteerManageController;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -30,9 +29,7 @@ Route::middleware(['auth:admin'])->group(function() {
     Route::resource('/v1/users', UsersManageController::class)->except('update');
     Route::delete('/v1/volunteer/{id}', [VolunteerManageController::class, 'destroy']);
     Route::post('/v1/admin', [AuthAdminController::class,'createNewAdmin']);
-    Route::post('/v1/auth/admin/logut', [AuthAdminController::class, 'logout']);
-
-    Route::get('/v1/volunteer/{id}', [VolunteerManageController::class,'getVolunteerById']);
+    Route::post('/v1/auth/admin/logout', [AuthAdminController::class,'logout']);
     Route::post('/v1/bloods/', [BloodManageController::class,'create']);
     Route::patch('/v1/bloods/{id}', [BloodManageController::class,'update']);
     Route::delete('/v1/bloods/{id}', [BloodManageController::class,'destroy']);
@@ -44,16 +41,11 @@ Route::middleware(['auth:user'])->group(function() {
     Route::post('/v1/auth/user/logoutall', [AuthUsersController::class, 'logoutall']);
     Route::get('/v1/user/', [UsersManageController::class,"getCurrentUser"]);
     Route::put('/v1/users/{id}', [UsersManageController::class, 'update']);
-    Route::get('/v1/volunteer/{id}', [VolunteerManageController::class,'getVolunteerById']);
 });
 
-// routes public for user
-Route::post('/v1/auth/user/login', [AuthUsersController::class, 'login']);
-Route::post('/v1/auth/user/register', [AuthUsersController::class, 'register']);
 
 // auth for volunteer
 Route::middleware(['auth:volunteer'])->group(function() {
-    Route::get('/v1/volunteer/{id}', [VolunteerManageController::class,'getVolunteerById']);
     Route::post('/v1/auth/volunteer/logout', [AuthVolunteerController::class, 'logout']);
 });
 
@@ -65,5 +57,15 @@ Route::get('/v1/volunteers', [VolunteerManageController::class,'getAllVolunteers
 
 // routes puclic admin
 Route::post('/v1/auth/admin/login', [AuthAdminController::class, 'login']);
-
 Route::get('/v1/bloods/', [BloodManageController::class,'GetAllBloods']);
+
+// routes public for user
+Route::post('/v1/auth/user/login', [AuthUsersController::class, 'login']);
+Route::post('/v1/auth/user/register', [AuthUsersController::class, 'register']);
+
+// multi role
+Route::middleware(['auth:sanctum','isMultiRole'])->group(function() {
+    Route::get('/v1/volunteer/{id}', [VolunteerManageController::class,'getVolunteerById']);
+});
+
+

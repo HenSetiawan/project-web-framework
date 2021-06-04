@@ -54,7 +54,7 @@ class AuthAdminController extends Controller
         $admin = Admin::where('email', $request->email)->first();
 
         if($admin != null && Hash::check($request->password, $admin->password)){
-             $token = $admin->createToken($admin->email);
+             $token = $admin->createToken($admin->email,['role:admin']);
              return response()->json([
              "message" => 'succcess',
              "data" => $admin,
