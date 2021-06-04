@@ -67,5 +67,3 @@ Route::post('/v1/auth/user/register', [AuthUsersController::class, 'register']);
 Route::middleware(['auth:sanctum','isMultiRole'])->group(function() {
     Route::get('/v1/volunteer/{id}', [VolunteerManageController::class,'getVolunteerById']);
 });
-
-
