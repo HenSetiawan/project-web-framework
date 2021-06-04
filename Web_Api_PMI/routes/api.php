@@ -30,6 +30,8 @@ Route::middleware(['auth:admin'])->group(function() {
     Route::resource('/v1/users', UsersManageController::class)->except('update');
     Route::delete('/v1/volunteer/{id}', [VolunteerManageController::class, 'destroy']);
     Route::post('/v1/admin', [AuthAdminController::class,'createNewAdmin']);
+    Route::post('/v1/auth/admin/logut', [AuthAdminController::class, 'logout']);
+
     Route::get('/v1/volunteer/{id}', [VolunteerManageController::class,'getVolunteerById']);
     Route::post('/v1/bloods/', [BloodManageController::class,'create']);
     Route::patch('/v1/bloods/{id}', [BloodManageController::class,'update']);
@@ -60,5 +62,8 @@ Route::post('/v1/auth/volunteer/register', [AuthVolunteerController::class, 'reg
 Route::post('/v1/auth/volunteer/login', [AuthVolunteerController::class, 'login']);
 Route::get('/v1/volunteers', [VolunteerManageController::class,'getAllVolunteers']);
 
+
+// routes puclic admin
+Route::post('/v1/auth/admin/login', [AuthAdminController::class, 'login']);
 
 Route::get('/v1/bloods/', [BloodManageController::class,'GetAllBloods']);
