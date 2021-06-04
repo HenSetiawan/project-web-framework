@@ -156,6 +156,37 @@ data:{
 ```
 
 
+ ### Ambil Semua Data Admin
+ - digunakan untuk mengambil data admin
+
+| method | endpoint         | auth   |access role|
+|--------|------------------|--------|-----------|
+| GET  | /api/v1/admins/  |  Y     |admin      |
+
+
+- response json
+```js
+{
+message:"success",
+data:[
+    {
+    id:1,
+    name:"Ucup",
+    email:"ucup.com",
+    number_phone:"08223456789",
+    },
+    {
+    id:2,
+    name:"Ucup baru",
+    email:"ucupbaru.com",
+    number_phone:"08223456789",
+    },
+]
+
+}
+```
+
+
 
 
 
