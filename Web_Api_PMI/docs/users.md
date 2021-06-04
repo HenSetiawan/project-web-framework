@@ -96,7 +96,7 @@
 
 | method | endpoint         |body                       | auth|access role|
 |--------|------------------|---------------------------|-----|-----------|
-| UPDATE | /api/v1/user/    |username,email,number phone|Y    |user       |
+| PUT    | /api/v1/user/{id}    |username,email,number phone|Y    |user       |
 
 ``` js
 {
