@@ -32,7 +32,7 @@ Route::middleware(['auth:admin'])->group(function() {
     Route::post('/v1/admin', [AuthAdminController::class,'createNewAdmin']);
     Route::post('/v1/auth/admin/logout', [AuthAdminController::class,'logout']);
     Route::post('/v1/bloods/', [BloodManageController::class,'create']);
-    Route::patch('/v1/bloods/{id}', [BloodManageController::class,'update']);
+    Route::put('/v1/bloods/{id}', [BloodManageController::class,'update']);
     Route::delete('/v1/bloods/{id}', [BloodManageController::class,'destroy']);
     Route::get('/v1/admin/', [AdminsManageController::class,'getCurrentAdmin']);
 });
@@ -42,13 +42,14 @@ Route::middleware(['auth:user'])->group(function() {
     Route::post('/v1/auth/user/logout', [AuthUsersController::class, 'logout']);
     Route::post('/v1/auth/user/logoutall', [AuthUsersController::class, 'logoutall']);
     Route::get('/v1/user/', [UsersManageController::class,"getCurrentUser"]);
-    Route::put('/v1/users/{id}', [UsersManageController::class, 'update']);
+    Route::put('/v1/user/{id}', [UsersManageController::class, 'update']);
 });
 
 
 // auth for volunteer
 Route::middleware(['auth:volunteer'])->group(function() {
     Route::post('/v1/auth/volunteer/logout', [AuthVolunteerController::class, 'logout']);
+    Route::put('/v1/volunteer/{id}', [VolunteerManageController::class, 'update']);
 });
 
 // routes public for volunteer
@@ -69,5 +70,3 @@ Route::post('/v1/auth/user/register', [AuthUsersController::class, 'register']);
 Route::middleware(['auth:sanctum','isMultiRole'])->group(function() {
     Route::get('/v1/volunteer/{id}', [VolunteerManageController::class,'getVolunteerById']);
 });
-
-
