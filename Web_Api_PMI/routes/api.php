@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admins\AdminsManageController;
 use App\Http\Controllers\Admins\AuthAdminController;
 use App\Http\Controllers\Bloods\BloodManageController;
 use App\Http\Controllers\Users\AuthUsersController;
@@ -33,6 +34,7 @@ Route::middleware(['auth:admin'])->group(function() {
     Route::post('/v1/bloods/', [BloodManageController::class,'create']);
     Route::patch('/v1/bloods/{id}', [BloodManageController::class,'update']);
     Route::delete('/v1/bloods/{id}', [BloodManageController::class,'destroy']);
+    Route::get('/v1/admin/', [AdminsManageController::class,'getCurrentAdmin']);
 });
 
 // auth for user
