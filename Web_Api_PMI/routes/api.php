@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admins\AuthAdminController;
+use App\Http\Controllers\Bloods\BloodManageController;
 use App\Http\Controllers\Users\AuthUsersController;
 use App\Http\Controllers\Users\UsersManageController;
 use App\Http\Controllers\Volunteer\AuthVolunteerController;
@@ -28,9 +29,11 @@ use Illuminate\Support\Facades\Route;
 Route::middleware(['auth:admin'])->group(function() {
     Route::resource('/v1/users', UsersManageController::class)->except('update');
     Route::delete('/v1/volunteer/{id}', [VolunteerManageController::class, 'destroy']);
-    Route::get('/v1/volunteer/{id}', [VolunteerManageController::class,'getVolunteerById']);
     Route::post('/v1/admin', [AuthAdminController::class,'createNewAdmin']);
-    Route::post('/v1/auth/admin/logout', [AuthAdminController::class,'logout']);
+    Route::get('/v1/volunteer/{id}', [VolunteerManageController::class,'getVolunteerById']);
+    Route::post('/v1/bloods/', [BloodManageController::class,'create']);
+    Route::patch('/v1/bloods/{id}', [BloodManageController::class,'update']);
+    Route::delete('/v1/bloods/{id}', [BloodManageController::class,'destroy']);
 });
 
 // auth for user
@@ -41,9 +44,6 @@ Route::middleware(['auth:user'])->group(function() {
     Route::put('/v1/users/{id}', [UsersManageController::class, 'update']);
     Route::get('/v1/volunteer/{id}', [VolunteerManageController::class,'getVolunteerById']);
 });
-
-// routes public for admin
-Route::post('/v1/auth/admin/login', [AuthAdminController::class, 'login']);
 
 // routes public for user
 Route::post('/v1/auth/user/login', [AuthUsersController::class, 'login']);
@@ -61,4 +61,4 @@ Route::post('/v1/auth/volunteer/login', [AuthVolunteerController::class, 'login'
 Route::get('/v1/volunteers', [VolunteerManageController::class,'getAllVolunteers']);
 
 
-
+Route::get('/v1/bloods/', [BloodManageController::class,'GetAllBloods']);
