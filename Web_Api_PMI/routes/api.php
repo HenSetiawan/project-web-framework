@@ -35,6 +35,7 @@ Route::middleware(['auth:admin'])->group(function() {
     Route::put('/v1/bloods/{id}', [BloodManageController::class,'update']);
     Route::delete('/v1/bloods/{id}', [BloodManageController::class,'destroy']);
     Route::get('/v1/admin/', [AdminsManageController::class,'getCurrentAdmin']);
+    Route::get('/v1/admins/', [AdminsManageController::class,'getAllAdmins']);
 });
 
 // auth for user
