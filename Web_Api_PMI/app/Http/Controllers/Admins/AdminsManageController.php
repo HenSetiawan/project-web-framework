@@ -43,4 +43,23 @@ class AdminsManageController extends Controller
             ])->setStatusCode(400);
         }
     }
+
+    public function deeleteById($id)
+    {
+        try {
+            $admin = Admin::findOrFail($id);
+            $admin->tokens()->delete();
+            $admin->delete();
+
+            return response()->json([
+                "message" => "success delete admin"
+            ])->setStatusCode(200);
+
+        } catch (QueryException $err) {
+            return response()->json([
+                "message" => "failed to delete admin",
+                "error" => $err->errorInfo
+            ])->setStatusCode(400);
+        }
+    }
 }
