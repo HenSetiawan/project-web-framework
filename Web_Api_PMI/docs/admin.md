@@ -1,19 +1,19 @@
- 
- ### Login Admin
- - digunakan untuk login admin
+### Login Admin
 
-| method | endpoint         | auth   |
-|--------|------------------|--------|
-| POST   | /api/v1/auth/admin/login   |  N    |
+-   digunakan untuk login admin
 
-- value yang dikirimkan pada body
+| method | endpoint                 | auth |
+| ------ | ------------------------ | ---- |
+| POST   | /api/v1/auth/admin/login | N    |
 
-| name     | 
-|----------|
-| username | 
-| password | 
+-   value yang dikirimkan pada body
 
-- response json
+| name     |
+| -------- |
+| username |
+| password |
+
+-   response json
 
 ```js
 {
@@ -29,15 +29,15 @@ data:{
 }
 ```
 
+### Logout Admin
 
- ### Logout Admin
- - digunakan untuk login admin
+-   digunakan untuk login admin
 
-| method | endpoint         | auth   |
-|--------|------------------|--------|
-| POST   | /api/v1/auth/admin/logout   |  Y   |
+| method | endpoint                  | auth |
+| ------ | ------------------------- | ---- |
+| POST   | /api/v1/auth/admin/logout | Y    |
 
-- response json
+-   response json
 
 ```js
 {
@@ -47,25 +47,25 @@ data:{
 }
 ```
 
+### Tambah Data Admin
 
+-   digunakan untuk menambah admin baru
 
-  ### Tambah Data Admin
- - digunakan untuk menambah admin baru
+| method | endpoint       | auth | access role |
+| ------ | -------------- | ---- | ----------- |
+| POST   | /api/v1/admin/ | Y    | admin       |
 
-| method | endpoint         | auth   |access role|
-|--------|------------------|--------|-----------|
-| POST   | /api/v1/admin/   |  Y     |admin      |
+-   value yang dikirimkan pada body
 
-- value yang dikirimkan pada body
+| name         |
+| ------------ |
+| username     |
+| email        |
+| no_handphone |
+| password     |
 
-| name     | 
-|----------|
-| username | 
-| email    | 
-| no_handphone | 
-| password |
+-   response json
 
-- response json
 ```js
 {
 message:"success",
@@ -79,16 +79,16 @@ data:{
 }
 ```
 
+### Hapus Data Admin
 
+-   digunakan untuk menghapus data admin
 
- ### Hapus Data Admin
- - digunakan untuk menghapus data admin
+| method | endpoint           | auth | access role |
+| ------ | ------------------ | ---- | ----------- |
+| DELETE | /api/v1/admin/{id} | Y    | admin       |
 
-| method | endpoint         | auth   |access role|
-|--------|------------------|--------|-----------|
-| DELETE   | /api/v1/admin/{id}   |  Y     |admin      |
+-   response json
 
-- response json
 ```js
 {
 message:"success",
@@ -102,23 +102,24 @@ data:{
 }
 ```
 
+### Ubah Data Admin
 
- ### Ubah Data Admin
- - digunakan untuk mengubah data admin
+-   digunakan untuk mengubah data admin
 
-| method | endpoint         | auth   |access role|
-|--------|------------------|--------|-----------|
-| PATCH   | /api/v1/admin/{id}   |  Y     |admin      |
+| method | endpoint           | auth | access role |
+| ------ | ------------------ | ---- | ----------- |
+| PUT    | /api/v1/admin/{id} | Y    | admin       |
 
-- value yang dikirimkan pada body
+-   value yang dikirimkan pada body
 
-| name     | 
-|----------|
-| username | 
-| email    | 
-| no_handphone | 
+| name         |
+| ------------ |
+| username     |
+| email        |
+| no_handphone |
 
-- response json
+-   response json
+
 ```js
 {
 message:"success",
@@ -132,16 +133,16 @@ data:{
 }
 ```
 
+### Ambil Data Admin yang Sedang Aktif
 
- ### Ambil Data Admin yang Sedang Aktif
- - digunakan untuk mengambil data admin
+-   digunakan untuk mengambil data admin
 
-| method | endpoint         | auth   |access role|
-|--------|------------------|--------|-----------|
-| GET  | /api/v1/admin/  |  Y     |admin      |
+| method | endpoint       | auth | access role |
+| ------ | -------------- | ---- | ----------- |
+| GET    | /api/v1/admin/ | Y    | admin       |
 
+-   response json
 
-- response json
 ```js
 {
 message:"success",
@@ -155,16 +156,16 @@ data:{
 }
 ```
 
+### Ambil Semua Data Admin
 
- ### Ambil Semua Data Admin
- - digunakan untuk mengambil data admin
+-   digunakan untuk mengambil data admin
 
-| method | endpoint         | auth   |access role|
-|--------|------------------|--------|-----------|
-| GET  | /api/v1/admins/  |  Y     |admin      |
+| method | endpoint        | auth | access role |
+| ------ | --------------- | ---- | ----------- |
+| GET    | /api/v1/admins/ | Y    | admin       |
 
+-   response json
 
-- response json
 ```js
 {
 message:"success",
@@ -185,9 +186,3 @@ data:[
 
 }
 ```
-
-
-
-
-
-

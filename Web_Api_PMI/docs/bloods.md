@@ -99,7 +99,7 @@ data:[
 
 | method | endpoint       | auth | access role |
 | ------ | -------------- | ---- | ----------- |
-| PATCH   | /api/v1/blood/{id} | Y    | admin       |
+| PUT   | /api/v1/blood/{id} | Y    | admin       |
 
 -   value yang dikirimkan pada body
 

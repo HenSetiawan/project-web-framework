@@ -87,7 +87,7 @@ digunakan untuk mengubah data relawan yang telah terdaftar
 
 | method | endpoint           | body                                                 | auth | access role |
 | ------ | ------------------ | ---------------------------------------------------- | ---- | ----------- |
-| PATCH | /api/v1/volunteer/ | username,no_phone,email,address,blood_type,birth_day | Y    | volunteer   |
+| PUT    | /api/v1/volunteer/{id} | username,no_phone,email,address,blood_type,birth_day | Y    | volunteer   |
 
 ```js
 {
