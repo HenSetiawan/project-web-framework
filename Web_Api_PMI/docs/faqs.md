@@ -4,9 +4,9 @@
 
 digunakan untuk menampilkan semua data faqs
 
-| method | endpoint    | auth |
-| ------ | ----------- | ---- |
-| GET    | /api/v1/ask | N    |
+| method | endpoint     | auth |
+| ------ | ------------ | ---- |
+| GET    | /api/v1/asks | N    |
 
 ```js
 {

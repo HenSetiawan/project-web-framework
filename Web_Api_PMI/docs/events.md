@@ -32,9 +32,9 @@ data:[
 
 digunakan untuk menampilkan details data events
 
-| method | endpoint            | auth                   |
-| ------ | ------------------- | ---------------------- |
-| GET    | /api/v1/events/{id} | user, admin, volunteer |
+| method | endpoint           | auth                   |
+| ------ | ------------------ | ---------------------- |
+| GET    | /api/v1/event/{id} | user, admin, volunteer |
 
 ```js
 {
@@ -55,9 +55,9 @@ data:[
 
 digunakan untuk menambahkan semua data events
 
-| method | endpoint       | auth  |
-| ------ | -------------- | ----- |
-| POST   | /api/v1/events | admin |
+| method | endpoint      | auth  |
+| ------ | ------------- | ----- |
+| POST   | /api/v1/event | admin |
 
 -   value yang dikirimkan pada body
 
@@ -87,9 +87,9 @@ data:[
 
 digunakan untuk mengubah data events
 
-| method | endpoint            | auth  |
-| ------ | ------------------- | ----- |
-| PUT    | /api/v1/events/{id} | admin |
+| method | endpoint           | auth  |
+| ------ | ------------------ | ----- |
+| PUT    | /api/v1/event/{id} | admin |
 
 -   value yang dikirimkan pada body
 
@@ -119,9 +119,9 @@ data:[
 
 digunakan untuk menghapus data events
 
-| method | endpoint            | auth  |
-| ------ | ------------------- | ----- |
-| DELETE | /api/v1/events/{id} | admin |
+| method | endpoint           | auth  |
+| ------ | ------------------ | ----- |
+| DELETE | /api/v1/event/{id} | admin |
 
 ```js
 {
