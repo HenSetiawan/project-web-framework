@@ -15,3 +15,5 @@
 | ADMIN DOCS     | [ADMIN](./docs/admin.md)          |
 | BLOODS DOCS    | [BLOOD](./docs/bloods.md)         |
 | BLOGS DOCS     | [BLOGS](./docs/blogs.md)          |
+| EVENTS DOCS    | [EVENTS](./docs/events.md)        |
+| FAQ DOCS       | [FAQ](./docs/faqs.md)             |
