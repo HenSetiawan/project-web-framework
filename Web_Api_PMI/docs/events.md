@@ -16,15 +16,13 @@ data:[
         id:1,
         judul_agenda:"PMI Berbagi",
         deskripsi:"berbagi dilakukan melalui puskesmas terdekat"
-        username:"Dwi Rifki",
-        created_at:"20-12-2020"
+        updated_at:"20-12-2020"
     },
     {
         id:2,
         judul_agenda:"Donor Darah Kabupaten Bondowoso",
         deskripsi:"berbagi dilakukan melalui puskesmas terdekat"
-        username:"Hendy Setiawan",
-        created_at:"20-12-2021"
+        updated_at:"20-12-2021"
     },
 ]
 }
@@ -48,8 +46,6 @@ data:[
         deskripsi:"berbagi dilakukan melalui puskesmas terdekat",
         lokasi:"Jember",
         waktu:"25-11-2020",
-        username:"Dwi Rifki",
-        created_at:"20-12-2020"
     }
 ]
 }
@@ -62,6 +58,15 @@ digunakan untuk menambahkan semua data events
 | method | endpoint       | auth  |
 | ------ | -------------- | ----- |
 | POST   | /api/v1/events | admin |
+
+-   value yang dikirimkan pada body
+
+| name         |
+| ------------ |
+| judul_agenda |
+| deskripsi    |
+| lokasi       |
+| waktu        |
 
 ```js
 {
@@ -85,6 +90,15 @@ digunakan untuk mengubah data events
 | method | endpoint            | auth  |
 | ------ | ------------------- | ----- |
 | PUT    | /api/v1/events/{id} | admin |
+
+-   value yang dikirimkan pada body
+
+| name         |
+| ------------ |
+| judul_agenda |
+| deskripsi    |
+| lokasi       |
+| waktu        |
 
 ```js
 {

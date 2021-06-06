@@ -14,13 +14,13 @@ message:"success get all data FAQS",
 data:[
     {
         id:1,
-        judul_agenda:"Bagaimana Cara Mendonorkan Darah",
-        deskripsi:"berbagi dilakukan melalui puskesmas terdekat"
+        question:"Bagaimana Cara Mendonorkan Darah",
+        answer:"berbagi dilakukan melalui puskesmas terdekat"
     },
     {
         id:2,
-        judul_agenda:"Donor Darah dekat Bondowoso",
-        deskripsi:"berbagi dilakukan melalui puskesmas terdekat"
+        question:"Donor Darah dekat Bondowoso",
+        answer:"berbagi dilakukan melalui puskesmas terdekat"
     },
 ]
 }
@@ -34,14 +34,21 @@ digunakan untuk menambahkan data faqs
 | ------ | ----------- | ----- |
 | POST   | /api/v1/ask | admin |
 
+-   value yang dikirimkan pada body
+
+| name     |
+| -------- |
+| question |
+| answer   |
+
 ```js
 {
 message:"success add data FAQS",
 data:[
     {
         id:1,
-        judul_agenda:"PMI Berbagi",
-        deskripsi:"berbagi dilakukan melalui puskesmas terdekat"
+        question:"PMI Berbagi",
+        answer:"berbagi dilakukan melalui puskesmas terdekat"
     }
 ]
 }
@@ -55,14 +62,21 @@ digunakan untuk mengubah data faqs
 | ------ | ---------------- | ----- |
 | PUT    | /api/v1/ask/{id} | admin |
 
+-   value yang dikirimkan pada body
+
+| name     |
+| -------- |
+| question |
+| answer   |
+
 ```js
 {
 message:"success update data FAQS",
 data:[
     {
         id:1,
-        judul_agenda:"PMI Berbagi",
-        deskripsi:"berbagi dilakukan melalui puskesmas terdekat",
+        question:"PMI Berbagi",
+        answer:"berbagi dilakukan melalui puskesmas terdekat",
     }
 ]
 }
