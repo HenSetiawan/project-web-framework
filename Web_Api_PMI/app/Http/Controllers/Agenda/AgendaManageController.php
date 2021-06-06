@@ -75,7 +75,7 @@ class AgendaManageController extends Controller
             $agenda = DB::table('agenda')
                     ->orderBy('id', 'ASC')
                     ->where('id', $id)
-                    ->get();
+                    ->first();
 
             return response()->json([
                 "message" => "success get all data agenda",
