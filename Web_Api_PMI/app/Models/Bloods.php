@@ -9,7 +9,7 @@ use Laravel\Sanctum\HasApiTokens;
 
 class Bloods extends Model
 {
-    use HasFactory, Notifiable;
+    use HasApiTokens, HasFactory, Notifiable;
 
     protected $table = 'stok_darah';
 
