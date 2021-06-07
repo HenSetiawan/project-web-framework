@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admins\AdminsManageController;
 use App\Http\Controllers\Admins\AuthAdminController;
+use App\Http\Controllers\Agenda\AgendaManageController;
 use App\Http\Controllers\Blogs\BlogsManageController;
 use App\Http\Controllers\Bloods\BloodManageController;
 use App\Http\Controllers\Users\AuthUsersController;
@@ -39,6 +40,9 @@ Route::middleware(['auth:admin'])->group(function() {
     Route::get('/v1/admins/', [AdminsManageController::class,'getAllAdmins']);
     Route::delete('v1/admin/{id}', [AdminsManageController::class,'deleteById']);
     Route::post('/v1/blog', [BlogsManageController::class, 'store']);
+    Route::post('/v1/event', [AgendaManageController::class, 'store']);
+    Route::put('/v1/event/{id}', [AgendaManageController::class, 'update']);
+    Route::delete('/v1/event/{id}', [AgendaManageController::class, 'destroy']);
 });
 
 // auth for user
@@ -66,6 +70,7 @@ Route::get('/v1/volunteers', [VolunteerManageController::class,'getAllVolunteers
 Route::post('/v1/auth/admin/login', [AuthAdminController::class, 'login']);
 Route::get('/v1/bloods/', [BloodManageController::class,'GetAllBloods']);
 Route::get('/v1/blogs', [BlogsManageController::class, 'getAllBlogs']);
+Route::get('/v1/events', [AgendaManageController::class, 'index']);
 
 // routes public for user
 Route::post('/v1/auth/user/login', [AuthUsersController::class, 'login']);
@@ -74,4 +79,5 @@ Route::post('/v1/auth/user/register', [AuthUsersController::class, 'register']);
 // multi role
 Route::middleware(['auth:sanctum','isMultiRole'])->group(function() {
     Route::get('/v1/volunteer/{id}', [VolunteerManageController::class,'getVolunteerById']);
+    Route::get('/v1/event/{id}', [AgendaManageController::class, 'show']);
 });
