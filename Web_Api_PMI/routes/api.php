@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admins\AdminsManageController;
 use App\Http\Controllers\Admins\AuthAdminController;
+use App\Http\Controllers\Blogs\BlogsManageController;
 use App\Http\Controllers\Bloods\BloodManageController;
 use App\Http\Controllers\Users\AuthUsersController;
 use App\Http\Controllers\Users\UsersManageController;
