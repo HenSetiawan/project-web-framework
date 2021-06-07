@@ -15,7 +15,11 @@ class BlogsManageController extends Controller
      */
     public function getAllBlogs()
     {
-       $blogs = DB::table('blogs')->orderBy('id', 'DESC')->get();
+       $blogs = DB::table('blogs as b')
+       ->select('b.id as id', 'b.judul_blog as judul_blog', 'b.thumbnail as thumbnail', 'a.username as username', 'b.created_at as created_at')
+       ->leftJoin('admins as a', 'a.id', '=', 'b.id_penulis')
+       ->orderBy('id', 'DESC')
+       ->get();
 
        $response = [
            "data" => $blogs,
@@ -31,7 +35,7 @@ class BlogsManageController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
         //
     }
