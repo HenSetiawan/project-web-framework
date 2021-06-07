@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Blogs;
 
 use App\Http\Controllers\Controller;
+use App\Models\Blogs;
+use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -15,29 +17,26 @@ class BlogsManageController extends Controller
      */
     public function getAllBlogs()
     {
-       $blogs = DB::table('blogs as b')
-       ->select('b.id as id', 'b.judul_blog as judul_blog', 'b.thumbnail as thumbnail', 'a.username as username', 'b.created_at as created_at')
-       ->leftJoin('admins as a', 'a.id', '=', 'b.id_penulis')
-       ->orderBy('id', 'DESC')
-       ->get();
 
-       $response = [
-           "data" => $blogs,
-           "message" => 'Success'
-       ];
+        try{
+            $blogs = DB::table('blogs as b')
+                        ->select('b.id as id', 'b.judul_blog as judul_blog', 'b.thumbnail as thumbnail', 'a.username as username', 'b.created_at as created_at')
+                        ->leftJoin('admins as a', 'a.id', '=', 'b.id_penulis')
+                        ->orderBy('id', 'DESC')
+                        ->get();
 
-       return response()->json($response, 200);
+            $response = [
+                    "data" => $blogs,
+                    "message" => 'Success'
+            ];
 
-    }
+            return response()->json($response, 200);
+        }catch(QueryException $err){
+            return response()->json(
+                ["error" => $err->errorInfo],
+            400);
+        }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create(Request $request)
-    {
-        //
     }
 
     /**
@@ -48,7 +47,25 @@ class BlogsManageController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $blog = $request->validate([
+            "judul_blog" => ["required"],
+            "thumbnail" => ["required"],
+            "content" => ["required"],
+        ]);
+
+        try{
+            $blog["id_penulis"] = $request->user()->id;
+            Blogs::create($blog);
+            return response()->json([
+                "message" => "success add data blog",
+                "data" => $blog,
+            ], 200);
+        }catch(QueryException $err){
+            return response()->json(
+                ["error" => $err->errorInfo],
+             400);
+        }
     }
 
     /**

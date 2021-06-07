@@ -38,6 +38,7 @@ Route::middleware(['auth:admin'])->group(function() {
     Route::get('/v1/admin/', [AdminsManageController::class,'getCurrentAdmin']);
     Route::get('/v1/admins/', [AdminsManageController::class,'getAllAdmins']);
     Route::delete('v1/admin/{id}', [AdminsManageController::class,'deleteById']);
+    Route::post('/v1/blog', [BlogsManageController::class, 'store']);
 });
 
 // auth for user
