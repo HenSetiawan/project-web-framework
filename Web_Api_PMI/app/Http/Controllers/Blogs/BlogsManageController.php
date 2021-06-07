@@ -13,7 +13,7 @@ class BlogsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function getAllBlogs()
     {
        $blogs = DB::table('blogs')->orderBy('id', 'DESC')->get();
 

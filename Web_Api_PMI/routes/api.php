@@ -63,6 +63,7 @@ Route::get('/v1/volunteers', [VolunteerManageController::class,'getAllVolunteers
 // routes puclic admin
 Route::post('/v1/auth/admin/login', [AuthAdminController::class, 'login']);
 Route::get('/v1/bloods/', [BloodManageController::class,'GetAllBloods']);
+Route::get('/v1/blogs', [BlogsManageController::class, 'getAllBlogs']);
 
 // routes public for user
 Route::post('/v1/auth/user/login', [AuthUsersController::class, 'login']);
