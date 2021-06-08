@@ -26,8 +26,8 @@ class BlogsManageController extends Controller
                         ->get();
 
             $response = [
-                    "data" => $blogs,
-                    "message" => 'Success'
+                    "message" => 'success get all data blogs',
+                    "data" => $blogs
             ];
 
             return response()->json($response, 200);
@@ -99,7 +99,26 @@ class BlogsManageController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $result = Blogs::findOrFail($id);
+
+        $blog = $request->validate([
+            "judul_blog" => ["required"],
+            "thumbnail" => ["required"],
+            "content" => ["required"],
+        ]);
+
+        try{
+            $blog["id_penulis"] = $request->user()->id;
+            $result->update($blog);
+            return response()->json([
+                "message" => "success add data blog",
+                "data" => $blog,
+            ], 200);
+        }catch(QueryException $err){
+            return response()->json(
+                ["error" => $err->errorInfo],
+             400);
+        }
     }
 
     /**
