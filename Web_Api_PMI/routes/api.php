@@ -9,6 +9,7 @@ use App\Http\Controllers\Users\AuthUsersController;
 use App\Http\Controllers\Users\UsersManageController;
 use App\Http\Controllers\Volunteer\AuthVolunteerController;
 use App\Http\Controllers\Volunteer\VolunteerManageController;
+use App\Http\Controllers\FAQ\FAQManageController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -43,6 +44,9 @@ Route::middleware(['auth:admin'])->group(function() {
     Route::post('/v1/event', [AgendaManageController::class, 'store']);
     Route::put('/v1/event/{id}', [AgendaManageController::class, 'update']);
     Route::delete('/v1/event/{id}', [AgendaManageController::class, 'destroy']);
+    Route::post('/v1/ask' , [FAQManageController::class, 'index']);
+    Route::put('v1/ask/{id}', [FAQManageController::class,'index']);
+    Route::delete('/v1/ask/{id}', [FAQManageController::class,'index']);
 });
 
 // auth for user
@@ -71,10 +75,12 @@ Route::post('/v1/auth/admin/login', [AuthAdminController::class, 'login']);
 Route::get('/v1/bloods/', [BloodManageController::class,'GetAllBloods']);
 Route::get('/v1/blogs', [BlogsManageController::class, 'getAllBlogs']);
 Route::get('/v1/events', [AgendaManageController::class, 'index']);
+Route::get('/v1/asks' , [FAQManageController::class, 'index']);
 
 // routes public for user
 Route::post('/v1/auth/user/login', [AuthUsersController::class, 'login']);
 Route::post('/v1/auth/user/register', [AuthUsersController::class, 'register']);
+
 
 // multi role
 Route::middleware(['auth:sanctum','isMultiRole'])->group(function() {
