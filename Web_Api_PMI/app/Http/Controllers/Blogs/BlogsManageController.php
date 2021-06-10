@@ -76,7 +76,24 @@ class BlogsManageController extends Controller
      */
     public function show($id)
     {
-        //
+        try{
+            $blog = DB::table('blogs as b')
+                        ->select('b.id as id', 'b.judul_blog as judul_blog', 'b.thumbnail as thumbnail','b.content as content', 'a.username as username', 'b.created_at as created_at', 'b.updated_at as updated_at')
+                        ->leftJoin('admins as a', 'a.id', '=', 'b.id_penulis')
+                        ->where('id', $id)
+                        ->first();
+
+            $response = [
+                    "message" => 'success get data detail blog',
+                    "data" => $blog
+            ];
+
+            return response()->json($response, 200);
+        }catch(QueryException $err){
+            return response()->json(
+                ["error" => $err->errorInfo],
+            400);
+        }
     }
 
     /**
@@ -129,6 +146,17 @@ class BlogsManageController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $result = Blogs::findOrFail($id);
+
+        try{
+            $result->delete();
+            return response()->json([
+                "message" => "success delete data blog",
+            ])->setStatusCode(200);
+        }catch(QueryException $err){
+            return response()->json([
+                "error" => $err->errorInfo
+            ])->setStatusCode(400);
+        }
     }
 }
