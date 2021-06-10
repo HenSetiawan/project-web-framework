@@ -80,7 +80,8 @@ class BlogsManageController extends Controller
             $blog = DB::table('blogs as b')
                         ->select('b.id as id', 'b.judul_blog as judul_blog', 'b.thumbnail as thumbnail','b.content as content', 'a.username as username', 'b.created_at as created_at', 'b.updated_at as updated_at')
                         ->leftJoin('admins as a', 'a.id', '=', 'b.id_penulis')
-                        ->where('id', $id)
+                        ->orderBy('id', 'ASC')
+                        ->where('b.id', $id)
                         ->first();
 
             $response = [
