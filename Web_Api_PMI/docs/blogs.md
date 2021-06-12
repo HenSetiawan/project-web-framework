@@ -96,7 +96,7 @@ digunakan untuk mengupdate detail blogs
 
 | method | endpoint          | auth  |
 | ------ | ----------------- | ----- |
-| PUT    | /api/v1/blog/{id} | admin |
+| POST   | /api/v1/blog/{id} | admin |
 
 -   value yang dikirimkan pada body
 
