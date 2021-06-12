@@ -50,12 +50,20 @@ class BlogsManageController extends Controller
 
         $blog = $request->validate([
             "judul_blog" => ["required"],
-            "thumbnail" => ["required"],
+            "thumbnail" => ["required", "mimes:png,jpg,jpeg", "max:2048"],
             "content" => ["required"],
         ]);
 
         try{
+            $file = $request->file('thumbnail');
+            $fileName = time(). uniqid(). "." .$file->extension();
+            $destination = public_path('storage/images');
+
+            $file->move($destination, $fileName);
+
+            $blog["thumbnail"] = asset("storage/images") . "/" . $fileName;
             $blog["id_penulis"] = $request->user()->id;
+
             Blogs::create($blog);
             return response()->json([
                 "message" => "success add data blog",
