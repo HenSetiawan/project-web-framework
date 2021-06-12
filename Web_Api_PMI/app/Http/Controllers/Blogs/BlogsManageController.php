@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Blogs;
 
 use App\Http\Controllers\Controller;
 use App\Models\Blogs;
+use Facade\FlareClient\Stacktrace\File;
 use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -111,9 +112,9 @@ class BlogsManageController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Request $request, $id)
     {
-        //
+
     }
 
     /**
@@ -129,11 +130,22 @@ class BlogsManageController extends Controller
 
         $blog = $request->validate([
             "judul_blog" => ["required"],
-            "thumbnail" => ["required"],
+            "thumbnail" => ["required", "mimes:png,jpg,jpeg", "max:2048"],
             "content" => ["required"],
         ]);
 
         try{
+            $file = $request->file('thumbnail');
+            $fileName = time(). uniqid(). "." .$file->extension();
+            $destination = public_path('storage/images');
+
+            if(file_exists($destination."/".$result->thumbnail)){
+                unlink($destination."/".$result->thumbnail);
+            }
+
+            $file->move($destination, $fileName);
+
+            $blog["thumbnail"] = asset("storage/images") . "/" . $fileName;
             $blog["id_penulis"] = $request->user()->id;
             $result->update($blog);
             return response()->json([
@@ -158,7 +170,12 @@ class BlogsManageController extends Controller
         $result = Blogs::findOrFail($id);
 
         try{
+            $destination = public_path('storage/images');
+            $image = explode("/", $result->thumbnail);
+
             $result->delete();
+
+            unlink($destination."/".end($image));
             return response()->json([
                 "message" => "success delete data blog",
             ])->setStatusCode(200);
