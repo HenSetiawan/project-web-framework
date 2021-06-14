@@ -34,9 +34,9 @@ data:[
 
 digunakan untuk menampilkan detail blogs
 
-| method | endpoint           | auth |
-| ------ | ------------------ | ---- |
-| GET    | /api/v1/blogs/{id} | N    |
+| method | endpoint          | auth |
+| ------ | ----------------- | ---- |
+| GET    | /api/v1/blog/{id} | N    |
 
 ```js
 {
@@ -61,9 +61,9 @@ data:[
 
 digunakan untuk menambahkan detail blogs
 
-| method | endpoint      | auth  |
-| ------ | ------------- | ----- |
-| POST   | /api/v1/blogs | admin |
+| method | endpoint     | auth  |
+| ------ | ------------ | ----- |
+| POST   | /api/v1/blog | admin |
 
 -   value yang dikirimkan pada body
 
@@ -94,9 +94,9 @@ data:[
 
 digunakan untuk mengupdate detail blogs
 
-| method | endpoint           | auth  |
-| ------ | ------------------ | ----- |
-| PUT    | /api/v1/blogs/{id} | admin |
+| method | endpoint          | auth  |
+| ------ | ----------------- | ----- |
+| POST   | /api/v1/blog/{id} | admin |
 
 -   value yang dikirimkan pada body
 
@@ -127,9 +127,9 @@ data:[
 
 digunakan untuk menghapus detail blogs
 
-| method | endpoint           | auth  |
-| ------ | ------------------ | ----- |
-| DELETE | /api/v1/blogs/{id} | admin |
+| method | endpoint          | auth  |
+| ------ | ----------------- | ----- |
+| DELETE | /api/v1/blog/{id} | admin |
 
 ```js
 {

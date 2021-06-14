@@ -3,7 +3,11 @@
 namespace App\Http\Controllers\FAQ;
 
 use App\Http\Controllers\Controller;
+use App\Models\FAQ;
+use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+
 
 class FAQManageController extends Controller
 {
@@ -14,7 +18,18 @@ class FAQManageController extends Controller
      */
     public function index()
     {
-        //
+            $faq = DB::table('frequently_ask_question')
+                   ->orderBy('id', 'DESC')
+                   ->get();
+
+            $response = [
+
+                'message'=> 'Success',
+                'data' => $faq,
+            ];
+
+            return response()->json($response, 200);
+
     }
 
     /**

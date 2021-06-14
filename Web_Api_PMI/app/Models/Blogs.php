@@ -6,12 +6,11 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 
-
-class FAQ extends Model
+class Blogs extends Model
 {
     use HasFactory, Notifiable;
 
-    protected $table = 'frequently_ask_question';
+    protected $table = 'blogs';
 
     /**
      * The attributes that are mass assignable.
@@ -19,9 +18,9 @@ class FAQ extends Model
      * @var array
      */
     protected $fillable = [
-        'id',
-        'question',
-        'answer',
-
+        'judul_blog',
+        'thumbnail',
+        'content',
+        'id_penulis',
     ];
 }
