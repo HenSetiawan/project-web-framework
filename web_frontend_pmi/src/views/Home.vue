@@ -1,17 +1,248 @@
 <template>
   <div class="home">
-    <navbar></navbar>
-    <header-vue></header-vue>
+    <navbar/>
+    <header-vue/>
+    <services/>
   </div>
 </template>
 <script>
 import navbar from "../components/HeaderContainer/Navbar.vue";
 import headerVue from "../components/HeaderContainer/Header.vue";
+import services from "../components/BodyContainer/Services.vue";
 export default {
   name: "Home",
   components: {
     navbar,
     headerVue,
+    services
   },
 };
 </script>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;700&display=swap');
+
+
+.navbar{
+    margin-top: 20px;
+    padding: 0 !important;
+}
+.navbar-brand{
+    margin-right: 500px;
+}
+.nav-item{
+    font-family: 'Mulish', sans-serif;
+    font-weight: 400;
+    margin-right: 20px;
+    size: 18px;
+    padding: 0 !important;
+}
+
+.active{
+    font-weight: 700;
+}
+
+.header-component h1{
+    font-family: 'Mulish',sans-serif;
+    font-weight: 700;
+    font-size: 48px;
+    margin-top: 170px;
+}
+
+.header-component p{
+    font-family: 'Mulish',sans-serif;
+    font-size: 21px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 32px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #7D7987;
+
+}
+
+.header-component img{
+    margin-top: 70px;
+}
+
+.btn-consult{
+    margin-top: 45px;
+    width: 200px !important;
+    font-size: 18px !important;
+    height: 56px !important;
+    color: white !important;
+    font-family: 'Mulish',sans-serif !important;
+    font-weight: 700 !important;
+    line-height: 45px !important;
+    border-radius: 55px !important;
+    background-color : #458FF6 !important;
+}
+
+.services-component{
+    margin-top: 180px;
+    font-family: 'Mulish',sans-serif;
+}
+.services-component h2{
+    font-weight: 700;
+    font-size: 36px;
+}
+
+.services-component p{
+    color: #7D7987;
+}
+.img-vector{
+    position: absolute;
+    top: 60px;
+    height: 800px !important;
+    width: 900px !important;
+}
+
+.services-list{
+    position: relative;
+}
+
+.card-services{
+    margin-top: 20px;
+   background: white;
+   padding-left: 30px;
+   padding-top: 30px;
+   box-sizing: border-box;
+   box-shadow: 10px 40px 50px rgba(229, 233, 246, 0.8);
+   border-radius: 20px !important;
+   height: 300px;
+   width: 350px;
+}
+
+.card-services img{
+    margin-left: 15px;
+    height: 75px;
+    width: 60px;
+}
+
+.btn-learn-more{
+    width: 200px;
+    font-family: 'Mulish',sans-serif;
+    line-height: 60px;
+    border-radius: 80px !important;
+}
+
+.featured-component{
+    margin-top: 150px !important;
+}
+.featured-component .card{
+    border:none !important;
+    font-family: 'Mulish',sans-serif;
+    margin-top: 50px !important;
+}
+
+.featured-component h5{
+    font-weight: 700;
+    font-size: 36px !important;
+}
+.featured-component p{
+    font-weight: 300;
+    color: #7D7987;
+    font-size: 18px !important;
+}
+
+.download-component{
+    margin-top: 150px !important;
+}
+
+.download-component .card{
+    border:none !important;
+    font-family: 'Mulish',sans-serif;
+    margin-top: 50px !important;
+}
+
+.download-component h5{
+    font-weight: 700;
+    font-size: 36px !important;
+}
+
+.download-component p{
+    font-weight: 300;
+    color: #7D7987;
+    font-size: 18px !important;
+}
+
+.blogs-component{
+    font-family: 'Mulish',sans-serif;
+    margin-top: 150px !important;
+}
+.blogs-component h2{
+    font-weight: 700;
+}
+
+.blog-card{
+    border: none !important;
+    box-shadow: 10px 40px 50px rgba(229, 233, 246, 0.8);
+    text-decoration: none !important;
+    margin-top: 80px !important;
+}
+.blog-card h5{
+   font-weight: 700;
+   font-size: 20px;
+}
+
+.blog-card p{
+    color: #7D7987;
+    font-size: 16px !important;
+}
+
+.blog-card a{
+    text-decoration: none !important;
+}
+
+.blog-card i{
+    display: inline-block;
+    margin-left: 5px;
+}
+
+.blog-card img{
+    border-top-left-radius: 10px !important;
+    border-top-right-radius: 10px !important;
+}
+
+
+footer{
+    background: linear-gradient(183.41deg, #67C3F3 -8.57%, #5A98F2 82.96%);
+    margin-top: 200px !important;
+    font-family: 'Mulish',sans-serif;
+    color: #fff;
+}
+
+footer h5{
+    font-weight: 700;
+    font-size: 24px !important;
+}
+
+footer p{
+    font-weight: 300;
+    font-size: 16px !important;
+}
+
+footer a,footer li{
+    text-decoration: none !important;
+    list-style: none !important;
+    color: #fff;
+    font-family: 'Mulish',sans-serif;
+    font-size: 16px !important;
+    font-weight: 300;
+}
+
+footer ul{
+    padding: 0px !important;
+}
+
+
+.circle-trafalgar{
+    display: inline-block !important;
+    background-color: #fff !important;
+    width: 45px;
+    height: 45px;
+    color: #5B9BF3 !important;
+    border-radius: 50% !important;
+    line-height: 50px !important;
+}
+</style>
