@@ -1,6 +1,6 @@
 <template>
   <!-- services -->
-  <section class="services-list">
+  <section class="services-list mb-5">
     <div class="container services-component">
       <div class="row">
         <section class="col-lg-12 text-center">
