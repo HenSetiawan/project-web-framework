@@ -27,16 +27,10 @@
             <a class="nav-link" href="#">Stok Darah</a>
           </li>
           <li class="nav-item mr-2">
-            <a class="nav-link" href="#">Daftar Relawan</a>
-          </li>
-          <li class="nav-item mr-2">
             <a class="nav-link" href="#">Tentang</a>
           </li>
           <li class="nav-item mr-2">
             <a class="nav-link" href="#">Artikel</a>
-          </li>
-          <li class="nav-item ml-5 rounded-pill">
-            <a class="btn btn-sm btn-outline-danger mt-2" href="#">Masuk</a>
           </li>
         </ul>
       </div>
