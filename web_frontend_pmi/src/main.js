@@ -4,14 +4,13 @@ import "./registerServiceWorker";
 import router from "./router";
 import store from "./store";
 import "@/assets/css/sb-admin-2.min.css";
-import "@/assets/fontawesome/css/all.min.css"
+import "@/assets/fontawesome/css/all.min.css";
 
 import { BootstrapVue, BootstrapVueIcons } from "bootstrap-vue";
 
 import "bootstrap/dist/css/bootstrap.css";
+import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import "bootstrap-vue/dist/bootstrap-vue.css";
-
-
 
 Vue.use(BootstrapVue);
 Vue.use(BootstrapVueIcons);
