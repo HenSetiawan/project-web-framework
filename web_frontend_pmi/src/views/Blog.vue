@@ -18,7 +18,7 @@ export default {
 };
 </script>
 
-<style>
-@import "../assets/css/blog/templatemo-stand-blog.css";
+<style scoped>
+/* @import "../assets/css/blog/templatemo-stand-blog.css"; */
 /* @import "../assets/css/blog/owl.css"; */
 </style>
