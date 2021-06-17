@@ -9,7 +9,7 @@
           <div class="col-lg-6"><card-blog /></div>
         </div>
       </div>
-      <div class="col-lg-4">
+      <div class="col-lg-4 mt-5">
         <recent-blog />
       </div>
     </div>
@@ -21,15 +21,6 @@ import cardBlog from "../BlogContainer/CardBlog.vue";
 import recentBlog from "../BlogContainer/RecentBlog.vue";
 export default {
   name: "listBlog",
-  data() {
-    return {
-      blogs: [
-        { title: "Donor Darah", desc: "Anda Dapat Mendonorkan Darah Anda" },
-        { title: "Donor Darah", desc: "Anda Dapat Mendonorkan Darah Anda" },
-        { title: "Donor Darah", desc: "Anda Dapat Mendonorkan Darah Anda" },
-      ],
-    };
-  },
   components: {
     cardBlog,
     recentBlog,

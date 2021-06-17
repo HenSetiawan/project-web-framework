@@ -2,7 +2,7 @@
   <footer>
     <div class="container">
       <div class="row">
-        <div class="col-md-4 mt-5">
+        <div class="col-md-4 mt-4">
           <h5><span class="circle-trafalgar text-center">T</span> Trafalgar</h5>
           <p class="mt-3">
             Trafalgar provides progressive, and affordable healthcare,
