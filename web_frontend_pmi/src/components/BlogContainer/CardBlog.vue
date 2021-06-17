@@ -13,11 +13,11 @@
 </template>
 <script>
 export default {
-    name:"cardBlog"
-}
+  name: "cardBlog",
+};
 </script>
 <style scoped>
-a{
-    color: rgb(228, 91, 91) !important;
+a {
+  color: rgb(228, 91, 91) !important;
 }
 </style>

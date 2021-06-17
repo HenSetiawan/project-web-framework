@@ -6,7 +6,7 @@
   </div>
 </template>
 <script>
-import cardServices from "../utilities/Card.vue";
+import cardServices from "./CardServices.vue";
 export default {
   data() {
     return {

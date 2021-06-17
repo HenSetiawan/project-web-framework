@@ -13,7 +13,7 @@ import navbar from "../components/HeaderContainer/Navbar.vue";
 import headerVue from "../components/HeaderContainer/Header.vue";
 import services from "../components/BodyContainer/Services.vue";
 import mobileApp from "../components/BodyContainer/MobileApps.vue";
-import latestBlog from "../components/BodyContainer/LatestBlog.vue";
+import latestBlog from "../components/BlogContainer/LatestBlog.vue";
 import footerVue from "../components/FooterContainer/footer.vue";
 export default {
   name: "Home",

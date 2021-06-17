@@ -28,7 +28,7 @@
 </template>
 
 <script>
-import CardList from "../utilities/CardList.vue";
+import CardList from "../utilities/ServiceList.vue";
 export default {
   components: { CardList },
 };

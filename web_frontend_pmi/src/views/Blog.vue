@@ -6,7 +6,7 @@
 </template>
 <script>
 import navbar from "../components/HeaderContainer/Navbar.vue";
-import listBlog from "../components/BodyContainer/ListBlog.vue";
+import listBlog from "../components/BlogContainer/ListBlog.vue";
 export default {
   name: "Blog",
   components: {

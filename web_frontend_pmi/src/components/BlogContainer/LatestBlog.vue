@@ -24,7 +24,7 @@
   </section>
 </template>
 <script>
-import cardBlog from "../utilities/CardBlog.vue";
+import cardBlog from "../BlogContainer/CardBlog.vue";
 export default {
   components: {
     cardBlog,
