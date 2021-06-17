@@ -6,15 +6,14 @@
         <section class="col-lg-12 text-center">
           <h2>Layanan Kami</h2>
           <p class="w-75 mx-auto">
-            We provide to you the best choiches for you. Adjust it to your
-            health needs and make sure your undergo treatment with our highly
-            qualified doctors you can consult with us which type of service is
-            suitable for your health
+            Memelihara reputasi organisasi PMI di tingkat nasional dan
+            internasional, Menjadi organisasi kemanusiaan terdepan yang
+            memberikan layanan berkualitas
           </p>
         </section>
       </div>
       <div class="row">
-        <Card-list/>
+        <Card-list />
       </div>
       <div class="row mt-2">
         <div class="col-lg-12 col-md-12 text-center">
@@ -29,7 +28,7 @@
 </template>
 
 <script>
-import CardList from '../utilities/CardList.vue';
+import CardList from "../utilities/CardList.vue";
 export default {
   components: { CardList },
 };

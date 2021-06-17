@@ -1,18 +1,17 @@
 <template>
-  <div>
+  <section>
     <navbar />
     <list-blog />
-  </div>
+  </section>
 </template>
-
 <script>
-import listBlog from "../components/BodyContainer/ListBlog.vue";
 import navbar from "../components/HeaderContainer/Navbar.vue";
-
+import listBlog from "../components/BodyContainer/ListBlog.vue";
 export default {
   name: "Blog",
   components: {
-    listBlog,
     navbar,
+    listBlog,
   },
 };
+</script>

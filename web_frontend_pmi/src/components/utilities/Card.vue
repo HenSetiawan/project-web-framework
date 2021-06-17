@@ -4,10 +4,9 @@
       <img src="../../../public/img/cure.svg" alt="online phamachy" />
     </div>
     <div class="card-body">
-      <h5 class="card-title">Online pharmacy</h5>
+      <h5 class="card-title">{{title}}</h5>
       <p class="card-text">
-        Buy your medicines with our mobile application with a simple delivery
-        system
+       {{description}}
       </p>
     </div>
   </div>
@@ -15,6 +14,10 @@
 
 <script>
 export default {
+  props:{
+    title:String,
+    description:String
+  },
     name:'card'
 }
 </script>

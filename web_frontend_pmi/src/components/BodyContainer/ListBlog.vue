@@ -1,6 +1,8 @@
 <template>
   <section class="blog-posts">
-    <div class="container">
+   <div class="container">
+
+
       <div class="row">
         <div class="col-lg-8">
           <div class="all-blog-posts">
@@ -157,12 +159,13 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
   </section>
 </template>
 
 <script>
 export default {
+  name:"listBlog",
   data() {
     return {
       blogs: [

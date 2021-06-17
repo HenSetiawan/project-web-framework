@@ -13,7 +13,7 @@
 </template>
 <script>
 export default {
-    name:"CardBlog"
+    name:"cardBlog"
 }
 </script>
 <style scoped>

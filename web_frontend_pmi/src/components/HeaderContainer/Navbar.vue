@@ -27,10 +27,13 @@
             <a class="nav-link" href="#">Stok Darah</a>
           </li>
           <li class="nav-item mr-2">
+            <a class="nav-link" href="#">Artikel</a>
+          </li>
+          <li class="nav-item mr-2">
             <a class="nav-link" href="#">Tentang</a>
           </li>
           <li class="nav-item mr-2">
-            <a class="nav-link" href="#">Artikel</a>
+            <a class="nav-link" href="#">FAQ</a>
           </li>
         </ul>
       </div>
