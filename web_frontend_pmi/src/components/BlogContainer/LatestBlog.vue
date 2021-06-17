@@ -18,7 +18,11 @@
     </div>
     <div class="row">
       <div class="col-md-12 text-center mt-3">
-        <button class="btn btn-learn-more btn-outline-danger">View All</button>
+        <router-link
+          :to="{ name: 'blog' }"
+          class="btn btn-learn-more btn-outline-danger"
+          >View All</router-link
+        >
       </div>
     </div>
   </section>

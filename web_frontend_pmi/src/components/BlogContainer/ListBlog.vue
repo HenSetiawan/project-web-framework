@@ -9,7 +9,7 @@
           <div class="col-lg-6"><card-blog /></div>
         </div>
       </div>
-      <div class="col-lg-4">
+      <div class="col-lg-4 mt-5">
         <recent-blog />
       </div>
     </div>

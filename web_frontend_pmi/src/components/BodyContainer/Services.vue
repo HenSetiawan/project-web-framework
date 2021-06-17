@@ -15,13 +15,6 @@
       <div class="row">
         <Card-list />
       </div>
-      <div class="row mt-2">
-        <div class="col-lg-12 col-md-12 text-center">
-          <a href="#" class="btn btn-outline-danger btn-learn-more"
-            >Learn more</a
-          >
-        </div>
-      </div>
     </div>
   </section>
   <!-- services end -->
