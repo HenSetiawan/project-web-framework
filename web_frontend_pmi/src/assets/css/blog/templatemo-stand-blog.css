@@ -50,7 +50,7 @@ h6 {
 }
 
 .main-button a:hover {
-  background-color: #fb9857;
+  background-color: #eb4511;
 }
 
 .heading-page {
@@ -294,7 +294,7 @@ h6 {
 /* Blog Posts */
 
 .blog-posts {
-  margin-top: 100px;
+  margin-top: 50px;
 }
 
 .blog-posts .blog-post {
@@ -318,7 +318,7 @@ h6 {
   text-transform: uppercase;
   letter-spacing: 0.5px;
   font-weight: 900;
-  color: #f48840;
+  color: #eb4511;
 }
 
 .blog-posts .down-content h4 {

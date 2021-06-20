@@ -21,15 +21,6 @@ import cardBlog from "../BlogContainer/CardBlog.vue";
 import recentBlog from "../BlogContainer/RecentBlog.vue";
 export default {
   name: "listBlog",
-  data() {
-    return {
-      blogs: [
-        { title: "Donor Darah", desc: "Anda Dapat Mendonorkan Darah Anda" },
-        { title: "Donor Darah", desc: "Anda Dapat Mendonorkan Darah Anda" },
-        { title: "Donor Darah", desc: "Anda Dapat Mendonorkan Darah Anda" },
-      ],
-    };
-  },
   components: {
     cardBlog,
     recentBlog,

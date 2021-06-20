@@ -3,6 +3,7 @@ import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
 import Dashboard from "../Dashboard/Sidebar";
 import Blog from "../views/Blog.vue";
+import DetailBlog from "../views/DetailBlog.vue";
 
 Vue.use(VueRouter);
 
@@ -21,6 +22,11 @@ const routes = [
     path: "/blog",
     name: "blog",
     component: Blog,
+  },
+  {
+    path: "/blog/detail/:id",
+    name: "detailblog",
+    component: DetailBlog,
   },
 ];
 
