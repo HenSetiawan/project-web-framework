@@ -78,6 +78,7 @@ Route::get('/v1/bloods/', [BloodManageController::class,'GetAllBloods']);
 Route::get('/v1/blogs', [BlogsManageController::class, 'getAllBlogs']);
 Route::get('/v1/events', [AgendaManageController::class, 'index']);
 Route::get('/v1/asks' , [FAQManageController::class, 'index']);
+Route::get('/v1/blogs/current', [BlogsManageController::class, 'getCurrentBlogs']);
 
 // routes public for user
 Route::post('/v1/auth/user/login', [AuthUsersController::class, 'login']);
