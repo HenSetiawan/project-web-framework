@@ -39,6 +39,29 @@ class BlogsManageController extends Controller
 
     }
 
+    public function getCurrentBlogs()
+    {
+        try{
+            $blogs = DB::table('blogs as b')
+                        ->select('b.id as id', 'b.judul_blog as judul_blog', 'b.thumbnail as thumbnail', 'a.username as username', 'b.created_at as created_at')
+                        ->leftJoin('admins as a', 'a.id', '=', 'b.id_penulis')
+                        ->orderBy('created_at', 'DESC')
+                        ->limit(3)
+                        ->get();
+
+            $response = [
+                    "message" => 'success get current data blogs',
+                    "data" => $blogs
+            ];
+
+            return response()->json($response, 200);
+        }catch(QueryException $err){
+            return response()->json(
+                ["error" => $err->errorInfo],
+            400);
+        }
+    }
+
     /**
      * Store a newly created resource in storage.
      *
