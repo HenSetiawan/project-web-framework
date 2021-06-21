@@ -1,9 +1,11 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
-import Dashboard from "../Dashboard/Sidebar";
+import Dashboard from "../Dashboard/SidebarContainer/Sidebar.vue";
 import Blog from "../views/Blog.vue";
 import DetailBlog from "../views/DetailBlog.vue";
+import Blood from "../Dashboard/FormContainer/BloodForm.vue"
+
 
 Vue.use(VueRouter);
 
@@ -13,11 +15,20 @@ const routes = [
     name: "home",
     component: Home,
   },
+
+  // Dashboard Routes 
   {
     path: "/dashboard",
     name: "dashboard",
     component: Dashboard,
   },
+  {
+    path: "/dashboard/blood",
+    name: "blood",
+    component: Blood,
+  },
+
+  // Blog Routes
   {
     path: "/blog",
     name: "blog",
