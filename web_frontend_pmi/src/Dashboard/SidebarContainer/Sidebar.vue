@@ -1,5 +1,5 @@
 <template>
-  <div class="wrap">
+  <div class="wrap d-flex">
     <!-- Sidebar -->
     <ul
       class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion"
@@ -81,7 +81,7 @@
 
       <!-- Nav Item - Blood Stock Form -->
       <li class="nav-item">
-        <router-link class="nav-link" :to="{ name: 'blood' }">
+        <router-link class="nav-link" :to="{ name: 'bloodtable' }">
           <i class="fas fa-fw fa-table"></i>
           <span>Blood Stock Form</span>
         </router-link>
