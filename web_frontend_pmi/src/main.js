@@ -14,7 +14,7 @@ import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import "bootstrap-vue/dist/bootstrap-vue.css";
 import axios from "axios";
 
-axios.defaults.baseURL = "http://localhost:8080/api";
+axios.defaults.baseURL = "http://localhost:8000";
 axios.defaults.withCredentials = true;
 
 Vue.use(BootstrapVue);

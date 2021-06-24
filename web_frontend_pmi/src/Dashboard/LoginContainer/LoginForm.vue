@@ -10,7 +10,7 @@
               </h5>
             </div>
             <div class="card-body mb-4">
-              <form action="">
+              <form @submit.prevent="login">
                 <b-form-group
                   id="input-group-1"
                   label="Email address:"
@@ -72,6 +72,22 @@ export default {
         password: "",
       },
     };
+  },
+
+  methods: {
+    login() {
+      this.$store
+        .dispatch("login", {
+          email: this.form.email,
+          password: this.form.password,
+        })
+        .then(() => {
+          this.$router.push({ name: "bloodtable" });
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    },
   },
 };
 </script>
