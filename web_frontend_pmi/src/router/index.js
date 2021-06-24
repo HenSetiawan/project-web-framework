@@ -1,11 +1,11 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
-import BloodTable from "../Dashboard/TableContainer/BloodTable.vue";
 import Blog from "../views/Blog.vue";
 import DetailBlog from "../views/DetailBlog.vue";
-import Blood from "../Dashboard/FormContainer/BloodForm.vue"
-
+import LoginForm from "../Dashboard/LoginContainer/LoginForm.vue";
+import Blood from "../Dashboard/FormContainer/BloodForm.vue";
+import BloodTable from "../Dashboard/TableContainer/BloodTable.vue";
 
 Vue.use(VueRouter);
 
@@ -16,7 +16,7 @@ const routes = [
     component: Home,
   },
 
-  // Dashboard Routes 
+  // Dashboard Routes
   {
     path: "/dashboard/blood",
     name: "bloodtable",
@@ -26,6 +26,11 @@ const routes = [
     path: "/dashboard/blood/form",
     name: "bloodform",
     component: Blood,
+  },
+  {
+    path: "/dashboard/login",
+    name: "loginform",
+    component: LoginForm,
   },
 
   // Blog Routes

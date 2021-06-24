@@ -9,7 +9,7 @@
               <h3 class="mt-3 mb-4 text-gray-800 bold">
                 Form Tambah Data Stok Darah
               </h3>
-              <b-form v-if="show" class="mb-3">
+              <b-form v-if="show" class="mb-2">
                 <b-form-group
                   id="input-group-1"
                   label="Golongan Darah :"
@@ -27,16 +27,16 @@
 
                 <b-form-group
                   id="input-group-2"
-                  label="Kategori :"
+                  label="Kategori:"
                   label-for="input-2"
                 >
-                  <b-form-input
+                  <b-form-select
                     id="input-2"
                     v-model="form.category"
-                    placeholder="Enter category here"
+                    :options="categories"
                     required
-                    class="col-lg-4"
-                  ></b-form-input>
+                    class="col-lg-3"
+                  ></b-form-select>
                 </b-form-group>
 
                 <b-form-group
@@ -47,25 +47,29 @@
                   <b-form-input
                     id="input-3"
                     v-model="form.stock"
+                    type="number"
                     placeholder="Enter stock blood here"
                     required
-                    class="col-lg-4"
+                    class="col-lg-3"
                   ></b-form-input>
                 </b-form-group>
 
-                <b-form-group
-                  id="input-group-4"
-                  label="Deskripsi :"
-                  label-for="input-4"
-                >
-                  <b-form-input
-                    id="input-3"
-                    v-model="form.description"
-                    placeholder="Enter description here"
-                    required
-                    class="col-lg-6"
-                  ></b-form-input>
-                </b-form-group>
+                <div>
+                  <b-form-group
+                    id="input-group-3"
+                    label="Deskripsi :"
+                    label-for="input-4"
+                  >
+                    <b-form-textarea
+                      id="input-4"
+                      v-model="form.description"
+                      :state="form.description.length >= 10"
+                      placeholder="Enter at least 10 characters"
+                      rows="5"
+                      class="mb-4 col-lg-6"
+                    ></b-form-textarea>
+                  </b-form-group>
+                </div>
 
                 <b-button type="submit" variant="primary">Submit</b-button>
                 <b-button type="reset" variant="danger" class="ml-3"
@@ -89,10 +93,17 @@ export default {
     return {
       form: {
         blood: "",
-        category: "",
+        category: null,
         stock: "",
         description: "",
       },
+      categories: [
+        { text: "Select One", value: null },
+        "Carrots",
+        "Beans",
+        "Tomatoes",
+        "Corn",
+      ],
       show: true,
     };
   },
