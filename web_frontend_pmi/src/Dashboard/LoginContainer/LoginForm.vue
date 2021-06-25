@@ -9,7 +9,13 @@
                 Selamat Datang Admin
               </h5>
             </div>
-            <div class="card-body mb-4">
+            <div class="card-body mb-2">
+              <div v-if="loggingIn" class="container-loading">
+                <img
+                  src="../../../public/img/loading-container.gif"
+                  alt="loading"
+                />
+              </div>
               <form @submit.prevent="login">
                 <b-form-group
                   id="input-group-1"
@@ -44,7 +50,7 @@
 
                 <b-form-group id="input-group-4" v-slot="{ ariaDescribedby }">
                   <b-form-checkbox-group
-                    v-model="form.checked"
+                    @change="checked"
                     id="checkboxes-4"
                     :aria-describedby="ariaDescribedby"
                   >
@@ -52,10 +58,17 @@
                   </b-form-checkbox-group>
                 </b-form-group>
 
-                <b-button type="submit" variant="primary" class="col-md-12"
+                <b-button
+                  :disabled="loggingIn"
+                  type="submit"
+                  variant="primary"
+                  class="col-md-12"
                   >Login</b-button
                 >
               </form>
+              <p class="text-danger mt-2" v-if="loggingError">
+                {{ loggingError }}
+              </p>
             </div>
           </div>
         </div>
@@ -64,13 +77,13 @@
   </section>
 </template>
 <script>
-import { mapState} from "vuex";
+import { mapState } from "vuex";
 export default {
   data() {
     return {
       form: {
-        email: "",
-        password: "",
+        email: localStorage.getItem("email"),
+        password: localStorage.getItem("password"),
       },
     };
   },
@@ -81,11 +94,33 @@ export default {
 
   methods: {
     login() {
-      this.$store.dispatch('doLogin', {
+      this.$store.dispatch("doLogin", {
         email: this.form.email,
         password: this.form.password,
       });
     },
+    checked() {
+      localStorage.setItem("email", this.form.email);
+      localStorage.setItem("password", this.form.password);
+    },
   },
 };
 </script>
+
+<style scoped>
+.container-loading {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgb(0, 0, 0, 0.3);
+}
+img {
+  width: 2rem;
+  height: 2rem;
+}
+</style>

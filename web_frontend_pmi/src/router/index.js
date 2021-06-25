@@ -11,13 +11,39 @@ import store from "../store";
 Vue.use(VueRouter);
 
 const routes = [
+  // Home routes
   {
     path: "/",
     name: "home",
     component: Home,
   },
 
-  // Dashboard Routes
+  // Login Routes
+  {
+    path: "/dashboard/login",
+    name: "loginform",
+    component: LoginForm,
+  },
+
+  // Redirect if routes doesn't exist
+  {
+    path: "*",
+    redirect: "/",
+  },
+
+  // Blog routes
+  {
+    path: "/blog",
+    name: "blog",
+    component: Blog,
+  },
+  {
+    path: "/blog/detail/:id",
+    name: "detailblog",
+    component: DetailBlog,
+  },
+
+  // Dashboard routes
   {
     path: "/dashboard/blood",
     name: "bloodtable",
@@ -30,23 +56,9 @@ const routes = [
     path: "/dashboard/blood/form",
     name: "bloodform",
     component: Blood,
-  },
-  {
-    path: "/dashboard/login",
-    name: "loginform",
-    component: LoginForm,
-  },
-
-  // Blog Routes
-  {
-    path: "/blog",
-    name: "blog",
-    component: Blog,
-  },
-  {
-    path: "/blog/detail/:id",
-    name: "detailblog",
-    component: DetailBlog,
+    meta: {
+      auth: true,
+    },
   },
 ];
 
@@ -58,10 +70,15 @@ const router = new VueRouter({
 
 router.beforeEach((to, from, next) => {
   store.dispatch("fetchAccessToken");
-  if (to.matched.some((record) => record.meta.auth)
-    && !store.state.accessToken) {
-    next("/dashboard/login");
+  if (
+    to.matched.some((record) => record.meta.auth) &&
+    !store.state.accessToken
+  ) {
+    next({ name: "loginform" });
     return;
+  }
+  if (to.name == "loginform" && store.state.accessToken) {
+    next({ name: "bloodtable" });
   }
   next();
 });

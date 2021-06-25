@@ -42,7 +42,7 @@ export default new Vuex.Store({
           })
           .catch((err) => {
             console.log(err);
-            commit("loginStop", err);
+            commit("loginStop", err.response.data.message);
             commit("updateAccessToken", null);
           });
       });
