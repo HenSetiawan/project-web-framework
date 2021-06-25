@@ -64,6 +64,7 @@
   </section>
 </template>
 <script>
+import { mapState} from "vuex";
 export default {
   data() {
     return {
@@ -74,19 +75,16 @@ export default {
     };
   },
 
+  computed: {
+    ...mapState(["loggingIn", "loggingError"]),
+  },
+
   methods: {
     login() {
-      this.$store
-        .dispatch("login", {
-          email: this.form.email,
-          password: this.form.password,
-        })
-        .then(() => {
-          this.$router.push({ name: "bloodtable" });
-        })
-        .catch((err) => {
-          console.log(err);
-        });
+      this.$store.dispatch('doLogin', {
+        email: this.form.email,
+        password: this.form.password,
+      });
     },
   },
 };
