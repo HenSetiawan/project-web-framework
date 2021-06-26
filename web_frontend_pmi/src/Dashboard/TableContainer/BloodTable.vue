@@ -1,6 +1,6 @@
 <template>
   <section class="d-flex">
-    <sidebar/>
+    <sidebar />
     <!-- Begin Page Content -->
     <div class="container-fluid mt-5">
       <!-- Page Heading -->
@@ -11,10 +11,14 @@
           <!-- DataTales Example -->
           <div class="card shadow mb-4">
             <div class="card-header py-3">
-              <router-link :to="{name: 'bloodform'}"  class="btn-sm btn btn-primary">Tambah Data</router-link>
+              <router-link
+                :to="{ name: 'bloodform' }"
+                class="btn-sm btn btn-primary"
+                >Tambah Data</router-link
+              >
             </div>
             <div class="card-body">
-              <b-table hover responsive :items="items"></b-table>
+              <b-table hover responsive :items="bloodItems"></b-table>
             </div>
           </div>
         </div>
@@ -29,16 +33,29 @@ export default {
   name: "BloodTable",
   data() {
     return {
-      items: [
-        { age: 40, first_name: "Dickerson", last_name: "Macdonald" },
-        { age: 21, first_name: "Larsen", last_name: "Shaw" },
-        { age: 89, first_name: "Geneva", last_name: "Wilson" },
-        { age: 38, first_name: "Jami", last_name: "Carney" },
-      ],
-    };    
+      bloodItems:[]
+    };
   },
-  components : {
+  components: {
     Sidebar,
   },
+  created(){
+    fetch("http://127.0.0.1:8000/api/v1/bloods")
+    .then(response=>{
+      return response.json()
+    })
+    .then(data=>{
+      data.data.forEach(item => {
+        let temp={
+          Kategori:item.kategori,
+          A:item.jumlah_gol_A,
+          B:item.jumlah_gol_B,
+          AB:item.jumlah_gol_AB,
+          O:item.jumlah_gol_O,
+        }
+        this.bloodItems.push(temp);
+      });
+    })
+  }
 };
 </script>
