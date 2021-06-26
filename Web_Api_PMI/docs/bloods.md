@@ -10,10 +10,13 @@
 
 | name           |
 | -------------- |
-| golongan_darah |
+| jumlah_gol_A   |
+| jumlah_gol_B  |
+| jumlah_gol_AB   |
+| jumlah_gol_O  |
 | kategori       |
 | jumlah stok    |
-| deskripsi      |
+
 
 -   response json
 
@@ -102,10 +105,12 @@ data:[
 
 | name           |
 | -------------- |
-| golongan_darah |
+| jumlah_gol_A   |
+| jumlah_gol_B  |
+| jumlah_gol_AB   |
+| jumlah_gol_O  |
 | kategori       |
 | jumlah stok    |
-| deskripsi      |
 
 -   response json
 
