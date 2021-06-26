@@ -30,15 +30,13 @@ data:{
 }
 ```
 
-
 ### Hapus Data Stok Darah
-
 
 -   digunakan untuk menghapus data stok darah
 
-| method | endpoint       | auth | access role |
-| ------ | -------------- | ---- | ----------- |
-| DELETE   | /api/v1/blood/{id} | Y    | admin       |
+| method | endpoint           | auth | access role |
+| ------ | ------------------ | ---- | ----------- |
+| DELETE | /api/v1/blood/{id} | Y    | admin       |
 
 -   response json
 
@@ -55,17 +53,13 @@ data:{
 }
 ```
 
-
-
-
-
 ### Ambil Data Stok Darah
 
 -   digunakan untuk mengambil data stok darah
 
-| method | endpoint       | auth |
-| ------ | -------------- | ---- |
-| GET   | /api/v1/bloods/ | N    | 
+| method | endpoint        | auth |
+| ------ | --------------- | ---- |
+| GET    | /api/v1/bloods/ | N    |
 
 -   response json
 
@@ -75,31 +69,34 @@ message:"success",
 data:[
     {
         id:1,
-        gol_darah:"A",
+        jumlah_gol_A:10,
+        jumlah_gol_B:10,
+        jumlah_gol_AB:10,
+        jumlah_gol_O:10,
         kategori:"Darah Biru",
         jumlah_stok:10,
-        deskripsi:"darah para bangsawan"
     },
     {
-        id:2,
-        gol_darah:"O",
-        kategori:"Darah Suci",
+        id:1,
+        jumlah_gol_A:10,
+        jumlah_gol_B:10,
+        jumlah_gol_AB:10,
+        jumlah_gol_O:10,
+        kategori:"Darah Biru",
         jumlah_stok:10,
-        deskripsi:"darah para bangsawan"
     }
 ]
 
 }
 ```
 
-
 ### Ubah Data Stok Darah
 
 -   digunakan untuk mengubah data stok darah
 
-| method | endpoint       | auth | access role |
-| ------ | -------------- | ---- | ----------- |
-| PUT   | /api/v1/blood/{id} | Y    | admin       |
+| method | endpoint           | auth | access role |
+| ------ | ------------------ | ---- | ----------- |
+| PUT    | /api/v1/blood/{id} | Y    | admin       |
 
 -   value yang dikirimkan pada body
 
@@ -124,4 +121,3 @@ data:{
     }
 }
 ```
-
