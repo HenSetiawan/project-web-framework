@@ -15,7 +15,10 @@ class CreateStokDarahTable extends Migration
     {
         Schema::create('stok_darah', function (Blueprint $table) {
             $table->id();
-            $table->string('gol_darah', 5);
+            $table->string('jumlah_gol_A');
+            $table->string('jumlah_gol_AB');
+            $table->string('jumlah_gol_B');
+            $table->string('jumlah_gol_O');
             $table->string('kategori', 25);
             $table->integer('jumlah_stok');
             $table->text('deskripsi');
