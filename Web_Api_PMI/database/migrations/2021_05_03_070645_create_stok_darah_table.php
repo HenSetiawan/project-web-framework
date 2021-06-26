@@ -20,7 +20,6 @@ class CreateStokDarahTable extends Migration
             $table->string('jumlah_gol_B');
             $table->string('jumlah_gol_O');
             $table->string('kategori', 25);
-            $table->integer('jumlah_stok');
             $table->timestamps();
         });
     }

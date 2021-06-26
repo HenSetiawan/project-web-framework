@@ -40,7 +40,6 @@ class BloodManageController extends Controller
     public function create(Request $request)
     {
         $blood = $request->validate([
-            'gol_darah' => ['required', 'max:5'],
             'kategori' => ['required', 'max:25'],
             'jumlah_gol_A' => ['required', 'max:5'],
             'jumlah_gol_B' => ['required', 'max:5'],
@@ -75,7 +74,6 @@ class BloodManageController extends Controller
         $result = Bloods::findOrFail($id);
 
         $blood = $request->validate([
-            'gol_darah' => ['required', 'max:5'],
             'kategori' => ['required', 'max:25'],
             'jumlah_gol_A' => ['required', 'max:5'],
             'jumlah_gol_B' => ['required', 'max:5'],

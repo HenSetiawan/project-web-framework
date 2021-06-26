@@ -15,7 +15,7 @@
 | jumlah_gol_AB   |
 | jumlah_gol_O  |
 | kategori       |
-| jumlah stok    |
+
 
 
 -   response json

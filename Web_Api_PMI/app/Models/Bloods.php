@@ -18,9 +18,10 @@ class Bloods extends Model
      * @var array
      */
     protected $fillable = [
-        'gol_darah',
+        'jumlah_gol_A',
+        'jumlah_gol_B',
+        'jumlah_gol_AB',
+        'jumlah_gol_O',
         'kategori',
-        'jumlah_stok',
-        'deskripsi',
     ];
 }
