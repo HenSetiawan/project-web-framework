@@ -18,10 +18,7 @@ class BloodManageController extends Controller
     public function GetAllBloods()
     {
         try{
-            $bloods = DB::table('stok_darah')
-                    ->orderBy('created_at', 'ASC')
-                    ->select('id', 'gol_darah', 'kategori', 'jumlah_stok', 'deskripsi')
-                    ->get();
+            $bloods = Bloods::all();
 
             return response()->json([
                 'message' => 'success',
@@ -45,8 +42,10 @@ class BloodManageController extends Controller
         $blood = $request->validate([
             'gol_darah' => ['required', 'max:5'],
             'kategori' => ['required', 'max:25'],
-            'jumlah_stok' => ['required', 'max:5'],
-            'deskripsi' => ['required'],
+            'jumlah_gol_A' => ['required', 'max:5'],
+            'jumlah_gol_B' => ['required', 'max:5'],
+            'jumlah_gol_AB' => ['required', 'max:5'],
+            'jumlah_gol_O' => ['required', 'max:5'],
         ]);
 
         try {
@@ -78,8 +77,10 @@ class BloodManageController extends Controller
         $blood = $request->validate([
             'gol_darah' => ['required', 'max:5'],
             'kategori' => ['required', 'max:25'],
-            'jumlah_stok' => ['required', 'max:5'],
-            'deskripsi' => ['required'],
+            'jumlah_gol_A' => ['required', 'max:5'],
+            'jumlah_gol_B' => ['required', 'max:5'],
+            'jumlah_gol_AB' => ['required', 'max:5'],
+            'jumlah_gol_O' => ['required', 'max:5'],
         ]);
 
         try {
