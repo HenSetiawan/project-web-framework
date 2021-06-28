@@ -34,18 +34,24 @@ Route::middleware(['auth:admin'])->group(function() {
     Route::delete('/v1/volunteer/{id}', [VolunteerManageController::class, 'destroy']);
     Route::post('/v1/admin', [AuthAdminController::class,'createNewAdmin']);
     Route::post('/v1/auth/admin/logout', [AuthAdminController::class,'logout']);
-    Route::post('/v1/bloods/', [BloodManageController::class,'create']);
-    Route::put('/v1/bloods/{id}', [BloodManageController::class,'update']);
-    Route::delete('/v1/bloods/{id}', [BloodManageController::class,'destroy']);
+
+
+    Route::put('/v1/blood/{id}', [BloodManageController::class,'resetStokById']);
+    Route::post('/v1/bloods/{id}', [BloodManageController::class,'updateStok']);
+
+
     Route::get('/v1/admin/', [AdminsManageController::class,'getCurrentAdmin']);
     Route::get('/v1/admins/', [AdminsManageController::class,'getAllAdmins']);
     Route::delete('v1/admin/{id}', [AdminsManageController::class,'deleteById']);
+
     Route::post('/v1/blog', [BlogsManageController::class, 'store']);
     Route::post('/v1/blog/{id}', [BlogsManageController::class, 'update']);
     Route::delete('/v1/blog/{id}', [BlogsManageController::class, 'destroy']);
+
     Route::post('/v1/event', [AgendaManageController::class, 'store']);
     Route::put('/v1/event/{id}', [AgendaManageController::class, 'update']);
     Route::delete('/v1/event/{id}', [AgendaManageController::class, 'destroy']);
+
     Route::post('/v1/ask' , [FAQManageController::class, 'index']);
     Route::put('v1/ask/{id}', [FAQManageController::class,'index']);
     Route::delete('/v1/ask/{id}', [FAQManageController::class,'index']);

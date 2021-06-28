@@ -118,4 +118,28 @@ class BloodManageController extends Controller
             )->setStatusCode(400);
         }
     }
+
+    public function resetStokById($id)
+    {
+        $result = Bloods::findOrFail($id);
+        $blood=[
+            'jumlah_gol_A' => 0,
+            'jumlah_gol_B' => 0,
+            'jumlah_gol_AB' =>0,
+            'jumlah_gol_O' => 0,
+        ];
+        try {
+            $result->update($blood);
+            return response()->json([
+                "message" => "update data success",
+                "data" => $result
+            ])->setStatusCode(200);
+
+        } catch (QueryException $err) {
+            return response()->json([
+                "message" => "update data failed",
+                "error" => $err->errorInfo
+            ])->setStatusCode(400);
+        }
+    }
 }
