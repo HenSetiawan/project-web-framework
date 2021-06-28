@@ -18,7 +18,28 @@
               >
             </div>
             <div class="card-body">
-              <b-table hover responsive :items="bloodItems"></b-table>
+              <b-table
+                hover
+                head-variant="dark"
+                id="pages-table"
+                :items="bloodItems"
+                :fields="fields"
+              >
+                <template #cell(Aksi)="row">
+                  <button
+                    class="btn btn-warning btn-sm"
+                    @click="updateItem(row)"
+                  >
+                    Update
+                  </button>
+                  <button
+                    class="btn btn-danger btn-sm ml-2"
+                    @click="resetItem(row)"
+                  >
+                    Reset
+                  </button>
+                </template>
+              </b-table>
             </div>
           </div>
         </div>
@@ -33,29 +54,47 @@ export default {
   name: "BloodTable",
   data() {
     return {
-      bloodItems:[]
+      bloodItems: [],
+      fields: [
+        { key: "Kategori" },
+        { key: "A" },
+        { key: "B" },
+        { key: "AB" },
+        { key: "O" },
+        { key: "Aksi" },
+      ],
     };
   },
   components: {
     Sidebar,
   },
-  created(){
+  created() {
     fetch("http://127.0.0.1:8000/api/v1/bloods")
-    .then(response=>{
-      return response.json()
-    })
-    .then(data=>{
-      data.data.forEach(item => {
-        let temp={
-          Kategori:item.kategori,
-          A:item.jumlah_gol_A,
-          B:item.jumlah_gol_B,
-          AB:item.jumlah_gol_AB,
-          O:item.jumlah_gol_O,
-        }
-        this.bloodItems.push(temp);
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        data.data.forEach((item) => {
+          let temp = {
+            Kategori: item.kategori,
+            A: item.jumlah_gol_A,
+            B: item.jumlah_gol_B,
+            AB: item.jumlah_gol_AB,
+            O: item.jumlah_gol_O,
+          };
+          this.bloodItems.push(temp);
+        });
       });
-    })
-  }
+
+    console.log(this.bloodItems);
+  },
+  methods: {
+    resetItem(row) {
+      console.log(row);
+    },
+    updateItem(){
+      console.log('update')
+    }
+  },
 };
 </script>
