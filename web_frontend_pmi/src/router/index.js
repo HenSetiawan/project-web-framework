@@ -48,9 +48,9 @@ const routes = [
     path: "/dashboard/blood",
     name: "bloodtable",
     component: BloodTable,
-    // meta: {
-    //   auth: true,
-    // },
+    meta: {
+      auth: true,
+    },
   },
   {
     path: "/dashboard/blood/form",

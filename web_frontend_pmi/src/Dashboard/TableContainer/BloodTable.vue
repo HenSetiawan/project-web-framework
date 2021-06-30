@@ -22,7 +22,7 @@
                 hover
                 head-variant="dark"
                 id="pages-table"
-                :items="bloodItems"
+                :items="allBloods"
                 :fields="fields"
               >
                 <template #cell(Aksi)="row">
@@ -50,11 +50,12 @@
 </template>
 <script>
 import Sidebar from "../SidebarContainer/Sidebar.vue";
+import axios from "axios";
+import store from "../../store";
 export default {
   name: "BloodTable",
   data() {
     return {
-      bloodItems: [],
       fields: [
         { key: "Kategori" },
         { key: "A" },
@@ -63,18 +64,44 @@ export default {
         { key: "O" },
         { key: "Aksi" },
       ],
+      allBloods:[]
     };
   },
   components: {
     Sidebar,
   },
   created() {
-    fetch("http://127.0.0.1:8000/api/v1/bloods")
-      .then((response) => {
-        return response.json();
+    this.getAllBloods();
+  },
+  methods: {
+    resetItem(row) {
+      store.dispatch("fetchAccessToken");
+      const kategori = row.item.Kategori;
+      fetch(`http://127.0.0.1:8000/api/v1/blood/${kategori}`, {
+        method: "PUT",
+        headers: {
+          Authorization: `Bearer ${store.state.accessToken}`,
+        },
       })
-      .then((data) => {
-        data.data.forEach((item) => {
+        .then((response) => {
+          return response.json();
+        })
+        .then((response) => {
+          console.log(response.data);
+          this.getAllBloods();
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    },
+
+    updateItem() {
+      console.log("update");
+    },
+    getAllBloods() {
+      const bloodItems = [];
+      axios("/api/v1/bloods").then((response) => {
+        response.data.data.forEach((item) => {
           let temp = {
             Kategori: item.kategori,
             A: item.jumlah_gol_A,
@@ -82,19 +109,11 @@ export default {
             AB: item.jumlah_gol_AB,
             O: item.jumlah_gol_O,
           };
-          this.bloodItems.push(temp);
+          bloodItems.push(temp);
         });
       });
-
-    console.log(this.bloodItems);
-  },
-  methods: {
-    resetItem(row) {
-      console.log(row);
+      this.allBloods=bloodItems;
     },
-    updateItem(){
-      console.log('update')
-    }
   },
 };
 </script>
