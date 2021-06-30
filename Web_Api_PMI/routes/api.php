@@ -36,8 +36,8 @@ Route::middleware(['auth:admin'])->group(function() {
     Route::post('/v1/auth/admin/logout', [AuthAdminController::class,'logout']);
 
 
-    Route::put('/v1/blood/{id}', [BloodManageController::class,'resetStokById']);
-    Route::post('/v1/bloods/{id}', [BloodManageController::class,'updateStok']);
+    Route::put('/v1/blood/{kategori}', [BloodManageController::class,'resetStokById']);
+    Route::post('/v1/bloods/{kategori}', [BloodManageController::class,'updateStok']);
 
 
     Route::get('/v1/admin/', [AdminsManageController::class,'getCurrentAdmin']);

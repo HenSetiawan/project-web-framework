@@ -69,12 +69,12 @@ class BloodManageController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function updateStok(Request $request,$kategori)
     {
-        $result = Bloods::findOrFail($id);
+
+        $result = Bloods::where('kategori',$kategori);
 
         $blood = $request->validate([
-            'kategori' => ['required', 'max:25'],
             'jumlah_gol_A' => ['required', 'max:5'],
             'jumlah_gol_B' => ['required', 'max:5'],
             'jumlah_gol_AB' => ['required', 'max:5'],
@@ -119,9 +119,9 @@ class BloodManageController extends Controller
         }
     }
 
-    public function resetStokById($id)
+    public function resetStokById($kategori)
     {
-        $result = Bloods::findOrFail($id);
+        $result = Bloods::where('kategori',$kategori);
         $blood=[
             'jumlah_gol_A' => 0,
             'jumlah_gol_B' => 0,
