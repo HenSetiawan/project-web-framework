@@ -4,19 +4,12 @@
     <!-- Begin Page Content -->
     <div class="container-fluid mt-5">
       <!-- Page Heading -->
-      <h1 class="h3 mb-4 text-gray-800 bold">Formulir Stok Darah</h1>
-
+      <h3 class="h3 mb-4 text-gray-800 bold">Formulir Stok Darah</h3>
       <div class="row">
         <div class="col-md-12">
           <!-- DataTales Example -->
           <div class="card shadow mb-4">
-            <div class="card-header py-3">
-              <router-link
-                :to="{ name: 'bloodform' }"
-                class="btn-sm btn btn-primary"
-                >Tambah Data</router-link
-              >
-            </div>
+            <div class="card-header py-3"></div>
             <div class="card-body">
               <b-table
                 hover
@@ -26,12 +19,12 @@
                 :fields="fields"
               >
                 <template #cell(Aksi)="row">
-                  <button
-                    class="btn btn-warning btn-sm"
-                    @click="updateItem(row)"
+                  <router-link
+                    :to="{ name: 'updateBlood', params: { id: row.item.ID } }"
+                    class="btn-sm btn btn-warning btn-sm"
+                    @mouseover="getId(row)"
+                    >Update</router-link
                   >
-                    Update
-                  </button>
                   <button
                     class="btn btn-danger btn-sm ml-2"
                     @click="resetItem(row)"
@@ -57,6 +50,7 @@ export default {
   data() {
     return {
       fields: [
+        { key: "ID" },
         { key: "Kategori" },
         { key: "A" },
         { key: "B" },
@@ -64,7 +58,7 @@ export default {
         { key: "O" },
         { key: "Aksi" },
       ],
-      allBloods:[]
+      allBloods: [],
     };
   },
   components: {
@@ -72,6 +66,7 @@ export default {
   },
   created() {
     this.getAllBloods();
+    console.log(this.allBloods);
   },
   methods: {
     resetItem(row) {
@@ -103,6 +98,7 @@ export default {
       axios("/api/v1/bloods").then((response) => {
         response.data.data.forEach((item) => {
           let temp = {
+            ID: item.id,
             Kategori: item.kategori,
             A: item.jumlah_gol_A,
             B: item.jumlah_gol_B,
@@ -112,7 +108,7 @@ export default {
           bloodItems.push(temp);
         });
       });
-      this.allBloods=bloodItems;
+      this.allBloods = bloodItems;
     },
   },
 };

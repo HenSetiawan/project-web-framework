@@ -3,109 +3,134 @@
     <sidebar />
     <div class="container-fluid mt-3">
       <div class="row">
-        <div class="col-lg-12">
-          <div class="card shadow">
-            <div class="card-header py-3">
-              <h3 class="mt-3 mb-4 text-gray-800 bold">
-                Form Tambah Data Stok Darah
-              </h3>
-              <b-form v-if="show" class="mb-2">
-                <b-form-group
-                  id="input-group-1"
-                  label="Golongan Darah :"
-                  label-for="input-1"
-                  required
-                >
-                  <b-form-input
-                    id="input-1"
-                    v-model="form.blood"
-                    placeholder="Enter blood type here"
-                    required
-                    class="col-lg-3"
-                  ></b-form-input>
-                </b-form-group>
+        <div class="col-lg-6">
+          <h3 class="mt-2 mb-4 h3 text-gray-800 bold">
+            Data Stok Darah Untuk Kategori {{ kategori }}
+          </h3>
+          <b-form class="mt-2">
+            <b-form-group
+              id="input-group-1"
+              label="Jumlah Gol A :"
+              label-for="input-1"
+              autocomplete="off"
+            >
+              <b-form-input
+                id="input-1"
+                v-model="form.a"
+                type="text"
+                placeholder="Jumlah Kantong Darah"
+                required
+                autocomplete="off"
+              ></b-form-input>
+            </b-form-group>
+            <b-form-group
+              id="input-group-2"
+              label="Jumlah Gol B :"
+              label-for="input-2"
+            >
+              <b-form-input
+                id="input-2"
+                v-model="form.b"
+                type="text"
+                placeholder="Jumlah Kantong Darah"
+                required
+                autocomplete="off"
+              ></b-form-input>
+            </b-form-group>
+            <b-form-group
+              id="input-group-3"
+              label="Jumlah Gol AB :"
+              label-for="input-3"
+            >
+              <b-form-input
+                id="input-3"
+                v-model="form.ab"
+                type="text"
+                placeholder="Jumlah Kantong Darah"
+                required
+                autocomplete="off"
+              ></b-form-input>
+            </b-form-group>
+            <b-form-group
+              id="input-group-4"
+              label="Jumlah Gol O :"
+              label-for="input-4"
+            >
+              <b-form-input
+                id="input-4"
+                v-model="form.o"
+                type="text"
+                placeholder="Jumlah Kantong Darah"
+                required
+                autocomplete="off"
+              ></b-form-input>
+            </b-form-group>
 
-                <b-form-group
-                  id="input-group-2"
-                  label="Kategori:"
-                  label-for="input-2"
-                >
-                  <b-form-select
-                    id="input-2"
-                    v-model="form.category"
-                    :options="categories"
-                    required
-                    class="col-lg-3"
-                  ></b-form-select>
-                </b-form-group>
-
-                <b-form-group
-                  id="input-group-3"
-                  label="Jumlah Stok :"
-                  label-for="input-3"
-                >
-                  <b-form-input
-                    id="input-3"
-                    v-model="form.stock"
-                    type="number"
-                    placeholder="Enter stock blood here"
-                    required
-                    class="col-lg-3"
-                  ></b-form-input>
-                </b-form-group>
-
-                <div>
-                  <b-form-group
-                    id="input-group-3"
-                    label="Deskripsi :"
-                    label-for="input-4"
-                  >
-                    <b-form-textarea
-                      id="input-4"
-                      v-model="form.description"
-                      :state="form.description.length >= 10"
-                      placeholder="Enter at least 10 characters"
-                      rows="5"
-                      class="mb-4 col-lg-6"
-                    ></b-form-textarea>
-                  </b-form-group>
-                </div>
-
-                <b-button type="submit" variant="primary">Submit</b-button>
-                <b-button type="reset" variant="danger" class="ml-3"
-                  >Reset</b-button
-                >
-              </b-form>
-            </div>
-          </div>
+            <b-button variant="primary" class="btn" @click="sendNewData()"
+              >Update Data</b-button
+            >
+          </b-form>
         </div>
+        <div class="col-lg-6"></div>
       </div>
     </div>
   </section>
 </template>
 <script>
+import axios from "axios";
 import Sidebar from "../SidebarContainer/Sidebar.vue";
+import store from "../../store";
 export default {
   components: {
     Sidebar,
   },
+  props: ["id"],
   data() {
     return {
       form: {
-        blood: "",
-        category: null,
-        stock: "",
-        description: "",
+        a: 0,
+        b: 0,
+        ab: 0,
+        o: 0,
       },
-      categories: [
-        { text: "Select One", value: null },
-        "Carrots",
-        "Beans",
-        "Tomatoes",
-        "Corn",
-      ],
-      show: true,
+      kategori: null,
     };
+  },
+  created() {
+    axios(`/api/v1/blood/${this.id}`).then((response) => {
+      const data = response.data.data;
+      this.form.a = data.jumlah_gol_A;
+      this.form.b = data.jumlah_gol_B;
+      this.form.ab = data.jumlah_gol_AB;
+      this.form.o = data.jumlah_gol_O;
+      this.kategori = data.kategori;
+    });
+  },
+  methods: {
+    sendNewData() {
+      store.dispatch("fetchAccessToken");
+      axios
+        .post(
+          `/api/v1/blood/${this.id}`,
+          {
+            jumlah_gol_A: this.form.a,
+            jumlah_gol_B: this.form.b,
+            jumlah_gol_AB: this.form.ab,
+            jumlah_gol_O: this.form.o,
+          },
+          {
+            headers: {
+              Authorization: `Bearer ${store.state.accessToken}`,
+            },
+          }
+        )
+        .then((respose) => {
+          this.$router.push("/dashboard/blood");
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    },
   },
 };
 </script>

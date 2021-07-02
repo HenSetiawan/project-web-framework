@@ -4,7 +4,7 @@ import Home from "../views/Home.vue";
 import Blog from "../views/Blog.vue";
 import DetailBlog from "../views/DetailBlog.vue";
 import LoginForm from "../Dashboard/LoginContainer/LoginForm.vue";
-import Blood from "../Dashboard/FormContainer/BloodForm.vue";
+import BloodForm from "../Dashboard/FormContainer/BloodForm.vue";
 import BloodTable from "../Dashboard/TableContainer/BloodTable.vue";
 import store from "../store";
 
@@ -53,9 +53,10 @@ const routes = [
     },
   },
   {
-    path: "/dashboard/blood/form",
-    name: "bloodform",
-    component: Blood,
+    path: "/blood/form/:id",
+    name: "updateBlood",
+    component: BloodForm,
+    props: true,
     meta: {
       auth: true,
     },
