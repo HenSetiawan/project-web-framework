@@ -37,7 +37,7 @@ Route::middleware(['auth:admin'])->group(function() {
 
 
     Route::put('/v1/blood/{kategori}', [BloodManageController::class,'resetStokById']);
-    Route::post('/v1/bloods/{kategori}', [BloodManageController::class,'updateStok']);
+    Route::post('/v1/blood/{id}', [BloodManageController::class,'updateStok']);
 
 
     Route::get('/v1/admin/', [AdminsManageController::class,'getCurrentAdmin']);
@@ -81,6 +81,7 @@ Route::get('/v1/volunteers', [VolunteerManageController::class,'getAllVolunteers
 // routes puclic admin
 Route::post('/v1/auth/admin/login', [AuthAdminController::class, 'login']);
 Route::get('/v1/bloods/', [BloodManageController::class,'GetAllBloods']);
+Route::get('/v1/blood/{id}', [BloodManageController::class,'GetBloodById']);
 Route::get('/v1/blogs', [BlogsManageController::class, 'getAllBlogs']);
 Route::get('/v1/events', [AgendaManageController::class, 'index']);
 Route::get('/v1/asks' , [FAQManageController::class, 'index']);

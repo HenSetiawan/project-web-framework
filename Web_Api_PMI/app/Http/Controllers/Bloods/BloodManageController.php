@@ -32,6 +32,23 @@ class BloodManageController extends Controller
         }
     }
 
+    public function getBloodById($id)
+    {
+        try{
+            $blood = Bloods::find($id);
+
+            return response()->json([
+                'message' => 'success',
+                'data' => $blood
+            ])->setStatusCode(200);
+
+        }catch (QueryException $err) {
+            return response()->json([
+                'error' => $err->errorInfo
+            ])->setStatusCode(400);
+        }
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -69,12 +86,12 @@ class BloodManageController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function updateStok(Request $request,$kategori)
+    public function updateStok(Request $request,$id)
     {
 
-        $result = Bloods::where('kategori',$kategori);
+        $result = Bloods::find($id);
 
-        $blood = $request->validate([
+       $blood = $request->validate([
             'jumlah_gol_A' => ['required', 'max:5'],
             'jumlah_gol_B' => ['required', 'max:5'],
             'jumlah_gol_AB' => ['required', 'max:5'],
