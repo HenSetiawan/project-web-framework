@@ -21,13 +21,19 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item mr-2">
-           <router-link :to="{ name: 'home'}" class="nav-link">Beranda</router-link>
+            <router-link :to="{ name: 'home' }" class="nav-link"
+              >Beranda</router-link
+            >
           </li>
           <li class="nav-item mr-2">
-            <a class="nav-link" href="#">Stok Darah</a>
+            <router-link :to="{ name: 'bloods' }" class="nav-link"
+              >Stok Darah</router-link
+            >
           </li>
           <li class="nav-item mr-2">
-           <router-link :to="{ name: 'blog'}" class="nav-link">Artikel</router-link>
+            <router-link :to="{ name: 'blog' }" class="nav-link"
+              >Artikel</router-link
+            >
           </li>
           <li class="nav-item mr-2">
             <a class="nav-link" href="#">Tentang</a>

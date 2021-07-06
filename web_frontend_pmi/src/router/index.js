@@ -2,6 +2,7 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
 import Blog from "../views/Blog.vue";
+import Bloods from "../views/Bloods.vue";
 import DetailBlog from "../views/DetailBlog.vue";
 import LoginForm from "../Dashboard/LoginContainer/LoginForm.vue";
 import BloodForm from "../Dashboard/FormContainer/BloodForm.vue";
@@ -36,6 +37,11 @@ const routes = [
     path: "/blog",
     name: "blog",
     component: Blog,
+  },
+  {
+    path: "/bloods",
+    name: "bloods",
+    component: Bloods,
   },
   {
     path: "/blog/detail/:id",

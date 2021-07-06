@@ -45,3 +45,9 @@
     </div>
   </footer>
 </template>
+
+<style scoped>
+p{
+  color: white !important;
+}
+</style>
