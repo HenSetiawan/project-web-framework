@@ -1,6 +1,6 @@
 <template>
   <section class="d-flex">
-          <sidebar />
+    <sidebar />
     <!-- Begin Page Content -->
     <div class="container-fluid mt-5">
       <!-- Page Heading -->
@@ -9,8 +9,10 @@
         <div class="col-md-12">
           <!-- DataTales Example -->
           <div class="card shadow mb-4">
-            <div class="card-header py-3"></div>
-            <div class="card-body">
+            <div class="card-header py-3">
+              <button type="button" class="btn btn-primary btn-sm">
+                Tambah
+              </button>
             </div>
           </div>
         </div>
@@ -20,7 +22,5 @@
   </section>
 </template>
 <script>
-export default {
-    
-}
+export default {};
 </script>
