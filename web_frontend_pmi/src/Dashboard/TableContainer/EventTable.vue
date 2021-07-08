@@ -1,0 +1,86 @@
+<template>
+  <section class="d-flex">
+    <sidebar />
+    <div class="container-fluid mt-5">
+      <!-- Page Heading -->
+      <h3 class="h3 mb-4 text-gray-800 bold">Kegiatan Yang Tersedia</h3>
+      <div class="row">
+        <div class="col-md-12">
+          <!-- DataTales Example -->
+          <div class="card shadow mb-4">
+            <div class="card-header py-3"></div>
+            <div class="card-body">
+              <router-link
+                :to="{ name: 'addNewEvent' }"
+                class="btn-sm btn btn-primary btn-sm mb-2"
+                >Tambah Data</router-link
+              >
+              <b-table
+                hover
+                head-variant="dark"
+                id="pages-table"
+                :items="allEvents"
+                :fields="fields"
+              >
+                <template #cell(Aksi)>
+                  <router-link
+                    :to="{ name: 'eventTable' }"
+                    class="btn-sm btn btn-warning btn-sm"
+                    >Update</router-link
+                  >
+                  <button class="btn btn-danger btn-sm ml-1">Delete</button>
+                </template>
+              </b-table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</template>
+
+<script>
+import Sidebar from "../SidebarContainer/Sidebar.vue";
+import axios from "axios";
+export default {
+  name: "eventTable",
+  components: { Sidebar },
+  data() {
+    return {
+      fields: [
+        { key: "ID" },
+        { key: "Judul" },
+        { key: "Waktu" },
+        { key: "Deskripsi" },
+        { key: "Tempat" },
+        { key: "Aksi" },
+      ],
+      allEvents: [],
+    };
+  },
+  created() {
+    axios("/api/v1/events")
+      .then((result) => {
+        console.log(result.data);
+        let eventItems = [];
+        result.data.data.forEach((event) => {
+          let temp = {
+            ID: event.id,
+            Judul: event.judul_agenda,
+            Waktu: event.waktu,
+            Deskripsi: event.deskripsi,
+            Tempat: event.lokasi,
+          };
+
+          eventItems.push(temp);
+        });
+
+        this.allEvents = eventItems;
+        console.log(eventItems);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  },
+};
+</script>

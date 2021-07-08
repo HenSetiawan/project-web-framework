@@ -8,6 +8,7 @@ import LoginForm from "../Dashboard/LoginContainer/LoginForm.vue";
 import BloodForm from "../Dashboard/FormContainer/BloodForm.vue";
 import BloodTable from "../Dashboard/TableContainer/BloodTable.vue";
 import AdminTable from "../Dashboard/TableContainer/AdminTable.vue";
+import EventTable from "../Dashboard/TableContainer/EventTable.vue";
 import store from "../store";
 
 Vue.use(VueRouter);
@@ -72,6 +73,22 @@ const routes = [
     path: "/dashboard/admin",
     name: "admintable",
     component: AdminTable,
+    meta: {
+      auth: true,
+    },
+  },
+  {
+    path: "/dashboard/event",
+    name: "eventTable",
+    component: EventTable,
+    meta: {
+      auth: true,
+    },
+  },
+  {
+    path: "/dashboard/new-event",
+    name: "addNewEvent",
+    component: EventTable,
     meta: {
       auth: true,
     },
