@@ -6,6 +6,7 @@ import Bloods from "../views/Bloods.vue";
 import DetailBlog from "../views/DetailBlog.vue";
 import LoginForm from "../Dashboard/LoginContainer/LoginForm.vue";
 import BloodForm from "../Dashboard/FormContainer/BloodForm.vue";
+import EventForm from "../Dashboard/FormContainer/EventForm.vue";
 import BloodTable from "../Dashboard/TableContainer/BloodTable.vue";
 import AdminTable from "../Dashboard/TableContainer/AdminTable.vue";
 import EventTable from "../Dashboard/TableContainer/EventTable.vue";
@@ -88,7 +89,7 @@ const routes = [
   {
     path: "/dashboard/new-event",
     name: "addNewEvent",
-    component: EventTable,
+    component: EventForm,
     meta: {
       auth: true,
     },
