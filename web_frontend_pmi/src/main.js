@@ -5,6 +5,8 @@ import router from "./router";
 import store from "./store";
 import "@/assets/css/sb-admin-2.min.css";
 import "@/assets/fontawesome/css/all.min.css";
+import VueSweetalert2 from 'vue-sweetalert2';
+import 'sweetalert2/dist/sweetalert2.min.css';
 import { VuejsDatatableFactory } from "vuejs-datatable";
 
 import { BootstrapVue, BootstrapVueIcons } from "bootstrap-vue";
@@ -20,6 +22,7 @@ axios.defaults.withCredentials = true;
 Vue.use(BootstrapVue);
 Vue.use(BootstrapVueIcons);
 Vue.use(VuejsDatatableFactory);
+Vue.use(VueSweetalert2);
 
 Vue.config.productionTip = false;
 

@@ -22,13 +22,18 @@
                 :items="allEvents"
                 :fields="fields"
               >
-                <template #cell(Aksi)>
+                <template #cell(Aksi)="row">
                   <router-link
                     :to="{ name: 'eventTable' }"
                     class="btn-sm btn btn-warning btn-sm"
                     >Update</router-link
                   >
-                  <button class="btn btn-danger btn-sm ml-1">Delete</button>
+                  <button
+                    class="btn btn-danger btn-sm ml-1"
+                    @click="deleteEvent(row.item.ID)"
+                  >
+                    Delete
+                  </button>
                 </template>
               </b-table>
             </div>
@@ -42,6 +47,7 @@
 <script>
 import Sidebar from "../SidebarContainer/Sidebar.vue";
 import axios from "axios";
+import store from "../../store";
 export default {
   name: "eventTable",
   components: { Sidebar },
@@ -59,28 +65,63 @@ export default {
     };
   },
   created() {
-    axios("/api/v1/events")
-      .then((result) => {
-        console.log(result.data);
-        let eventItems = [];
-        result.data.data.forEach((event) => {
-          let temp = {
-            ID: event.id,
-            Judul: event.judul_agenda,
-            Waktu: event.waktu,
-            Deskripsi: event.deskripsi,
-            Tempat: event.lokasi,
-          };
-
-          eventItems.push(temp);
+    this.getAllEvent();
+  },
+  methods: {
+    deleteEvent(id) {
+      store.dispatch("fetchAccessToken");
+      this.$swal
+        .fire({
+          title: "Apakah Anda Yakin?",
+          text: "Data ini akan terhapus secara permanen",
+          icon: "warning",
+          showCancelButton: true,
+          confirmButtonColor: "#3085d6",
+          cancelButtonColor: "#d33",
+          confirmButtonText: "Hapus Data!",
+        })
+        .then((result) => {
+          if (result.isConfirmed) {
+            axios
+              .delete(`/api/v1/event/${id}`, {
+                headers: {
+                  Authorization: `Bearer ${store.state.accessToken}`,
+                },
+              })
+              .then((response) => {
+                console.log(response);
+                this.getAllEvent();
+              })
+              .catch((err) => {
+                console.log(err);
+              });
+          }
         });
+    },
+    getAllEvent() {
+      axios("/api/v1/events")
+        .then((result) => {
+          console.log(result.data);
+          let eventItems = [];
+          result.data.data.forEach((event) => {
+            let temp = {
+              ID: event.id,
+              Judul: event.judul_agenda,
+              Waktu: event.waktu,
+              Deskripsi: event.deskripsi,
+              Tempat: event.lokasi,
+            };
 
-        this.allEvents = eventItems;
-        console.log(eventItems);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+            eventItems.push(temp);
+          });
+
+          this.allEvents = eventItems;
+          console.log(eventItems);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    },
   },
 };
 </script>
