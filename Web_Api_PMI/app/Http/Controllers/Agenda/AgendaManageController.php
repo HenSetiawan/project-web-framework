@@ -19,7 +19,7 @@ class AgendaManageController extends Controller
     {
         try{
             $agenda = DB::table('agenda')
-                    ->select('id', 'judul_agenda', 'deskripsi', 'updated_at')
+                    ->select('id', 'judul_agenda', 'deskripsi', 'updated_at','lokasi','waktu')
                     ->get();
 
             return response()->json([
