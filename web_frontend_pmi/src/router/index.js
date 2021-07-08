@@ -7,6 +7,7 @@ import DetailBlog from "../views/DetailBlog.vue";
 import LoginForm from "../Dashboard/LoginContainer/LoginForm.vue";
 import BloodForm from "../Dashboard/FormContainer/BloodForm.vue";
 import BloodTable from "../Dashboard/TableContainer/BloodTable.vue";
+import AdminTable from "../Dashboard/TableContainer/AdminTable.vue";
 import store from "../store";
 
 Vue.use(VueRouter);
@@ -63,6 +64,14 @@ const routes = [
     name: "updateBlood",
     component: BloodForm,
     props: true,
+    meta: {
+      auth: true,
+    },
+  },
+  {
+    path: "/dashboard/admin",
+    name: "admintable",
+    component: AdminTable,
     meta: {
       auth: true,
     },

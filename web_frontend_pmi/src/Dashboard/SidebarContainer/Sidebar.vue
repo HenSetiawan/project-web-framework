@@ -41,10 +41,10 @@
 
       <!-- Nav Item - Admin Form -->
       <li class="nav-item">
-        <a class="nav-link" href="charts.html">
+        <router-link class="nav-link" :to="{name : 'admintable'}">
           <i class="fas fa-fw fa-chart-area"></i>
           <span>Admin Form</span>
-        </a>
+        </router-link>
       </li>
 
       <!-- Nav Item - Volunteer Form -->
