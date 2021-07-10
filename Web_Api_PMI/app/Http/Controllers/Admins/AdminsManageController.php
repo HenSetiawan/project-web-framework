@@ -44,7 +44,7 @@ class AdminsManageController extends Controller
         }
     }
 
-    public function deeleteById($id)
+    public function deleteById($id)
     {
         try {
             $admin = Admin::findOrFail($id);
