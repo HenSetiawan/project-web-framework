@@ -41,7 +41,7 @@
 
       <!-- Nav Item - Admin Form -->
       <li class="nav-item">
-        <router-link class="nav-link" :to="{name : 'admintable'}">
+        <router-link class="nav-link" :to="{ name: 'admintable' }">
           <i class="fas fa-fw fa-chart-area"></i>
           <span>Admin Form</span>
         </router-link>
@@ -83,7 +83,14 @@
       <li class="nav-item">
         <router-link class="nav-link" :to="{ name: 'bloodtable' }">
           <i class="fas fa-fw fa-table"></i>
-          <span>Blood Stock Form</span>
+          <span>Blood Stock</span>
+        </router-link>
+      </li>
+
+      <li class="nav-item">
+        <router-link class="nav-link" :to="{ name: 'eventTable' }">
+          <i class="fas fa-fw fa-table"></i>
+          <span>Events</span>
         </router-link>
       </li>
     </ul>

@@ -24,7 +24,7 @@
               >
                 <template #cell(Aksi)="row">
                   <router-link
-                    :to="{ name: 'eventTable' }"
+                    :to="{ name: 'updateEvent' ,params: { id: row.item.ID } }"
                     class="btn-sm btn btn-warning btn-sm"
                     >Update</router-link
                   >

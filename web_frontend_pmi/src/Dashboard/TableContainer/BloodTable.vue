@@ -20,7 +20,7 @@
               >
                 <template #cell(Aksi)="row">
                   <router-link
-                    :to="{ name: 'updateBlood', params: { id: row.item.ID } }"
+                    :to="{ name: 'updateBlood', }"
                     class="btn-sm btn btn-warning btn-sm"
                     @mouseover="getId(row)"
                     >Update</router-link
@@ -88,10 +88,6 @@ export default {
         .catch((err) => {
           console.log(err);
         });
-    },
-
-    updateItem() {
-      console.log("update");
     },
     getAllBloods() {
       const bloodItems = [];
