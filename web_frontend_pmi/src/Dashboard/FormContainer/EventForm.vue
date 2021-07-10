@@ -112,7 +112,7 @@ export default {
             },
           }
         )
-        .then((respose) => {
+        .then(() => {
           this.$router.push("/dashboard/event");
         })
         .catch((err) => {
