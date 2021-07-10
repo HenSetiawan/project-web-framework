@@ -79,6 +79,14 @@
         </a>
       </li>
 
+      <!-- Nav Item - Agenda Form -->
+      <li class="nav-item">
+        <router-link class="nav-link" :to="{ name: 'eventTable' }">
+          <i class="fas fa-fw fa-chart-area"></i>
+          <span>Event Form</span>
+        </router-link>
+      </li>
+
       <!-- Nav Item - Blood Stock Form -->
       <li class="nav-item">
         <router-link class="nav-link" :to="{ name: 'bloodtable' }">
