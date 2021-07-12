@@ -21,7 +21,7 @@
 
       <!-- Nav Item - Dashboard -->
       <li class="nav-item active">
-        <router-link class="nav-link" :to="{ name: 'dashboard' }">
+        <router-link class="nav-link" :to="{ name: 'adminTable' }">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Dashboard</span>
         </router-link>
@@ -41,41 +41,41 @@
 
       <!-- Nav Item - Admin Form -->
       <li class="nav-item">
-        <router-link class="nav-link" :to="{ name: 'admintable' }">
-          <i class="fas fa-fw fa-chart-area"></i>
-          <span>Admin Form</span>
+        <router-link class="nav-link" :to="{ name: 'adminTable' }">
+          <i class="fa fa-lock"></i>
+          <span> Admin Form </span>
         </router-link>
       </li>
 
       <!-- Nav Item - Volunteer Form -->
       <li class="nav-item">
         <a class="nav-link" href="charts.html">
-          <i class="fas fa-fw fa-chart-area"></i>
-          <span>Volunteer Form</span>
+          <i class="fa fa-users"></i>
+          <span> Volunteer Form </span>
         </a>
       </li>
 
       <!-- Nav Item - User Form -->
       <li class="nav-item">
-        <a class="nav-link" href="charts.html">
-          <i class="fas fa-fw fa-chart-area"></i>
-          <span>User Form</span>
-        </a>
+        <router-link class="nav-link" :to="{ name: 'userTable' }">
+          <i class="fa fa-user"></i>
+          <span> User Form </span>
+        </router-link>
       </li>
 
       <!-- Nav Item - Blog Form -->
       <li class="nav-item">
         <a class="nav-link" href="charts.html">
-          <i class="fas fa-fw fa-chart-area"></i>
-          <span>Blog Form</span>
+          <i class="fa fa-bookmark"></i>
+          <span> Blog Form </span>
         </a>
       </li>
 
       <!-- Nav Item - FAQ Form -->
       <li class="nav-item">
         <a class="nav-link" href="charts.html">
-          <i class="fas fa-fw fa-chart-area"></i>
-          <span>FAQ Form</span>
+          <i class="fa fa-question-circle"></i>
+          <span> FAQ Form </span>
         </a>
       </li>
 
@@ -89,7 +89,7 @@
 
       <!-- Nav Item - Blood Stock Form -->
       <li class="nav-item">
-        <router-link class="nav-link" :to="{ name: 'bloodtable' }">
+        <router-link class="nav-link" :to="{ name: 'bloodTable' }">
           <i class="fas fa-fw fa-table"></i>
           <span>Blood Stock Form</span>
         </router-link>

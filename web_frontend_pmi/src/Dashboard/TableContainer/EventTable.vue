@@ -8,13 +8,14 @@
         <div class="col-md-12">
           <!-- DataTales Example -->
           <div class="card shadow mb-4">
-            <div class="card-header py-3"></div>
-            <div class="card-body">
+            <div class="card-header py-3">
               <router-link
                 :to="{ name: 'addNewEvent' }"
-                class="btn-sm btn btn-primary btn-sm mb-2"
+                class="btn-sm btn btn-primary btn-sm"
                 >Tambah Data</router-link
               >
+            </div>
+            <div class="card-body">
               <b-table
                 hover
                 head-variant="dark"
@@ -25,11 +26,11 @@
                 <template #cell(Aksi)="row">
                   <router-link
                     :to="{ name: 'eventTable' }"
-                    class="btn-sm btn btn-warning btn-sm"
+                    class="btn-sm btn btn-warning btn-sm w-100"
                     >Update</router-link
-                  >
+                  ><br />
                   <button
-                    class="btn btn-danger btn-sm ml-1"
+                    class="btn btn-danger btn-sm mt-2 w-100"
                     @click="deleteEvent(row.item.ID)"
                   >
                     Delete

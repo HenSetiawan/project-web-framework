@@ -10,6 +10,9 @@ import EventForm from "../Dashboard/FormContainer/EventForm.vue";
 import BloodTable from "../Dashboard/TableContainer/BloodTable.vue";
 import AdminTable from "../Dashboard/TableContainer/AdminTable.vue";
 import EventTable from "../Dashboard/TableContainer/EventTable.vue";
+import AdminForm from "../Dashboard/FormContainer/AdminForm.vue";
+import UserTable from "../Dashboard/TableContainer/UserTable.vue";
+import EditAdmin from "../Dashboard/EditContainer/AdminEdit.vue";
 import store from "../store";
 
 Vue.use(VueRouter);
@@ -55,14 +58,14 @@ const routes = [
   // Dashboard routes
   {
     path: "/dashboard/blood",
-    name: "bloodtable",
+    name: "bloodTable",
     component: BloodTable,
     meta: {
       auth: true,
     },
   },
   {
-    path: "/blood/form/:id",
+    path: "/dashboard/blood/form/:id",
     name: "updateBlood",
     component: BloodForm,
     props: true,
@@ -72,8 +75,24 @@ const routes = [
   },
   {
     path: "/dashboard/admin",
-    name: "admintable",
+    name: "adminTable",
     component: AdminTable,
+    meta: {
+      auth: true,
+    },
+  },
+  {
+    path: "/dashboard/new-admin",
+    name: "addNewAdmin",
+    component: AdminForm,
+    meta: {
+      auth: true,
+    },
+  },
+  {
+    path: "/dashboard/edit-admin/:id",
+    name: "editAdmin",
+    component: EditAdmin,
     meta: {
       auth: true,
     },
@@ -90,6 +109,14 @@ const routes = [
     path: "/dashboard/new-event",
     name: "addNewEvent",
     component: EventForm,
+    meta: {
+      auth: true,
+    },
+  },
+  {
+    path: "/dashboard/user",
+    name: "userTable",
+    component: UserTable,
     meta: {
       auth: true,
     },

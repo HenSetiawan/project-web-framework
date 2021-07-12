@@ -3,36 +3,25 @@
     <sidebar />
     <div class="container-fluid mt-5">
       <!-- Page Heading -->
-      <h3 class="h3 mb-4 text-gray-800 bold">Daftar Admin</h3>
+      <h3 class="h3 mb-4 text-gray-800 bold">Daftar Users</h3>
       <div class="row">
         <div class="col-md-12">
           <!-- DataTales Example -->
           <div class="card shadow mb-4">
-            <div class="card-header py-3">
-              <router-link
-                :to="{ name: 'addNewAdmin' }"
-                class="btn-sm btn btn-primary btn-sm"
-                >Tambah Data</router-link
-              >
-            </div>
+            <div class="card-header py-3"></div>
             <div class="card-body">
               <b-table
                 hover
                 head-variant="dark"
                 id="pages-table"
-                :items="allAdmins"
+                :items="allUsers"
                 :fields="fields"
                 class="text-center"
               >
                 <template #cell(Aksi)="row">
-                  <router-link
-                    :to="{ name: 'editAdmin', params: { id: row.item.ID } }"
-                    class="btn-sm btn btn-warning btn-sm w-100"
-                    >Update</router-link
-                  ><br />
                   <button
-                    class="btn btn-danger btn-sm mt-2 w-100"
-                    @click="deleteAdmin(row.item.ID)"
+                    class="btn btn-danger btn-sm ml-1 w-100"
+                    @click="deleteUser(row.item.ID)"
                   >
                     Delete
                   </button>
@@ -62,14 +51,14 @@ export default {
         { key: "Telp" },
         { key: "Aksi" },
       ],
-      allAdmins: [],
+      allUsers: [],
     };
   },
   created() {
-    this.getAllAdmins();
+    this.getAllUsers();
   },
   methods: {
-    deleteAdmin(id) {
+    deleteUser(id) {
       store.dispatch("fetchAccessToken");
       this.$swal
         .fire({
@@ -84,14 +73,14 @@ export default {
         .then((result) => {
           if (result.isConfirmed) {
             axios
-              .delete(`/api/v1/admin/${id}`, {
+              .delete(`/api/v1/users/${id}`, {
                 headers: {
                   Authorization: `Bearer ${store.state.accessToken}`,
                 },
               })
               .then((response) => {
                 console.log(response);
-                this.getAllAdmins();
+                this.getAllUsers();
               })
               .catch((err) => {
                 console.log(err);
@@ -99,15 +88,15 @@ export default {
           }
         });
     },
-    getAllAdmins() {
-      axios("/api/v1/admins", {
+    getAllUsers() {
+      axios("/api/v1/users/", {
         headers: {
           Authorization: `Bearer ${store.state.accessToken}`,
         },
       })
         .then((result) => {
           console.log(result.data);
-          let adminItems = [];
+          let userItems = [];
           result.data.data.forEach((data) => {
             let temp = {
               ID: data.id,
@@ -116,11 +105,11 @@ export default {
               Telp: data.no_hp,
             };
 
-            adminItems.push(temp);
+            userItems.push(temp);
           });
 
-          this.allAdmins = adminItems;
-          console.log(adminItems);
+          this.allUsers = userItems;
+          console.log(userItems);
         })
         .catch((err) => {
           console.log(err);
