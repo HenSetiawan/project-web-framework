@@ -7,12 +7,13 @@ import DetailBlog from "../views/DetailBlog.vue";
 import LoginForm from "../Dashboard/LoginContainer/LoginForm.vue";
 import BloodForm from "../Dashboard/FormContainer/BloodForm.vue";
 import EventForm from "../Dashboard/FormContainer/EventForm.vue";
-import FormUpdateEvent from "../Dashboard/FormContainer/FormUpdateEvent.vue";
+import FormUpdateEvent from "../Dashboard/EditContainer/FormUpdateEvent.vue";
 import BloodTable from "../Dashboard/TableContainer/BloodTable.vue";
 import AdminTable from "../Dashboard/TableContainer/AdminTable.vue";
 import EventTable from "../Dashboard/TableContainer/EventTable.vue";
 import AdminForm from "../Dashboard/FormContainer/AdminForm.vue";
 import EditAdmin from "../Dashboard/EditContainer/AdminEdit.vue";
+import UserTable from "../Dashboard/TableContainer/UserTable.vue";
 import store from "../store";
 
 Vue.use(VueRouter);
@@ -28,7 +29,7 @@ const routes = [
   // Login Routes
   {
     path: "/dashboard/login",
-    name: "loginform",
+    name: "loginForm",
     component: LoginForm,
   },
 
@@ -98,6 +99,14 @@ const routes = [
     },
   },
   {
+    path: "/dashboard/user",
+    name: "userTable",
+    component: UserTable,
+    meta: {
+      auth: true,
+    },
+  },
+  {
     path: "/dashboard/event",
     name: "eventTable",
     component: EventTable,
@@ -136,11 +145,11 @@ router.beforeEach((to, from, next) => {
     to.matched.some((record) => record.meta.auth) &&
     !store.state.accessToken
   ) {
-    next({ name: "loginform" });
+    next({ name: "loginForm" });
     return;
   }
-  if (to.name == "loginform" && store.state.accessToken) {
-    next({ name: "bloodtable" });
+  if (to.name == "loginForm" && store.state.accessToken) {
+    next({ name: "adminTable" });
   }
   next();
 });

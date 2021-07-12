@@ -78,7 +78,7 @@
             </b-form-group>
 
             <b-button variant="primary" class="btn" @click="sendNewData"
-              >Tambah Data</b-button
+              >Ubah Data</b-button
             >
           </b-form>
         </div>
@@ -152,7 +152,12 @@ export default {
           this.$router.push("/dashboard/admin");
         })
         .catch((err) => {
-          console.log(err);
+          console.log(err.response.data);
+          this.$swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: err.response.data.message,
+          });
         });
     },
   },
