@@ -7,11 +7,11 @@ import DetailBlog from "../views/DetailBlog.vue";
 import LoginForm from "../Dashboard/LoginContainer/LoginForm.vue";
 import BloodForm from "../Dashboard/FormContainer/BloodForm.vue";
 import EventForm from "../Dashboard/FormContainer/EventForm.vue";
+import FormUpdateEvent from "../Dashboard/FormContainer/FormUpdateEvent.vue";
 import BloodTable from "../Dashboard/TableContainer/BloodTable.vue";
 import AdminTable from "../Dashboard/TableContainer/AdminTable.vue";
 import EventTable from "../Dashboard/TableContainer/EventTable.vue";
 import AdminForm from "../Dashboard/FormContainer/AdminForm.vue";
-import UserTable from "../Dashboard/TableContainer/UserTable.vue";
 import EditAdmin from "../Dashboard/EditContainer/AdminEdit.vue";
 import store from "../store";
 
@@ -114,9 +114,10 @@ const routes = [
     },
   },
   {
-    path: "/dashboard/user",
-    name: "userTable",
-    component: UserTable,
+    path: "/dashboard/update-event/:id",
+    name: "updateEvent",
+    component: FormUpdateEvent,
+    props: true,
     meta: {
       auth: true,
     },

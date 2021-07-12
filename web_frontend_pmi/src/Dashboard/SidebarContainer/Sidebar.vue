@@ -91,7 +91,7 @@
       <li class="nav-item">
         <router-link class="nav-link" :to="{ name: 'bloodTable' }">
           <i class="fas fa-fw fa-table"></i>
-          <span>Blood Stock Form</span>
+          <span>Blood Stock</span>
         </router-link>
       </li>
     </ul>
