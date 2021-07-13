@@ -13,6 +13,7 @@
             <div class="card-body">
               <b-table
                 hover
+                responsive
                 head-variant="dark"
                 id="pages-table"
                 :items="allBloods"
@@ -20,7 +21,7 @@
               >
                 <template #cell(Aksi)="row">
                   <router-link
-                    :to="{ name: 'updateBlood', }"
+                    :to="{ name: 'updateBlood' }"
                     class="btn-sm btn btn-warning btn-sm"
                     @mouseover="getId(row)"
                     >Update</router-link

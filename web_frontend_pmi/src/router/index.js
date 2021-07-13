@@ -14,6 +14,8 @@ import EventTable from "../Dashboard/TableContainer/EventTable.vue";
 import AdminForm from "../Dashboard/FormContainer/AdminForm.vue";
 import EditAdmin from "../Dashboard/EditContainer/AdminEdit.vue";
 import UserTable from "../Dashboard/TableContainer/UserTable.vue";
+import VolunteerTable from "../Dashboard/TableContainer/VolunteerTable.vue";
+import VolunteerForm from "../Dashboard/FormContainer/VolunteerForm.vue";
 import store from "../store";
 
 Vue.use(VueRouter);
@@ -102,6 +104,22 @@ const routes = [
     path: "/dashboard/user",
     name: "userTable",
     component: UserTable,
+    meta: {
+      auth: true,
+    },
+  },
+  {
+    path: "/dashboard/volunteer",
+    name: "volunteerTable",
+    component: VolunteerTable,
+    meta: {
+      auth: true,
+    },
+  },
+  {
+    path: "/dashboard/new-volunteer",
+    name: "addNewVolunteer",
+    component: VolunteerForm,
     meta: {
       auth: true,
     },

@@ -12,6 +12,7 @@
             <div class="card-body">
               <b-table
                 hover
+                responsive
                 head-variant="dark"
                 id="pages-table"
                 :items="allUsers"

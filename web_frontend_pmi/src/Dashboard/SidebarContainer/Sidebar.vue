@@ -49,10 +49,10 @@
 
       <!-- Nav Item - Volunteer Form -->
       <li class="nav-item">
-        <a class="nav-link" href="charts.html">
+        <router-link class="nav-link" :to="{ name: 'volunteerTable' }">
           <i class="fa fa-users"></i>
           <span> Volunteer Form </span>
-        </a>
+        </router-link>
       </li>
 
       <!-- Nav Item - User Form -->
