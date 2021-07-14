@@ -54,9 +54,10 @@ Route::middleware(['auth:admin'])->group(function() {
     Route::put('/v1/event/{id}', [AgendaManageController::class, 'update']);
     Route::delete('/v1/event/{id}', [AgendaManageController::class, 'destroy']);
 
-    Route::post('/v1/ask' , [FAQManageController::class, 'index']);
-    Route::put('v1/ask/{id}', [FAQManageController::class,'index']);
-    Route::delete('/v1/ask/{id}', [FAQManageController::class,'index']);
+    Route::post('/v1/ask' , [FAQManageController::class, 'store']);
+    Route::put('v1/ask/{id}', [FAQManageController::class,'update']);
+    Route::delete('/v1/ask/{id}', [FAQManageController::class,'destroy']);
+    Route::get('/v1/ask/{id}', [FAQManageController::class,'show']);
 });
 
 // auth for user
