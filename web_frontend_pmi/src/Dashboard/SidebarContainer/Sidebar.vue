@@ -73,10 +73,10 @@
 
       <!-- Nav Item - FAQ Form -->
       <li class="nav-item">
-        <a class="nav-link" href="charts.html">
+        <router-link class="nav-link" :to="{ name: 'FAQTable' }">
           <i class="fa fa-question-circle"></i>
           <span> FAQ Form </span>
-        </a>
+        </router-link>
       </li>
 
       <!-- Nav Item - Agenda Form -->

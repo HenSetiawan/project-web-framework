@@ -15,6 +15,7 @@
               <b-form-input
                 id="input-1"
                 type="text"
+                placeholder="Enter your username"
                 required
                 v-model="form.username"
                 autocomplete="off"
@@ -29,6 +30,7 @@
               <b-form-input
                 id="input-1"
                 type="email"
+                placeholder="Enter your email"
                 required
                 v-model="form.email"
                 autocomplete="off"
@@ -43,6 +45,7 @@
               <b-form-input
                 id="input-1"
                 type="text"
+                placeholder="ex: 083827753611"
                 required
                 v-model="form.handphone"
                 autocomplete="off"
@@ -57,6 +60,7 @@
               <b-form-input
                 id="input-1"
                 type="password"
+                placeholder="Enter your password"
                 required
                 v-model="form.password"
                 autocomplete="off"
@@ -71,6 +75,7 @@
               <b-form-input
                 id="input-1"
                 type="password"
+                placeholder="Enter your confirm password"
                 required
                 v-model="form.konfirmasiPassword"
                 autocomplete="off"

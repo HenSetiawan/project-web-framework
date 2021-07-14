@@ -124,7 +124,7 @@ export default {
             },
           }
         )
-        .then((respose) => {
+        .then(() => {
           this.$router.push("/dashboard/blood");
         })
         .catch((err) => {

@@ -17,6 +17,7 @@
               <b-form-input
                 id="input-1"
                 type="text"
+                placeholder="Enter your title"
                 required
                 v-model="form.judul"
                 autocomplete="off"
@@ -31,6 +32,7 @@
               <b-form-input
                 id="input-1"
                 type="text"
+                placeholder="Enter your description"
                 required
                 v-model="form.deskripsi"
                 autocomplete="off"
@@ -59,6 +61,7 @@
               <b-form-input
                 id="input-1"
                 type="text"
+                placeholder="Enter your location"
                 required
                 v-model="form.lokasi"
                 autocomplete="off"

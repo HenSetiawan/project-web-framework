@@ -16,6 +16,9 @@ import EditAdmin from "../Dashboard/EditContainer/AdminEdit.vue";
 import UserTable from "../Dashboard/TableContainer/UserTable.vue";
 import VolunteerTable from "../Dashboard/TableContainer/VolunteerTable.vue";
 import VolunteerForm from "../Dashboard/FormContainer/VolunteerForm.vue";
+import FAQTable from "../Dashboard/TableContainer/FAQTable.vue";
+import FAQForm from "../Dashboard/FormContainer/FAQForm.vue";
+import EditFAQ from "../Dashboard/EditContainer/FAQEdit.vue";
 import store from "../store";
 
 Vue.use(VueRouter);
@@ -120,6 +123,30 @@ const routes = [
     path: "/dashboard/new-volunteer",
     name: "addNewVolunteer",
     component: VolunteerForm,
+    meta: {
+      auth: true,
+    },
+  },
+  {
+    path: "/dashboard/ask",
+    name: "FAQTable",
+    component: FAQTable,
+    meta: {
+      auth: true,
+    },
+  },
+  {
+    path: "/dashboard/new-ask",
+    name: "addNewFAQ",
+    component: FAQForm,
+    meta: {
+      auth: true,
+    },
+  },
+  {
+    path: "/dashboard/edit-ask/:id",
+    name: "editFAQ",
+    component: EditFAQ,
     meta: {
       auth: true,
     },

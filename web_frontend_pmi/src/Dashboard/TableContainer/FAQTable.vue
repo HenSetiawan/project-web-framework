@@ -3,26 +3,36 @@
     <sidebar />
     <div class="container-fluid mt-5">
       <!-- Page Heading -->
-      <h3 class="h3 mb-4 text-gray-800 bold">Daftar Pengguna</h3>
+      <h3 class="h3 mb-4 text-gray-800 bold">Daftar Frequently Ask Question</h3>
       <div class="row">
         <div class="col-md-12">
           <!-- DataTales Example -->
           <div class="card shadow mb-4">
-            <div class="card-header py-3"></div>
+            <div class="card-header py-3">
+              <router-link
+                :to="{ name: 'addNewFAQ' }"
+                class="btn-sm btn btn-primary btn-sm"
+                >Tambah Data</router-link
+              >
+            </div>
             <div class="card-body">
               <b-table
                 hover
                 responsive
                 head-variant="dark"
                 id="pages-table"
-                :items="allUsers"
+                :items="allFAQs"
                 :fields="fields"
-                class="text-center"
               >
                 <template #cell(Aksi)="row">
+                  <router-link
+                    :to="{ name: 'editFAQ', params: { id: row.item.ID } }"
+                    class="btn-sm btn btn-warning btn-sm w-100"
+                    >Update</router-link
+                  ><br />
                   <button
-                    class="btn btn-danger btn-sm ml-1 w-100"
-                    @click="deleteUser(row.item.ID)"
+                    class="btn btn-danger btn-sm mt-2 w-100"
+                    @click="deleteFAQ(row.item.ID)"
                   >
                     Delete
                   </button>
@@ -41,25 +51,24 @@ import Sidebar from "../SidebarContainer/Sidebar.vue";
 import axios from "axios";
 import store from "../../store";
 export default {
-  name: "eventTable",
+  name: "FAQTable",
   components: { Sidebar },
   data() {
     return {
       fields: [
         { key: "ID" },
-        { key: "Nama" },
-        { key: "Email" },
-        { key: "Telp" },
+        { key: "Questions" },
+        { key: "Answers" },
         { key: "Aksi" },
       ],
-      allUsers: [],
+      allFAQs: [],
     };
   },
   created() {
-    this.getAllUsers();
+    this.getAllFAQs();
   },
   methods: {
-    deleteUser(id) {
+    deleteFAQ(id) {
       store.dispatch("fetchAccessToken");
       this.$swal
         .fire({
@@ -74,14 +83,14 @@ export default {
         .then((result) => {
           if (result.isConfirmed) {
             axios
-              .delete(`/api/v1/users/${id}`, {
+              .delete(`/api/v1/ask/${id}`, {
                 headers: {
                   Authorization: `Bearer ${store.state.accessToken}`,
                 },
               })
               .then((response) => {
                 console.log(response);
-                this.getAllUsers();
+                this.getAllFAQs();
               })
               .catch((err) => {
                 console.log(err);
@@ -89,28 +98,23 @@ export default {
           }
         });
     },
-    getAllUsers() {
-      axios("/api/v1/users/", {
-        headers: {
-          Authorization: `Bearer ${store.state.accessToken}`,
-        },
-      })
+    getAllFAQs() {
+      axios("/api/v1/asks")
         .then((result) => {
           console.log(result.data);
-          let userItems = [];
+          let FAQItems = [];
           result.data.data.forEach((data) => {
             let temp = {
               ID: data.id,
-              Nama: data.username,
-              Email: data.email,
-              Telp: data.no_hp,
+              Questions: data.question,
+              Answers: data.answer,
             };
 
-            userItems.push(temp);
+            FAQItems.push(temp);
           });
 
-          this.allUsers = userItems;
-          console.log(userItems);
+          this.allFAQs = FAQItems;
+          console.log(FAQItems);
         })
         .catch((err) => {
           console.log(err);
