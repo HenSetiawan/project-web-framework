@@ -92,6 +92,22 @@ class AuthAdminController extends Controller
        }
    }
 
+   public function logoutAll(Request $request)
+    {
+        try{
+            $request->user()->tokens()->delete();
+            return response()->json([
+                "message" => "logout from all device successful",
+                "data" => $request->user()
+            ])->setStatusCode(200);
+
+        }catch (QueryException $err) {
+            return response()->json([
+                "error" => $err->errorInfo
+            ])->setStatusCode(400);
+        }
+    }
+
 
 
 }

@@ -85,8 +85,8 @@ digunakan untuk menghapus data relawan berdasarkan id
 
 digunakan untuk mengubah data relawan yang telah terdaftar
 
-| method | endpoint           | body                                                 | auth | access role |
-| ------ | ------------------ | ---------------------------------------------------- | ---- | ----------- |
+| method | endpoint               | body                                                 | auth | access role |
+| ------ | ---------------------- | ---------------------------------------------------- | ---- | ----------- |
 | PUT    | /api/v1/volunteer/{id} | username,no_phone,email,address,blood_type,birth_day | Y    | volunteer   |
 
 ```js
@@ -159,6 +159,4 @@ digunakan untuk keluar dan menghapus token
 
 | method | endpoint                      | auth |
 | ------ | ----------------------------- | ---- |
-| POST   | /api/v1/auth/volunteer/logout | Y    |
-
-
+| GET    | /api/v1/auth/volunteer/logout | Y    |

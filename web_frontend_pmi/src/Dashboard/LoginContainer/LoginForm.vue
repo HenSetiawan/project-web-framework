@@ -48,15 +48,12 @@
                   ></b-form-input>
                 </b-form-group>
 
-                <b-form-group id="input-group-4" v-slot="{ ariaDescribedby }">
-                  <b-form-checkbox-group
-                    @change="checked"
-                    id="checkboxes-4"
-                    :aria-describedby="ariaDescribedby"
-                  >
-                    <b-form-checkbox value="me">Remember Me</b-form-checkbox>
-                  </b-form-checkbox-group>
-                </b-form-group>
+                <b-form-checkbox
+                  v-model="checked"
+                  @change="storeData"
+                  class="mb-3"
+                  >Remember Me</b-form-checkbox
+                >
 
                 <b-button
                   :disabled="loggingIn"
@@ -79,12 +76,14 @@
 <script>
 import { mapState } from "vuex";
 export default {
+  name: "loginForm",
   data() {
     return {
       form: {
         email: localStorage.getItem("email"),
         password: localStorage.getItem("password"),
       },
+      checked: false,
     };
   },
 
@@ -98,8 +97,9 @@ export default {
         email: this.form.email,
         password: this.form.password,
       });
+      this.checked = false;
     },
-    checked() {
+    storeData() {
       localStorage.setItem("email", this.form.email);
       localStorage.setItem("password", this.form.password);
     },

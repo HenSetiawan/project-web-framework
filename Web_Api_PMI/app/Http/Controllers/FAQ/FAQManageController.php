@@ -19,7 +19,7 @@ class FAQManageController extends Controller
     {
         try {
             $faq = DB::table('frequently_ask_question')
-                   ->orderBy('id', 'DESC')
+                   ->orderBy('id', 'ASC')
                    ->get();
             $response = [
                 'message'=> 'Success',

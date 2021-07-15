@@ -1,14 +1,14 @@
- #  User Endpoint
+# User Endpoint
 
-  ### ambil data semua user
-  digunakan untuk mengambil semua daftar user
+### ambil data semua user
 
-| method | endpoint         | auth   |access role|
-|--------|------------------|--------|-----------|
-| GET    | /api/v1/users/   |  Y      |admin      |
+digunakan untuk mengambil semua daftar user
 
+| method | endpoint       | auth | access role |
+| ------ | -------------- | ---- | ----------- |
+| GET    | /api/v1/users/ | Y    | admin       |
 
-``` js
+```js
 {
     message:"success get all users data",
     data:[
@@ -26,17 +26,17 @@
             }
     ]
 }
-   ```
+```
 
- ### ambil data user aktif
-  digunakan untuk mengambil data user berdasarkan token
+### ambil data user aktif
 
-| method | endpoint         | auth   |access role|
-|--------|------------------|--------|-----------|
-| GET    | /api/v1/user/|  Y     |user  |
+digunakan untuk mengambil data user berdasarkan token
 
+| method | endpoint      | auth | access role |
+| ------ | ------------- | ---- | ----------- |
+| GET    | /api/v1/user/ | Y    | user        |
 
-``` js
+```js
 {
 
   id:1,
@@ -45,18 +45,17 @@
   number_phone:"08123456789"
 
 }
-   ```
-
+```
 
 ### ambil data user
-  digunakan untuk mengambil data user berdasarkan id
 
-| method | endpoint         | auth   |access role|
-|--------|------------------|--------|-----------|
-| GET    | /api/v1/user/{id}|  Y     |admin     |
+digunakan untuk mengambil data user berdasarkan id
 
+| method | endpoint          | auth | access role |
+| ------ | ----------------- | ---- | ----------- |
+| GET    | /api/v1/user/{id} | Y    | admin       |
 
-``` js
+```js
 {
 
   id:1,
@@ -65,20 +64,20 @@
   number_phone:"08123456789"
 
 }
-   ```
+```
 
+### hapus data user
 
- ### hapus data user
-  digunakan untuk menghapus data user berdasarkan id
+digunakan untuk menghapus data user berdasarkan id
 
-| method | endpoint         | auth   |access role|
-|--------|------------------|--------|-----------|
-| DELETE    | /api/v1/user/{id}  |  Y   |admin
+| method | endpoint          | auth | access role |
+| ------ | ----------------- | ---- | ----------- |
+| DELETE | /api/v1/user/{id} | Y    | admin       |
 
-``` js
+```js
 {
 
-  
+
   message:"success delete user",
   data:[
       id:1,
@@ -88,20 +87,20 @@
   ]
 
 }
-   ```
-
+```
 
 ### ubah data user
-  digunakan untuk mengubah data user berdasarkan user yang telah login
 
-| method | endpoint         |body                       | auth|access role|
-|--------|------------------|---------------------------|-----|-----------|
-| PUT    | /api/v1/user/{id}    |username,email,number phone|Y    |user       |
+digunakan untuk mengubah data user berdasarkan user yang telah login
 
-``` js
+| method | endpoint          | body                        | auth | access role |
+| ------ | ----------------- | --------------------------- | ---- | ----------- |
+| PUT    | /api/v1/user/{id} | username,email,number phone | Y    | user        |
+
+```js
 {
 
-  
+
   message:"success update user",
   data:[
       id:1,
@@ -111,17 +110,17 @@
   ]
 
 }
-   ```
+```
 
- ### register user
- digunakan untuk melakukan registrasi user baru
+### register user
 
-| method | endpoint                    | body                           |auth |
-|--------|-----------------------------|--------------------------------|-----|
-| POST   | /api/v1/auth/user/register  |username,no hp,email, password  |N    |
+digunakan untuk melakukan registrasi user baru
 
+| method | endpoint                   | body                           | auth |
+| ------ | -------------------------- | ------------------------------ | ---- |
+| POST   | /api/v1/auth/user/register | username,no hp,email, password | N    |
 
-``` js
+```js
 {
 
   id:1,
@@ -130,16 +129,17 @@
   desc:"user registration is successful"
 
 }
-   ```
+```
 
 ### login user
+
 digunakan untuk login user yang telah terdaftar
 
-| method | endpoint                 | body              |
-|--------|--------------------------|-------------------|
-| POST   | /api/v1/auth/user/login  | email,password |
+| method | endpoint                | body           |
+| ------ | ----------------------- | -------------- |
+| POST   | /api/v1/auth/user/login | email,password |
 
-``` js
+```js
 {
 
   id:1,
@@ -148,19 +148,20 @@ digunakan untuk login user yang telah terdaftar
   token:"vjwegrngknergknelrngklerlgnergklerklkle"
 
 }
-   ```
+```
 
 ### logout user
+
 digunakan untuk keluar dan menghapus token
 
-| method | endpoint                 | auth|
-|--------|--------------------------|-----|
-| POST   | /api/v1/auth/user/logout |Y|
+| method | endpoint                 | auth |
+| ------ | ------------------------ | ---- |
+| GET    | /api/v1/auth/user/logout | Y    |
 
-``` js
+```js
 {
 
   message:"logout successful",
-  
+
 }
-   ```
+```

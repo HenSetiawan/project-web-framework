@@ -35,7 +35,7 @@ data:{
 
 | method | endpoint                  | auth |
 | ------ | ------------------------- | ---- |
-| POST   | /api/v1/auth/admin/logout | Y    |
+| GET    | /api/v1/auth/admin/logout | Y    |
 
 -   response json
 

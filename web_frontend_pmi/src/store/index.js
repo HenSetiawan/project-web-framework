@@ -38,10 +38,12 @@ export default new Vuex.Store({
             localStorage.setItem("accessToken", response.data.token);
             commit("loginStop", null);
             commit("updateAccessToken", response.data.token);
-            router.push({ name: "bloodtable" });
+            router.push({ name: "bloodTable" });
           })
           .catch((err) => {
             console.log(err);
+            localStorage.removeItem("email");
+            localStorage.removeItem("password");
             commit("loginStop", err.response.data.message);
             commit("updateAccessToken", null);
           });
@@ -50,10 +52,10 @@ export default new Vuex.Store({
     fetchAccessToken({ commit }) {
       commit("updateAccessToken", localStorage.getItem("accessToken"));
     },
-    logout({ commit }) {
+    logoutAll({ commit }) {
       localStorage.removeItem("accessToken");
       commit("logout");
-      this.$router.push({ name: "loginform" });
+      router.push({ name: "loginForm" });
     },
   },
 

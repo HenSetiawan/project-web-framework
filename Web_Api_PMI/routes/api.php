@@ -33,7 +33,8 @@ Route::middleware(['auth:admin'])->group(function() {
     Route::resource('/v1/users', UsersManageController::class)->except('update');
     Route::delete('/v1/volunteer/{id}', [VolunteerManageController::class, 'destroy']);
     Route::post('/v1/admin', [AuthAdminController::class,'createNewAdmin']);
-    Route::post('/v1/auth/admin/logout', [AuthAdminController::class,'logout']);
+    Route::get('/v1/auth/admin/logout', [AuthAdminController::class,'logout']);
+    Route::get('/v1/auth/admin/logoutall', [AuthAdminController::class,'logoutAll']);
 
 
     Route::put('/v1/blood/{kategori}', [BloodManageController::class,'resetStokById']);
@@ -62,8 +63,8 @@ Route::middleware(['auth:admin'])->group(function() {
 
 // auth for user
 Route::middleware(['auth:user'])->group(function() {
-    Route::post('/v1/auth/user/logout', [AuthUsersController::class, 'logout']);
-    Route::post('/v1/auth/user/logoutall', [AuthUsersController::class, 'logoutall']);
+    Route::get('/v1/auth/user/logout', [AuthUsersController::class, 'logout']);
+    Route::get('/v1/auth/user/logoutall', [AuthUsersController::class, 'logoutall']);
     Route::get('/v1/user/', [UsersManageController::class,"getCurrentUser"]);
     Route::put('/v1/user/{id}', [UsersManageController::class, 'update']);
 });
@@ -71,7 +72,7 @@ Route::middleware(['auth:user'])->group(function() {
 
 // auth for volunteer
 Route::middleware(['auth:volunteer'])->group(function() {
-    Route::post('/v1/auth/volunteer/logout', [AuthVolunteerController::class, 'logout']);
+    Route::get('/v1/auth/volunteer/logout', [AuthVolunteerController::class, 'logout']);
     Route::put('/v1/volunteer/{id}', [VolunteerManageController::class, 'update']);
 });
 
