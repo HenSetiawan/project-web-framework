@@ -19,6 +19,7 @@ import VolunteerForm from "../Dashboard/FormContainer/VolunteerForm.vue";
 import FAQTable from "../Dashboard/TableContainer/FAQTable.vue";
 import FAQForm from "../Dashboard/FormContainer/FAQForm.vue";
 import EditFAQ from "../Dashboard/EditContainer/FAQEdit.vue";
+import BlogTable from "../Dashboard/TableContainer/BlogTable.vue";
 import store from "../store";
 
 Vue.use(VueRouter);
@@ -147,6 +148,14 @@ const routes = [
     path: "/dashboard/edit-ask/:id",
     name: "editFAQ",
     component: EditFAQ,
+    meta: {
+      auth: true,
+    },
+  },
+  {
+    path: "/dashboard/blog",
+    name: "BlogTable",
+    component: BlogTable,
     meta: {
       auth: true,
     },

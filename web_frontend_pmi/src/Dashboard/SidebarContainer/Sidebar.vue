@@ -65,10 +65,10 @@
 
       <!-- Nav Item - Blog Form -->
       <li class="nav-item">
-        <a class="nav-link" href="charts.html">
+        <router-link class="nav-link" :to="{ name: 'BlogTable' }">
           <i class="fa fa-bookmark"></i>
           <span> Blog Form </span>
-        </a>
+        </router-link>
       </li>
 
       <!-- Nav Item - FAQ Form -->
@@ -95,15 +95,35 @@
         </router-link>
       </li>
       <div class="mt-4">
-        <b-button variant="success" class="w-75 mb-3 margin-left-10"
+        <b-button
+          variant="success"
+          @click="showModal"
+          class="w-75 mb-3 mg-button-12"
           >Info</b-button
         >
         <b-button
           @click="logoutAdmin()"
           variant="danger"
-          class="w-75 mb-3 margin-left-10"
+          class="w-75 mb-3 mg-button-12"
           >Keluar</b-button
         >
+
+        <b-modal
+          ref="my-modal"
+          hide-footer
+          title="Info Admin"
+          ok-only
+          hide-header-close
+          responsive
+        >
+          <p class="my-4">ID : {{ id }}</p>
+          <p class="my-4">Nama : {{ nama }}</p>
+          <p class="my-4">Email : {{ email }}</p>
+          <p class="my-4">No Handphone : {{ no_hp }}</p>
+          <b-button class="mt-5" variant="danger" block @click="hideModal"
+            >Tutup</b-button
+          >
+        </b-modal>
       </div>
     </ul>
     <!-- End of Sidebar -->
@@ -115,6 +135,14 @@ import store from "../../store";
 import axios from "axios";
 export default {
   name: "Sidebar",
+  data() {
+    return {
+      id: "",
+      nama: "",
+      email: "",
+      no_hp: "",
+    };
+  },
   methods: {
     logoutAdmin() {
       store.dispatch("fetchAccessToken");
@@ -145,12 +173,39 @@ export default {
           }
         });
     },
+    showModal() {
+      this.$refs["my-modal"].show();
+      axios
+        .get("/api/v1/admin", {
+          headers: { Authorization: `Bearer ${store.state.accessToken}` },
+        })
+        .then((result) => {
+          console.log(result);
+          this.id = result.data.data.id;
+          this.nama = result.data.data.username;
+          this.email = result.data.data.email;
+          this.no_hp = result.data.data.no_hp;
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    },
+    hideModal() {
+      this.$refs["my-modal"].hide();
+    },
   },
 };
 </script>
 
 <style>
-.margin-left-10 {
+.mg-button-12 {
   margin-left: 12%;
+}
+.my-4 {
+  font-weight: bold;
+}
+.modal-title {
+  font-weight: bold;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 </style>
