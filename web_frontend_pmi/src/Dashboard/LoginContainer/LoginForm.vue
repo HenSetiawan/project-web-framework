@@ -91,6 +91,13 @@ export default {
     ...mapState(["loggingIn", "loggingError"]),
   },
 
+  created() {
+    if (this.form.email == null || this.form.password == null) {
+      this.form.email = "";
+      this.form.password = "";
+    }
+  },
+
   methods: {
     login() {
       this.$store.dispatch("doLogin", {

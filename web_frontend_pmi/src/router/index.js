@@ -20,6 +20,8 @@ import FAQTable from "../Dashboard/TableContainer/FAQTable.vue";
 import FAQForm from "../Dashboard/FormContainer/FAQForm.vue";
 import EditFAQ from "../Dashboard/EditContainer/FAQEdit.vue";
 import BlogTable from "../Dashboard/TableContainer/BlogTable.vue";
+import BlogForm from "../Dashboard/FormContainer/BlogForm.vue";
+import BlogEdit from "../Dashboard/EditContainer/BlogEdit.vue";
 import store from "../store";
 
 Vue.use(VueRouter);
@@ -156,6 +158,22 @@ const routes = [
     path: "/dashboard/blog",
     name: "BlogTable",
     component: BlogTable,
+    meta: {
+      auth: true,
+    },
+  },
+  {
+    path: "/dashboard/new-blog",
+    name: "addNewBlog",
+    component: BlogForm,
+    meta: {
+      auth: true,
+    },
+  },
+  {
+    path: "/dashboard/edit-blog/:id",
+    name: "editBlog",
+    component: BlogEdit,
     meta: {
       auth: true,
     },

@@ -90,6 +90,7 @@ Route::get('/v1/blogs', [BlogsManageController::class, 'getAllBlogs']);
 Route::get('/v1/events', [AgendaManageController::class, 'index']);
 Route::get('/v1/asks' , [FAQManageController::class, 'index']);
 Route::get('/v1/blogs/current', [BlogsManageController::class, 'getCurrentBlogs']);
+Route::get('/v1/blog/{id}', [BlogsManageController::class, 'show']);
 
 // routes public for user
 Route::post('/v1/auth/user/login', [AuthUsersController::class, 'login']);
