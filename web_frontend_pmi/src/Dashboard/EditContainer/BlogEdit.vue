@@ -47,9 +47,10 @@
 
             <b-button
               variant="primary"
+              :disabled="form.editorData.length < 100"
               class="btn mt-3 mb-3"
               @click="sendNewData"
-              >Tambah Data</b-button
+              >Edit Data</b-button
             >
           </b-form>
         </div>

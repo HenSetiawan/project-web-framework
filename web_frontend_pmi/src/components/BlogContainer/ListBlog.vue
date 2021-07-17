@@ -3,10 +3,28 @@
     <div class="row">
       <div class="col-lg-8">
         <div class="row">
-          <div class="col-lg-6"><card-blog /></div>
-          <div class="col-lg-6"><card-blog /></div>
-          <div class="col-lg-6"><card-blog /></div>
-          <div class="col-lg-6"><card-blog /></div>
+          <div
+            class="col-lg-6"
+            v-for="(result, index) in results.data"
+            :key="index"
+          >
+            <div class="card blog-card">
+              <img :src="result.thumbnail" alt="blog image" height="200" />
+              <div class="card-body">
+                <h5 class="card-title">
+                  {{ result.judul_blog }}
+                </h5>
+                <p
+                  class="card-text"
+                  v-html="result.content.substring(0, 100) + ' ... '"
+                ></p>
+                <router-link
+                  :to="{ name: 'detailBlog', params: { id: result.id } }"
+                  >Read more <i class="fas fa-arrow-right"></i
+                ></router-link>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       <div class="col-lg-4 mt-5">
@@ -17,13 +35,28 @@
 </template>
 
 <script>
-import cardBlog from "../BlogContainer/CardBlog.vue";
 import recentBlog from "../BlogContainer/RecentBlog.vue";
+import axios from "axios";
 export default {
   name: "listBlog",
   components: {
-    cardBlog,
     recentBlog,
+  },
+  data() {
+    return {
+      results: [],
+    };
+  },
+  mounted() {
+    axios
+      .get("/api/v1/blogs")
+      .then((response) => {
+        this.results = response.data;
+        console.log(this.results);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   },
 };
 </script>
@@ -31,4 +64,7 @@ export default {
 <style scoped>
 @import "../../assets/css/blog/templatemo-stand-blog.css";
 @import "../../assets/css/blog/owl.css";
+a {
+  color: rgb(228, 91, 91) !important;
+}
 </style>

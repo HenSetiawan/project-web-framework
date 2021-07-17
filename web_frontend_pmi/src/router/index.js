@@ -60,7 +60,7 @@ const routes = [
   },
   {
     path: "/blog/detail/:id",
-    name: "detailblog",
+    name: "detailBlog",
     component: DetailBlog,
   },
 

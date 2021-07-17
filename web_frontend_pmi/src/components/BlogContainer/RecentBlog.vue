@@ -21,13 +21,13 @@
           </div>
           <div class="content">
             <ul>
-              <li>
-                <a href="post-details.html">
-                  <h5>
-                    judul blog post
-                  </h5>
-                  <span>May 14, 2020</span>
-                </a>
+              <li v-for="(result, index) in results" :key="index">
+                <router-link
+                  :to="{ name: 'detailBlog', params: { id: result.id } }"
+                >
+                  <h5>{{ result.judul_blog }}</h5>
+                  <span>{{ result.created_at }}</span>
+                </router-link>
               </li>
             </ul>
           </div>
@@ -38,7 +38,29 @@
 </template>
 
 <script>
+import axios from "axios";
 export default {
   name: "recentBlog",
+  data() {
+    return {
+      results: [],
+    };
+  },
+  mounted() {
+    axios
+      .get(`/api/v1/blogs/current`)
+      .then((response) => {
+        this.results = response.data.data;
+        console.log(this.results);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  },
 };
 </script>
+<style scoped>
+li {
+  list-style: none;
+}
+</style>

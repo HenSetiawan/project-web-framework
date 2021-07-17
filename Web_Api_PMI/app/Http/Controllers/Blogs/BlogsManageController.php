@@ -20,7 +20,7 @@ class BlogsManageController extends Controller
 
         try{
             $blogs = DB::table('blogs as b')
-                        ->select('b.id as id', 'b.judul_blog as judul_blog', 'b.thumbnail as thumbnail', 'a.username as username', 'b.created_at as created_at')
+                        ->select('b.id as id', 'b.judul_blog as judul_blog', 'b.thumbnail as thumbnail', 'a.username as username', 'b.created_at as created_at', 'b.content as content')
                         ->leftJoin('admins as a', 'a.id', '=', 'b.id_penulis')
                         ->orderBy('id', 'DESC')
                         ->get();
@@ -43,7 +43,7 @@ class BlogsManageController extends Controller
     {
         try{
             $blogs = DB::table('blogs as b')
-                        ->select('b.id as id', 'b.judul_blog as judul_blog', 'b.thumbnail as thumbnail', 'a.username as username', 'b.created_at as created_at')
+                        ->select('b.id as id', 'b.judul_blog as judul_blog', 'b.thumbnail as thumbnail', 'a.username as username', 'b.created_at as created_at', 'b.content as content')
                         ->leftJoin('admins as a', 'a.id', '=', 'b.id_penulis')
                         ->orderBy('created_at', 'DESC')
                         ->limit(3)

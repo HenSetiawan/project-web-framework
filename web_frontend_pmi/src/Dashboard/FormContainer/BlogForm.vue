@@ -37,7 +37,11 @@
               required
             ></ckeditor>
 
-            <b-button variant="primary" class="btn mt-3" @click="sendNewData"
+            <b-button
+              :disabled="form.editorData.length < 100"
+              variant="primary"
+              class="btn mt-3"
+              @click="sendNewData"
               >Tambah Data</b-button
             >
           </b-form>
