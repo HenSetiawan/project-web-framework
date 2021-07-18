@@ -74,6 +74,7 @@ Route::middleware(['auth:user'])->group(function() {
 Route::middleware(['auth:volunteer'])->group(function() {
     Route::get('/v1/auth/volunteer/logout', [AuthVolunteerController::class, 'logout']);
     Route::put('/v1/volunteer/{id}', [VolunteerManageController::class, 'update']);
+    Route::get('/v1/volunteer/', [VolunteerManageController::class,'getCurrentVolunteer']);
 });
 
 // routes public for volunteer
