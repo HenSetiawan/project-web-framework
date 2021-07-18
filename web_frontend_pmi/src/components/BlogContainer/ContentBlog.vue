@@ -52,7 +52,7 @@ export default {
       results: [],
     };
   },
-  mounted() {
+  created() {
     axios
       .get(`/api/v1/blog/${this.$route.params.id}`)
       .then((response) => {

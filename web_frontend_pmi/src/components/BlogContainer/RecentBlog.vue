@@ -46,7 +46,7 @@ export default {
       results: [],
     };
   },
-  mounted() {
+  created() {
     axios
       .get(`/api/v1/blogs/current`)
       .then((response) => {

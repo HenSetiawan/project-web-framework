@@ -6,14 +6,24 @@
       </div>
     </div>
     <div class="row mb-5">
-      <div class="col-md-4 col-lg-4 col-sm-6">
-        <card-blog />
-      </div>
-      <div class="col-md-4 col-lg-4 col-sm-6">
-        <card-blog />
-      </div>
-      <div class="col-md-4 col-lg-4 col-sm-6">
-        <card-blog />
+      <div
+        class="col-md-4 col-lg-4 col-sm-6"
+        v-for="(result, index) in results.data"
+        :key="index"
+      >
+        <div class="card blog-card">
+          <img :src="result.thumbnail" alt="blog image" height="200" />
+          <div class="card-body">
+            <h5 class="card-title">{{ result.judul_blog }}</h5>
+            <p
+              class="card-text"
+              v-html="result.content.substring(0, 100) + ' ... '"
+            ></p>
+            <router-link :to="{ name: 'detailBlog', params: { id: result.id } }"
+              >Read more <i class="fas fa-arrow-right"></i
+            ></router-link>
+          </div>
+        </div>
       </div>
     </div>
     <div class="row">
@@ -28,10 +38,28 @@
   </section>
 </template>
 <script>
-import cardBlog from "../BlogContainer/CardBlog.vue";
+import axios from "axios";
 export default {
-  components: {
-    cardBlog,
+  data() {
+    return {
+      results: [],
+    };
+  },
+  created() {
+    axios
+      .get(`/api/v1/blogs/current`)
+      .then((response) => {
+        this.results = response.data;
+        console.log(this.results);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   },
 };
 </script>
+<style scoped>
+a {
+  color: rgb(228, 91, 91) !important;
+}
+</style>
