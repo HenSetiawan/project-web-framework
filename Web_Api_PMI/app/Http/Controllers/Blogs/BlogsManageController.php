@@ -152,7 +152,9 @@ class BlogsManageController extends Controller
             }else{
                 $oldImage = explode("/", $result->thumbnail);
                 $destination = public_path("storage/images");
-                unlink($destination . "/" . end($oldImage));
+                if(file_exists($destination . "/" .end($oldImage))){
+                    unlink($destination . "/" . end($oldImage));
+                }
 
                 $file = $request->file("thumbnail");
                 $fileName = time(). uniqid(). "." .$file->extension();
@@ -190,7 +192,9 @@ class BlogsManageController extends Controller
 
             $result->delete();
 
+            if(file_exists($destination . "/" .end($image))){
             unlink($destination."/".end($image));
+            }
             return response()->json([
                 "message" => "success delete data blog",
             ])->setStatusCode(200);
