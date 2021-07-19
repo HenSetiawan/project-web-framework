@@ -5,6 +5,7 @@
     <services />
     <mobile-app />
     <latest-blog />
+    <list-faq />
     <footer-vue />
   </div>
 </template>
@@ -15,6 +16,7 @@ import services from "../components/BodyContainer/Services.vue";
 import mobileApp from "../components/BodyContainer/MobileApps.vue";
 import latestBlog from "../components/BlogContainer/LatestBlog.vue";
 import footerVue from "../components/FooterContainer/footer.vue";
+import listFaq from "../components/FAQsContainer/ListFAQ.vue";
 export default {
   name: "Home",
   components: {
@@ -23,6 +25,7 @@ export default {
     services,
     mobileApp,
     latestBlog,
+    listFaq,
     footerVue,
   },
 };
