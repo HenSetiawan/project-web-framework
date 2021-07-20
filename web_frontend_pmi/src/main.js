@@ -17,7 +17,9 @@ import "bootstrap-vue/dist/bootstrap-vue.css";
 import axios from "axios";
 import CKEditor from "ckeditor4-vue";
 
-axios.defaults.baseURL = "http://localhost:8000";
+const API=process.env.VUE_APP_API;
+
+axios.defaults.baseURL = API;
 axios.defaults.withCredentials = true;
 
 Vue.use(BootstrapVue);

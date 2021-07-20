@@ -73,7 +73,8 @@ export default {
     resetItem(row) {
       store.dispatch("fetchAccessToken");
       const kategori = row.item.Kategori;
-      fetch(`http://127.0.0.1:8000/api/v1/blood/${kategori}`, {
+      const API = process.env.VUE_APP_API;
+      fetch(`${API}/api/v1/blood/${kategori}`, {
         method: "PUT",
         headers: {
           Authorization: `Bearer ${store.state.accessToken}`,
