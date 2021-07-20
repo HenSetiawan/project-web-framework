@@ -39,7 +39,7 @@
             <a class="nav-link" href="#">Tentang</a>
           </li>
           <li class="nav-item mr-2">
-            <a class="nav-link" href="#">FAQ</a>
+            <a class="nav-link" href="#">Agenda</a>
           </li>
         </ul>
       </div>
