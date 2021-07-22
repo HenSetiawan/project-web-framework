@@ -20,7 +20,7 @@ import CKEditor from "ckeditor4-vue";
 const API=process.env.VUE_APP_API;
 
 axios.defaults.baseURL = API;
-axios.defaults.withCredentials = true;
+
 
 Vue.use(BootstrapVue);
 Vue.use(BootstrapVueIcons);
