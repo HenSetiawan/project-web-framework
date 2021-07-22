@@ -21,7 +21,7 @@
                         <a href="#"> Created {{ results.created_at }}</a>
                       </li>
                       <li>
-                        <a href="#">{{ results.username }}</a>
+                        <a href="#" class="username">{{ results.username }}</a>
                       </li>
                     </ul>
                     <p v-html="results.content"></p>
@@ -70,3 +70,8 @@ export default {
   },
 };
 </script>
+<style scoped>
+.username {
+  text-transform: capitalize;
+}
+</style>
