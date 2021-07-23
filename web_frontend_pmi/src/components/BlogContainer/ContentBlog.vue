@@ -11,7 +11,6 @@
                     <img :src="results.thumbnail" alt="" height="400" />
                   </div>
                   <div class="down-content">
-                    <span>Lifestyle</span>
                     <a href="#"
                       ><h4>{{ results.judul_blog }}</h4></a
                     >
@@ -57,7 +56,6 @@ export default {
       .get(`/api/v1/blog/${this.$route.params.id}`)
       .then((response) => {
         this.results = response.data.data;
-        console.log(this.results);
       })
       .catch((err) => {
         console.log(err);

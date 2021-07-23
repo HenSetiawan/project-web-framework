@@ -83,7 +83,6 @@ export default {
       .get("/api/v1/blogs")
       .then((res) => {
         this.responses = res.data.data;
-        console.log(this.responses);
       })
       .catch((err) => {
         console.log(err);

@@ -41,7 +41,6 @@ export default {
     axios
       .get("/api/v1/asks")
       .then((response) => {
-        console.log(response);
         this.results = response.data;
       })
       .catch((err) => {
