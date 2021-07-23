@@ -121,7 +121,6 @@ export default {
           });
 
           this.allAdmins = adminItems;
-          console.log(adminItems);
         })
         .catch((err) => {
           console.log(err);

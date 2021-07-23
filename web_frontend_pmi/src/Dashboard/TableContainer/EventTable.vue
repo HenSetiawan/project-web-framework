@@ -118,7 +118,6 @@ export default {
           });
 
           this.allEvents = eventItems;
-          console.log(eventItems);
         })
         .catch((err) => {
           console.log(err);

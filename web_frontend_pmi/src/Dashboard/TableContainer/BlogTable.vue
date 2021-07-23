@@ -126,7 +126,6 @@ export default {
           });
 
           this.allBlogs = blogItems;
-          console.log(blogItems);
         })
         .catch((err) => {
           console.log(err);

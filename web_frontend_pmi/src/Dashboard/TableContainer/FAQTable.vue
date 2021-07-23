@@ -114,7 +114,6 @@ export default {
           });
 
           this.allFAQs = FAQItems;
-          console.log(FAQItems);
         })
         .catch((err) => {
           console.log(err);

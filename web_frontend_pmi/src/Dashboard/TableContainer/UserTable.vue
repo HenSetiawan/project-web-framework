@@ -90,7 +90,7 @@ export default {
         });
     },
     getAllUsers() {
-      axios("/api/v1/users/", {
+      axios("/api/v1/users", {
         headers: {
           Authorization: `Bearer ${store.state.accessToken}`,
         },
@@ -110,7 +110,6 @@ export default {
           });
 
           this.allUsers = userItems;
-          console.log(userItems);
         })
         .catch((err) => {
           console.log(err);
