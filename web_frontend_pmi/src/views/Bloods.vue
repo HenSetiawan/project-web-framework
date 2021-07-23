@@ -6,7 +6,9 @@
       <!-- Page Heading -->
       <div class="row">
         <div class="col-lg-4">
-          <h3 class="h3 mb-4 text-gray-800 bold text-center">Stok Darah BDD Bondowoso</h3>
+          <h3 class="h3 mb-4 text-gray-800 bold text-center">
+            Stok Darah BDD Bondowoso
+          </h3>
           <img
             src="../../public/img/ilustration/blood.jpg"
             alt=""
@@ -20,6 +22,7 @@
             <div class="card-body">
               <b-table
                 hover
+                responsive
                 id="pages-table"
                 :items="allBloods"
                 :fields="fields"
