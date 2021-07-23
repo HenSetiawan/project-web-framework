@@ -60,5 +60,10 @@ export default {
 <style scoped>
 a {
   color: rgb(228, 91, 91) !important;
+  font-weight: bold;
+}
+a:hover {
+  color: white !important;
+  font-weight: bold;
 }
 </style>

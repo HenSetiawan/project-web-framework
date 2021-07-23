@@ -8,7 +8,7 @@
               <div class="col-lg-12">
                 <div class="blog-post">
                   <div class="blog-thumb">
-                    <img :src="results.thumbnail" alt="" height="400" />
+                    <img :src="results.thumbnail" alt="" />
                   </div>
                   <div class="down-content">
                     <a href="#"
@@ -71,5 +71,15 @@ export default {
 <style scoped>
 .username {
   text-transform: capitalize;
+}
+@media only screen and (max-width: 450px) {
+  .blog-posts .blog-thumb img {
+    height: 220px !important;
+  }
+}
+@media screen and (max-width: 1400px) and (min-width: 520px) {
+  .blog-posts .blog-thumb img {
+    height: 400px !important;
+  }
 }
 </style>

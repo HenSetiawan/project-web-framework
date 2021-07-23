@@ -13,21 +13,35 @@
         <div class="col-md-8 col-lg-8">
           <div class="row">
             <div class="col-md-4 mt-5 col-lg-4">
-              <h5>Company</h5>
+              <h5>Features</h5>
               <ul class="mt-4">
-                <li><a href="#">About</a></li>
-                <li><a href="#">Testimonials</a></li>
-                <li><a href="#">Find a Doctor</a></li>
-                <li><a href="#">Apps</a></li>
+                <li><router-link :to="{ name: 'home' }">About</router-link></li>
+                <li>
+                  <router-link :to="{ name: 'bloods' }">Stok Darah</router-link>
+                </li>
+                <li>
+                  <router-link :to="{ name: 'blog' }">Artikel</router-link>
+                </li>
+                <li>
+                  <router-link :to="{ name: 'home' }">Agenda</router-link>
+                </li>
               </ul>
             </div>
             <div class="col-md-4 mt-5 col-lg-4">
-              <h5>Region</h5>
+              <h5>Area</h5>
               <ul class="mt-4">
-                <li><a href="#">Indonesia</a></li>
-                <li><a href="#">Singapore</a></li>
-                <li><a href="#">Hongkong</a></li>
-                <li><a href="#">Canada</a></li>
+                <li>
+                  <a
+                    href="https://www.google.com/maps/place/PMI+BONDOWOSO/@-7.9199336,113.8159895,15z/data=!4m5!3m4!1s0x0:0xbbdc77adedca9e4f!8m2!3d-7.919932!4d113.816051"
+                    >Bondowoso</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://www.google.com/maps/place/UDD+PMI+Kabupaten+Jember/@-8.1405127,113.7201315,15z/data=!4m5!3m4!1s0x0:0x9c50159aa2b88687!8m2!3d-8.1405127!4d113.7201315"
+                    >Jember</a
+                  >
+                </li>
               </ul>
             </div>
             <div class="col-md-4 mt-5 col-lg-4">
@@ -36,7 +50,6 @@
                 <li><a href="#">Help Center</a></li>
                 <li><a href="#">Contact Suport</a></li>
                 <li><a href="#">Instructions</a></li>
-                <li><a href="#">How it works</a></li>
               </ul>
             </div>
           </div>
@@ -47,7 +60,12 @@
 </template>
 
 <style scoped>
-p{
+p {
   color: white !important;
+}
+a:hover {
+  font-weight: bold;
+  color: white;
+  text-decoration: none;
 }
 </style>
