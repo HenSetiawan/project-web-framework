@@ -17,10 +17,9 @@ import "bootstrap-vue/dist/bootstrap-vue.css";
 import axios from "axios";
 import CKEditor from "ckeditor4-vue";
 
-const API=process.env.VUE_APP_API;
+const API = process.env.VUE_APP_API;
 
 axios.defaults.baseURL = API;
-
 
 Vue.use(BootstrapVue);
 Vue.use(BootstrapVueIcons);

@@ -22,13 +22,13 @@
               ></b-form-input>
             </b-form-group>
             <b-form-group
-              id="input-group-1"
+              id="input-group-2"
               label="Masukan Email :"
               label-for="input-1"
               autocomplete="off"
             >
               <b-form-input
-                id="input-1"
+                id="input-2"
                 type="email"
                 placeholder="Enter your email"
                 required
@@ -37,13 +37,13 @@
               ></b-form-input>
             </b-form-group>
             <b-form-group
-              id="input-group-1"
+              id="input-group-3"
               label="Masukan No Handphone :"
-              label-for="input-1"
+              label-for="input-3"
               autocomplete="off"
             >
               <b-form-input
-                id="input-1"
+                id="input-3"
                 type="text"
                 placeholder="ex: 083827753611"
                 required
@@ -52,13 +52,13 @@
               ></b-form-input>
             </b-form-group>
             <b-form-group
-              id="input-group-1"
+              id="input-group-4"
               label="Masukan Password :"
-              label-for="input-1"
+              label-for="input-4"
               autocomplete="off"
             >
               <b-form-input
-                id="input-1"
+                id="input-4"
                 type="password"
                 placeholder="Enter your password"
                 required
@@ -67,13 +67,13 @@
               ></b-form-input>
             </b-form-group>
             <b-form-group
-              id="input-group-1"
+              id="input-group-5"
               label="Masukan Konfirmasi Password :"
-              label-for="input-1"
+              label-for="input-5"
               autocomplete="off"
             >
               <b-form-input
-                id="input-1"
+                id="input-5"
                 type="password"
                 placeholder="Enter your confirm password"
                 required
@@ -117,7 +117,7 @@ export default {
       store.dispatch("fetchAccessToken");
       axios
         .post(
-          `/api/v1/admin/`,
+          `/api/v1/admin`,
           {
             username: this.form.username,
             email: this.form.email,
@@ -138,7 +138,7 @@ export default {
           this.$swal.fire({
             icon: "error",
             title: "Oops...",
-            text: err.response.data.message,
+            text: err,
           });
         });
     },
