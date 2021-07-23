@@ -1,12 +1,12 @@
 <template>
   <div class="container">
     <nav class="navbar navbar-expand-lg navbar-light">
-      <a class="navbar-brand" href="#">
+      <router-link :to="{ name: 'home' }" class="navbar-brand">
         <img
           src="../../../public/img/icons/pmi.jpg"
           alt="logo palang merah indonesia"
         />
-      </a>
+      </router-link>
       <button
         class="navbar-toggler"
         type="button"
