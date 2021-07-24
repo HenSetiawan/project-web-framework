@@ -53,4 +53,7 @@ export default {
 .mg-top {
   margin-top: 120px;
 }
+h2 {
+  font-weight: 600;
+}
 </style>
