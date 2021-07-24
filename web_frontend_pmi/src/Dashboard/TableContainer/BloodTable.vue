@@ -21,7 +21,7 @@
               >
                 <template #cell(Aksi)="row">
                   <router-link
-                    :to="{ name: 'updateBlood' }"
+                    :to="{ name: 'updateBlood', params: { id: row.item.ID } }"
                     class="btn-sm btn btn-warning btn-sm"
                     @mouseover="getId(row)"
                     >Update</router-link
@@ -67,7 +67,6 @@ export default {
   },
   created() {
     this.getAllBloods();
-    console.log(this.allBloods);
   },
   methods: {
     resetItem(row) {

@@ -22,7 +22,7 @@ import EditFAQ from "../Dashboard/EditContainer/FAQEdit.vue";
 import BlogTable from "../Dashboard/TableContainer/BlogTable.vue";
 import BlogForm from "../Dashboard/FormContainer/BlogForm.vue";
 import BlogEdit from "../Dashboard/EditContainer/BlogEdit.vue";
-import Event from "../views/Events"
+import Event from "../views/Events";
 import store from "../store";
 
 Vue.use(VueRouter);
@@ -41,13 +41,6 @@ const routes = [
     name: "loginForm",
     component: LoginForm,
   },
-
-  // Redirect if routes doesn't exist
-  {
-    path: "*",
-    redirect: "/",
-  },
-
   // Blog routes
   {
     path: "/blog",
@@ -208,6 +201,15 @@ const routes = [
     meta: {
       auth: true,
     },
+  },
+  // Redirect if routes doesn't exist
+  {
+    path: "/dashboard",
+    redirect: "/dashboard/blood",
+  },
+  {
+    path: "*",
+    redirect: "/",
   },
 ];
 

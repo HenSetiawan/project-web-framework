@@ -102,7 +102,7 @@ export default {
       store.dispatch("fetchAccessToken");
       axios
         .post(
-          `/api/v1/event/`,
+          `/api/v1/event`,
           {
             judul_agenda: this.form.judul,
             deskripsi: this.form.deskripsi,
