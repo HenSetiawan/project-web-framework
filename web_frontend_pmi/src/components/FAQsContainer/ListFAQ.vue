@@ -1,6 +1,6 @@
 <template>
-  <div class="mg-top mx-auto col-md-9">
-    <section class="col-lg-12 text-center">
+  <div class="mx-auto col-md-9">
+    <section class="col-lg-12 text-center blogs-component">
       <h2 class="mb-5">Frequently Asked Question</h2>
     </section>
     <b-card
@@ -49,11 +49,3 @@ export default {
   },
 };
 </script>
-<style scoped>
-.mg-top {
-  margin-top: 120px;
-}
-h2 {
-  font-weight: 600;
-}
-</style>
