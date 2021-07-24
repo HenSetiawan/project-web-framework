@@ -61,4 +61,7 @@ export default {
 a {
   color: rgb(228, 91, 91) !important;
 }
+.btn-outline-danger:hover {
+  color: white !important;
+}
 </style>

@@ -31,7 +31,6 @@
                 <li><a href="#">Help Center</a></li>
                 <li><a href="#">Contact Suport</a></li>
                 <li><a href="#">Instructions</a></li>
-                <li><a href="#">How it works</a></li>
               </ul>
             </div>
           </div>
@@ -44,5 +43,10 @@
 <style scoped>
 p {
   color: white !important;
+}
+a:hover {
+  font-weight: bold;
+  color: white;
+  text-decoration: none;
 }
 </style>
