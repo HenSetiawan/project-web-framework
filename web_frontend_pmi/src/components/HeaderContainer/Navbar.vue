@@ -39,7 +39,9 @@
             <a class="nav-link" href="#">Tentang</a>
           </li>
           <li class="nav-item mr-2">
-            <a class="nav-link" href="#">Agenda</a>
+            <router-link :to="{ name: 'event' }" class="nav-link"
+              >Agenda</router-link
+            >
           </li>
         </ul>
       </div>

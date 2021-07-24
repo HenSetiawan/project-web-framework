@@ -22,6 +22,7 @@ import EditFAQ from "../Dashboard/EditContainer/FAQEdit.vue";
 import BlogTable from "../Dashboard/TableContainer/BlogTable.vue";
 import BlogForm from "../Dashboard/FormContainer/BlogForm.vue";
 import BlogEdit from "../Dashboard/EditContainer/BlogEdit.vue";
+import Event from "../views/Events"
 import store from "../store";
 
 Vue.use(VueRouter);
@@ -52,6 +53,11 @@ const routes = [
     path: "/blog",
     name: "blog",
     component: Blog,
+  },
+  {
+    path: "/event",
+    name: "event",
+    component: Event,
   },
   {
     path: "/bloods",
