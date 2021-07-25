@@ -36,7 +36,9 @@
             >
           </li>
           <li class="nav-item mr-2">
-            <a class="nav-link" href="#">Tentang</a>
+            <router-link class="nav-link" :to="{ name: 'about' }"
+              >Tentang</router-link
+            >
           </li>
           <li class="nav-item mr-2">
             <router-link :to="{ name: 'event' }" class="nav-link"
