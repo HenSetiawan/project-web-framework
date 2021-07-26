@@ -1,5 +1,5 @@
 <template>
-  <div class="card card-services">
+  <div class="card card-events">
     <div class="card-body">
       <h5 class="card-title">{{ title }}</h5>
       <p class="card-text">{{time}}</p>
