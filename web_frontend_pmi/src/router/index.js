@@ -22,7 +22,9 @@ import EditFAQ from "../Dashboard/EditContainer/FAQEdit.vue";
 import BlogTable from "../Dashboard/TableContainer/BlogTable.vue";
 import BlogForm from "../Dashboard/FormContainer/BlogForm.vue";
 import BlogEdit from "../Dashboard/EditContainer/BlogEdit.vue";
-import Event from "../views/Events";
+import Event from "../views/Events.vue";
+import About from "../views/About.vue";
+import Instruction from "../views/Instruction.vue";
 import store from "../store";
 
 Vue.use(VueRouter);
@@ -41,7 +43,7 @@ const routes = [
     name: "loginForm",
     component: LoginForm,
   },
-  // Blog routes
+  // Main routes
   {
     path: "/blog",
     name: "blog",
@@ -56,6 +58,16 @@ const routes = [
     path: "/bloods",
     name: "bloods",
     component: Bloods,
+  },
+  {
+    path: "/about",
+    name: "about",
+    component: About,
+  },
+  {
+    path: "/instruction",
+    name: "instruction",
+    component: Instruction,
   },
   {
     path: "/blog/detail/:id",
