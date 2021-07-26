@@ -38,7 +38,6 @@
             ></ckeditor>
 
             <b-button
-              :disabled="form.editorData.length < 100"
               variant="primary"
               class="btn mt-3"
               @click="sendNewData"
