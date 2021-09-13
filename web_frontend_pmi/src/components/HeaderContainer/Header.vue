@@ -3,7 +3,7 @@
   <section class="container">
     <div class="row header-component">
       <section class="col-lg-6">
-        <h1>Give Blood Safe Live</h1>
+        <h1>Berikan Darahmu, Selamatkan Mereka</h1>
         <p>
           Darahmu bisa menyelamatkan nyawa mereka, donor darah anda adalah hadiah luar biasa untuk orang-orang yang membutuhkannya
         </p>
